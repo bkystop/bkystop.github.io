@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="欢迎来到不轲一逝的客栈, bkys的客栈">
+    <meta name="keywords" content="hexo-matery主题美化, bkys的客栈">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>欢迎来到不轲一逝的客栈 | bkys的客栈</title>
+    <title>hexo-matery主题美化 | bkys的客栈</title>
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/shuimen.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">欢迎来到不轲一逝的客栈</h1>
+                    <h1 class="description center-align post-title">hexo-matery主题美化</h1>
                 </div>
             </div>
         </div>
@@ -432,9 +432,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/hexo/">
+                                <span class="chip bg-color">hexo</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -446,21 +450,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-12-31
+                    2022-01-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-12-31
+                    2022-01-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    809
                 </div>
                 
 
@@ -477,7 +481,200 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="matery主题美化"><a href="#matery主题美化" class="headerlink" title="matery主题美化"></a>matery主题美化</h2><h4 id="添加404页面"><a href="#添加404页面" class="headerlink" title="添加404页面"></a>添加404页面</h4><ul>
+<li>在博客目录下的source文件夹新建404.md文件，编辑404.md</li>
+</ul>
+<pre><code>---
+title: 404
+date: 2020-02-23 19:37:07
+type: "404"
+layout: "404"
+description: "Oops～，我崩溃了！找不到你想要的页面了"
+---
+</code></pre>
+<p>然后在layout目录下新建404.ejs文件</p>
+<pre><code>&lt;style type="text/css"&gt;
+    /* don't remove. */
+    .about-cover {
+        height: 90.2vh;
+    }
+&lt;/style&gt;
+&lt;div class="bg-cover pd-header about-cover"&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2"&gt;
+                &lt;div class="brand"&gt;
+                    &lt;div class="title center-align"&gt;
+                        404
+                    &lt;/div&gt;
+                    &lt;div class="description center-align"&gt;
+                        &lt;%= page.description %&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    // 每天切换 banner 图.  Switch banner image every day.
+    $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+&lt;/script&gt;
+</code></pre>
+<h4 id="添加emoji表情支持"><a href="#添加emoji表情支持" class="headerlink" title="添加emoji表情支持"></a>添加emoji表情支持</h4><ul>
+<li>安装插件hexo-filter-github -emojis</li>
+</ul>
+<pre><code>npm install hexo-filter-github-emojis --save
+</code></pre>
+<ul>
+<li>在博客目录下的 _config.yml文件新增以下配置</li>
+</ul>
+<pre><code>githubEmojis:
+  enable: true
+  className: github-emoji
+  inject: true
+  styles:
+  customEmojis:
+</code></pre>
+<h4 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h4><ul>
+<li>安装插件hexo-prism-plugin</li>
+</ul>
+<pre><code>npm i -S hexo-prism-plugin
+</code></pre>
+<ul>
+<li>在博客目录下的 _config.yml文件关闭原有配置</li>
+</ul>
+<pre><code>highlight:            #代码块的设置
+  enable: false            #开启代码块高亮
+  line_number: true        #如果未指定语言，则启用自动检测
+  auto_detect: false        #显示行数
+  tab_replace: ''        #用n个空格替换tabs；如果值为空，则不会替换tabs
+  wrap: true
+  hljs: false
+</code></pre>
+<ul>
+<li>在博客目录下的 _config.yml文件新增以下配置</li>
+</ul>
+<pre><code># 代码高亮
+prism_plugin:
+  mode: 'preprocess'    # realtime/preprocess
+  theme: 'tomorrow'
+  line_number: false    # default false
+  custom_css:
+</code></pre>
+<h4 id="文章字数统计"><a href="#文章字数统计" class="headerlink" title="文章字数统计"></a>文章字数统计</h4><ul>
+<li>安装插件hexo-wordcount  </li>
+</ul>
+<pre><code>npm i --save hexo-wordcount
+</code></pre>
+<ul>
+<li>在主题下的 _config.yml 文件 ，更改以下内容</li>
+</ul>
+<pre><code>postInfo:
+  date: true # 发布日期
+  update: true # 更新日期
+  wordCount: true # 文章字数统计
+  totalCount: false # 站点总文章字数
+  min2read: false # 文章阅读时长
+  readCount: false # 文章阅读次数
+</code></pre>
+<h4 id="添加RSS订阅"><a href="#添加RSS订阅" class="headerlink" title="添加RSS订阅"></a>添加RSS订阅</h4><ul>
+<li>安装插件hexo-generator-feed</li>
+</ul>
+<pre><code>npm install hexo-generator-feed --save
+</code></pre>
+<ul>
+<li>在博客目录下的 _config.yml文件新增以下配置</li>
+</ul>
+<pre><code>feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
+</code></pre>
+<h4 id="文章Front-matter介绍"><a href="#文章Front-matter介绍" class="headerlink" title="文章Front-matter介绍"></a>文章Front-matter介绍</h4><table>
+<thead>
+<tr>
+<th align="center">配置</th>
+<th align="center">默认值</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">title</td>
+<td align="center">Markdown 的文件标题</td>
+<td align="center">文章标题</td>
+</tr>
+<tr>
+<td align="center">date</td>
+<td align="center">文件创建时的日期时间</td>
+<td align="center">发布时间</td>
+</tr>
+<tr>
+<td align="center">author</td>
+<td align="center">博客目录下 _config.yml 中的 author</td>
+<td align="center">文章作者</td>
+</tr>
+<tr>
+<td align="center">img</td>
+<td align="center">featureImages 中的某个值</td>
+<td align="center">文章特征图</td>
+</tr>
+<tr>
+<td align="center">top</td>
+<td align="center">true</td>
+<td align="center">推荐文章（置顶）  top 值为 true，首页推荐文章</td>
+</tr>
+<tr>
+<td align="center">tags</td>
+<td align="center">无</td>
+<td align="center">文章标签，一篇文章可以多个标签</td>
+</tr>
+<tr>
+<td align="center">categories</td>
+<td align="center">无</td>
+<td align="center">文章分类</td>
+</tr>
+<tr>
+<td align="center">password</td>
+<td align="center">无</td>
+<td align="center">文章阅读密码 ， 使用前在主题的 config.yml 中激活 verifyPassword 选项</td>
+</tr>
+<tr>
+<td align="center">categories</td>
+<td align="center">无</td>
+<td align="center">文章分类 ， 建议一篇文章一个分类</td>
+</tr>
+</tbody></table>
+<p>此外还有cover ，coverImg ，toc ，mathjax ，summary ，reprintPolicy  均可自行配置</p>
+<ul>
+<li>建议更改博客目录下的scaffolds下的post.md修改同意模板，以后每次hexo new均使用此模板</li>
+</ul>
+<pre><code>title: {{ title }}
+date: {{ date }}
+img: 
+tags:
+categories: 
+top: 
+passworld:
+summary
+</code></pre>
+<p>此文件根据自己需求配置</p>
+<h4 id="修改主题中的图片"><a href="#修改主题中的图片" class="headerlink" title="修改主题中的图片"></a>修改主题中的图片</h4><ul>
+<li>推荐大家使用图床，PicGo+GitHub图床，同时可以避免部分情况下hexo clean清除本地新加入的图片。</li>
+<li>PicGo+GitHub图床搭配typora填入图片页十分方便</li>
+</ul>
+<p>具体教程可自行搜索</p>
+<ul>
+<li>记得安装hexo-asset-image插件，否则md文档中的img属性无法使用</li>
+</ul>
+<pre><code>npm install hexo-asset-image --save
+</code></pre>
+
                 
             </div>
             <hr/>
@@ -503,7 +700,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://bkys.world/2021/12/31/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%E4%B8%8D%E8%BD%B2%E4%B8%80%E9%80%9D%E7%9A%84%E5%AE%A2%E6%A0%88/">http://bkys.world/2021/12/31/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%E4%B8%8D%E8%BD%B2%E4%B8%80%E9%80%9D%E7%9A%84%E5%AE%A2%E6%A0%88/</a>
+                    <a href="http://bkys.world/2022/01/04/hexo-matery%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/">http://bkys.world/2022/01/04/hexo-matery%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -540,7 +737,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/hexo/">
+                                    <span class="chip bg-color">hexo</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -761,16 +962,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/12/31/Markdown%E8%AF%AD%E6%B3%95%E7%AC%94%E8%AE%B0/">
+                <a href="/2022/01/04/hexo-matery%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/typoraa.png" class="responsive-img" alt="Markdown语法笔记">
                         
-                        <span class="card-title">Markdown语法笔记</span>
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="hexo-matery主题美化">
+                        
+                        <span class="card-title">hexo-matery主题美化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -780,9 +983,55 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-31
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            bkys
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/01/03/matery%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E5%AE%9A%E5%88%B6/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="matery主题个性化定制">
+                        
+                        <span class="card-title">matery主题个性化定制</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -794,49 +1043,11 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Markdown/">
-                        <span class="chip bg-color">Markdown</span>
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
                     </a>
                     
                 </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/12/31/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%E4%B8%8D%E8%BD%B2%E4%B8%80%E9%80%9D%E7%9A%84%E5%AE%A2%E6%A0%88/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="欢迎来到不轲一逝的客栈">
-                        
-                        <span class="card-title">欢迎来到不轲一逝的客栈</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-31
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            bkys
-                            
-                        </span>
-                    </div>
-                </div>
-
                 
             </div>
         </div>
