@@ -8,7 +8,7 @@
       <link href="/2022/01/05/Picgo-github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/"/>
       <url>/2022/01/05/Picgo-github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>#Picgo+github搭建图床</p><h4 id="在GitHub中新建-public-仓库-gt-创建-token-gt-复制-token-备用"><a href="#在GitHub中新建-public-仓库-gt-创建-token-gt-复制-token-备用" class="headerlink" title="在GitHub中新建 public 仓库 -> 创建 token -> 复制 token 备用"></a>在GitHub中新建 public 仓库 -&gt; 创建 token -&gt; 复制 token 备用</h4><ol><li><p>&nbsp;git hub新建仓库，权限为公开，勾选Add a README file ，仓库名随意。</p></li><li><p>仓库建立后，右上角图像下方 sitting -&gt;在页面左边选择&nbsp; Developer settings -&gt;页面左边Personal access tokens -&gt; 页面右上 Generate new token （token description 随便填一下，勾选repo）-&gt; 创建</p></li><li><p>会生成一个token码，需要保存。（关闭页面后会消失）</p></li><li><p>生成如下仓库（img不用管）</p><p><img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/imgblog.png"></p></li></ol><h4 id="下载并配置"><a href="#下载并配置" class="headerlink" title="下载并配置"></a>下载并配置</h4><p>进入[picgo官网][ ]下载，下载自己电脑适配的稳定版本</p><h5 id="注意下载成功后，页面不会自动弹出，在电脑的右下方"><a href="#注意下载成功后，页面不会自动弹出，在电脑的右下方" class="headerlink" title="注意下载成功后，页面不会自动弹出，在电脑的右下方"></a>注意下载成功后，页面不会自动弹出，在电脑的右下方</h5><p><img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/pic.png"></p><h5 id="图床设置-gt-选择github-gt-进行如下配置"><a href="#图床设置-gt-选择github-gt-进行如下配置" class="headerlink" title="图床设置 -> 选择github -> 进行如下配置"></a>图床设置 -&gt; 选择github -&gt; 进行如下配置</h5><p><img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/picgoex.png"></p><ul><li>自定义域名除仓库名外为固定写法  <a href="https://lcdn.jsdelivr.net/gh/bkystop/imgblog">https://lcdn.jsdelivr.net/gh/bkystop/imgblog</a></li><li>配置完成后确定并设为默认图床</li></ul><h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ul><li><p>直接将文件拖至上传区即可上传完成</p><p><img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/picgouse.png"></p></li></ul><p>由此也可以解决hexo clean删除本地图片的问题</p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>#Picgo+github搭建图床</p><h4 id="在GitHub中新建-public-仓库-gt-创建-token-gt-复制-token-备用"><a href="#在GitHub中新建-public-仓库-gt-创建-token-gt-复制-token-备用" class="headerlink" title="在GitHub中新建 public 仓库 -> 创建 token -> 复制 token 备用"></a>在GitHub中新建 public 仓库 -&gt; 创建 token -&gt; 复制 token 备用</h4><ol><li><p>&nbsp;git hub新建仓库，权限为公开，勾选Add a README file ，仓库名随意。</p></li><li><p>仓库建立后，右上角图像下方 sitting -&gt;在页面左边选择&nbsp; Developer settings -&gt;页面左边Personal access tokens -&gt; 页面右上 Generate new token （token description 随便填一下，勾选repo）-&gt; 创建</p></li><li><p>会生成一个token码，需要保存。（关闭页面后会消失）</p></li><li><p>生成如下仓库（img不用管）</p><p><img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/imgblog.png"></p></li></ol><h4 id="下载并配置"><a href="#下载并配置" class="headerlink" title="下载并配置"></a>下载并配置</h4><p>进入[picgo官网][ ]下载，下载自己电脑适配的稳定版本</p><h5 id="注意下载成功后，页面不会自动弹出，在电脑的右下方"><a href="#注意下载成功后，页面不会自动弹出，在电脑的右下方" class="headerlink" title="注意下载成功后，页面不会自动弹出，在电脑的右下方"></a>注意下载成功后，页面不会自动弹出，在电脑的右下方</h5><p><img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/pic.png"></p><h5 id="图床设置-gt-选择github-gt-进行如下配置"><a href="#图床设置-gt-选择github-gt-进行如下配置" class="headerlink" title="图床设置 -> 选择github -> 进行如下配置"></a>图床设置 -&gt; 选择github -&gt; 进行如下配置</h5><p><img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/picgoex.png"></p><ul><li>自定义域名除仓库名外为固定写法  <a href="https://lcdn.jsdelivr.net/gh/bkystop/imgblog">https://lcdn.jsdelivr.net/gh/bkystop/imgblog</a></li><li>配置完成后确定并设为默认图床</li></ul><h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ul><li><p>直接将文件拖至上传区即可上传完成</p></li><li><p>点击相册使用图片</p><p><img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/picgouse.png"></p></li></ul><h3 id="由此也可以解决hexo-clean删除本地图片的问题"><a href="#由此也可以解决hexo-clean删除本地图片的问题" class="headerlink" title="由此也可以解决hexo clean删除本地图片的问题"></a>由此也可以解决hexo clean删除本地图片的问题</h3>]]></content>
       
       
       <categories>
@@ -146,31 +146,6 @@
         <tags>
             
             <tag> git </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Markdown语法笔记</title>
-      <link href="/2021/12/31/Markdown%E8%AF%AD%E6%B3%95%E7%AC%94%E8%AE%B0/"/>
-      <url>/2021/12/31/Markdown%E8%AF%AD%E6%B3%95%E7%AC%94%E8%AE%B0/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>tages: 内容</p><p>[目录导航]</p><p>==1.标题==</p><h1 id="h1一级标题"><a href="#h1一级标题" class="headerlink" title="h1一级标题"></a>h1一级标题</h1><h2 id="h2二级标题"><a href="#h2二级标题" class="headerlink" title="h2二级标题"></a>h2二级标题</h2><h3 id="h3三级标题"><a href="#h3三级标题" class="headerlink" title="h3三级标题"></a>h3三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p>== 2.字体==</p><p><strong>加粗</strong></p><p><em>倾斜</em></p><p><em><strong>斜体加粗</strong></em></p><p><del>删除线</del></p><p>==高亮==</p><p>我是^上标^</p><p>我是<del>下标</del></p><p>==3.列表==</p><ul><li>无</li><li>序</li><li>列</li><li>表</li></ul><ol><li>有</li><li>序</li><li>列</li><li>表</li></ol><p>==4.表格==</p><table><thead><tr><th align="center">这</th><th align="center">是</th><th align="center">表</th><th align="center">格</th></tr></thead><tbody><tr><td align="center">1</td><td align="center">2</td><td align="center">3</td><td align="center">4</td></tr></tbody></table><p>==5.引用==</p><blockquote><p>引用</p><blockquote><p>二级</p><blockquote><p>三级</p></blockquote></blockquote></blockquote><ul><li>分割线— 或者___ 或者***</li></ul><hr>]]></content>
-      
-      
-      <categories>
-          
-          <category> 工具篇 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Markdown </tag>
             
         </tags>
       

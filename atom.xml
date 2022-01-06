@@ -6,7 +6,7 @@
   <link href="http://bkys.world/atom.xml" rel="self"/>
   
   <link href="http://bkys.world/"/>
-  <updated>2022-01-05T15:32:44.173Z</updated>
+  <updated>2022-01-05T15:34:58.938Z</updated>
   <id>http://bkys.world/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://bkys.world/2022/01/05/Picgo-github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/"/>
     <id>http://bkys.world/2022/01/05/Picgo-github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</id>
     <published>2022-01-05T14:57:38.000Z</published>
-    <updated>2022-01-05T15:32:44.173Z</updated>
+    <updated>2022-01-05T15:34:58.938Z</updated>
     
     
       
@@ -163,31 +163,6 @@
     
     
     <category term="git" scheme="http://bkys.world/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Markdown语法笔记</title>
-    <link href="http://bkys.world/2021/12/31/Markdown%E8%AF%AD%E6%B3%95%E7%AC%94%E8%AE%B0/"/>
-    <id>http://bkys.world/2021/12/31/Markdown%E8%AF%AD%E6%B3%95%E7%AC%94%E8%AE%B0/</id>
-    <published>2021-12-31T13:46:37.000Z</published>
-    <updated>2022-01-05T12:23:06.208Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="工具篇" scheme="http://bkys.world/categories/%E5%B7%A5%E5%85%B7%E7%AF%87/"/>
-    
-    
-    <category term="Markdown" scheme="http://bkys.world/tags/Markdown/"/>
     
   </entry>
   
