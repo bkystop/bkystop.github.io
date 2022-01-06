@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>html入门</title>
+      <link href="/2022/01/06/html%E5%85%A5%E9%97%A8/"/>
+      <url>/2022/01/06/html%E5%85%A5%E9%97%A8/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="html简介"><a href="#html简介" class="headerlink" title="html简介"></a>html简介</h2><ul><li>HTML，全称“Hyper Text Markup Language（超文本标记语言）” 。</li></ul><h2 id="html基本的标签"><a href="#html基本的标签" class="headerlink" title="html基本的标签"></a>html基本的标签</h2><h4 id="head标签"><a href="#head标签" class="headerlink" title="head标签"></a>head标签</h4><p><code>&lt;title&gt;</code> 定义网页的标题</p><p><code>&lt;meta&gt;</code> 定义网页的基本信息</p><p><code>&lt;style&gt;</code> 定义css样式</p><p> <code>&lt;link&gt;</code> 链接外部css文件或脚本文件</p><p><code>&lt;script&gt;</code> 定义脚本语言</p><p><code>&lt;base&gt;</code> 定义页面所有链接的基础定位</p><h4 id="body标签"><a href="#body标签" class="headerlink" title="body标签"></a>body标签</h4><h5 id="段落与文字"><a href="#段落与文字" class="headerlink" title="段落与文字"></a>段落与文字</h5><p><code>&lt;h1&gt;&lt;h1&gt;~&lt;h6&gt;&lt;h6&gt;</code> 标题（header）</p><p><code>&lt;p&gt;</code> 段落（paragraph）</p><p><code>&lt;br&gt;</code> 换行（break）</p><p><code>&lt;hr&gt;</code> 水平线（horizontal rule）</p><p><code>&lt;div&gt;</code> 分割 [块元素]（divsion）</p><p><code>&lt;span&gt;</code> 区域[行内元素]（span）</p><ul><li>块元素：<code>&lt;h1&gt;~&lt;h6&gt;,p,hr,div</code><ol><li>独占一行，排斥其他元素与其同一行，包块块元素与行内元素。</li><li>块元素内部可以容纳其他块元素或行元素。</li></ol></li><li>行内元素：<code>&lt;strong&gt;,&lt;em&gt;,&lt;span&gt;</code><ol><li>可以与其他行内元素同一行。</li><li>行内内部可以容纳其他行内元素，但不可以容纳块元素。</li></ol></li><li>标签分类：一般标签：有开始符号和结束符号（有始有终） <code>&lt;body&gt;&lt;body&gt;</code> </li></ul><p>​                           自闭合标签：只有开始符号没有结束符号<code>&lt;br/&gt;</code></p><h5 id="文本格式化标签"><a href="#文本格式化标签" class="headerlink" title="文本格式化标签"></a>文本格式化标签</h5><p><code>&lt;strong&gt;</code> 字体加粗</p><p><code>em</code> 斜体</p><p><code>cite</code> 引用</p><p><code>&lt;sup&gt;</code> 上标</p><p><code>&lt;sub&gt;</code> 下标</p><h5 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h5><p> <code>&lt;ol&gt;</code> 有序列表（ordered list）</p><p>​    type值属性：1   数字1，2，3</p><p>​                a  小写字母a，b，c</p><p>​                A  大写字母A,   B,  C</p><p>​                i   小写罗马数字</p><p>​                I   大写罗马数字</p><p><code>&lt;ul&gt;</code> 无序列表（unordered list）</p><p>​    type值属性：disc   默认值，实心原点</p><p>​                circle   空心圆</p><p>​                square   实心正方形</p><p><code>&lt;dl&gt;</code> 定义列表（definition list）:</p><p>​                <code>&lt;dl&gt;</code> 定义列表（definition list) :定义列表的开始和结束</p><p>​                <code>&lt;dt&gt;</code> 定义名词（definition term) ：后面添加要解释的名词</p><p>​                <code>&lt;dd&gt;</code> 定义描述  (definition description) ：后面添加该名词的具体描述</p><ul><li>列表内放 <code>&lt;li&gt;</code> 标签：列表项（list ltem）</li></ul><h5 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h5><ul><li>表格基本标签</li></ul><p><code>&lt;table&gt;</code> 表格</p><p><code>&lt;tr&gt;</code> 表格行（table row）</p><p><code>&lt;td&gt;</code> 表格单元格（table data）</p><ul><li>表格基本结构</li></ul><p><code>&lt;thead&gt;</code> 表头</p><p><code>&lt;tbody&gt;</code> 表身</p><p><code>&lt;tfoot&gt;</code> 表教</p><p><code>&lt;th&gt;</code> 表头单元格 （table header）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端篇 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> html </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Picgo+github搭建图床</title>
       <link href="/2022/01/05/Picgo-github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/"/>
       <url>/2022/01/05/Picgo-github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</url>
@@ -21,6 +46,8 @@
         <tags>
             
             <tag> picgo </tag>
+            
+            <tag> github </tag>
             
         </tags>
       
@@ -72,6 +99,8 @@
             
             <tag> hexo </tag>
             
+            <tag> matery </tag>
+            
         </tags>
       
     </entry>
@@ -121,6 +150,8 @@
         <tags>
             
             <tag> hexo </tag>
+            
+            <tag> github </tag>
             
         </tags>
       
