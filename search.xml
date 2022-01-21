@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Linux进阶</title>
+      <link href="/2022/01/18/Linux%E8%BF%9B%E9%98%B6/"/>
+      <url>/2022/01/18/Linux%E8%BF%9B%E9%98%B6/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Linux进阶"><a href="#Linux进阶" class="headerlink" title="Linux进阶"></a>Linux进阶</h2><p>Linux是一个全面的生态圈，主流的it技术都是基于Linux平台开发。</p><ul><li>数据库软件，mysql，mariadb，postgresql</li><li>web server ，nginx</li><li>大数据，hadoop，spark</li><li>消息队列，kafka</li><li>虚拟化技术 kvm</li><li>容器技术 docker，k8s</li></ul><h3 id="linux磁盘分区"><a href="#linux磁盘分区" class="headerlink" title="linux磁盘分区"></a>linux磁盘分区</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 系统篇 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>docker基础</title>
       <link href="/2022/01/07/docker%E5%9F%BA%E7%A1%80/"/>
       <url>/2022/01/07/docker%E5%9F%BA%E7%A1%80/</url>
