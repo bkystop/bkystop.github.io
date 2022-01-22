@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>解决win11没有gpedit.msc</title>
+      <link href="/2022/01/22/win11%E6%B2%A1%E6%9C%89gpedit-msc%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+      <url>/2022/01/22/win11%E6%B2%A1%E6%9C%89gpedit-msc%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><ul><li>新建一个记事本，复制下面内容</li></ul><pre class=" language-shell"><code class="language-shell">@echo offdir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum >List.txtdir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum >>List.txtfor /f %%i in ('findstr /i . List.txt 2^>nul') do dism /online /norestart /add-package:"C:\Windows\servicing\Packages\%%i"</code></pre><ul><li>将后缀改为.bat，以管理员身份运行</li><li>等待终端运行完毕，按下<strong>WIN+R</strong> ,输入<strong>gpedit.msc</strong> 即可</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 系统篇 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> windows11 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux进阶</title>
       <link href="/2022/01/18/Linux%E8%BF%9B%E9%98%B6/"/>
       <url>/2022/01/18/Linux%E8%BF%9B%E9%98%B6/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Linux进阶"><a href="#Linux进阶" class="headerlink" title="Linux进阶"></a>Linux进阶</h2><p>Linux是一个全面的生态圈，主流的it技术都是基于Linux平台开发。</p><ul><li>数据库软件，mysql，mariadb，postgresql</li><li>web server ，nginx</li><li>大数据，hadoop，spark</li><li>消息队列，kafka</li><li>虚拟化技术 kvm</li><li>容器技术 docker，k8s</li></ul><h3 id="linux磁盘分区"><a href="#linux磁盘分区" class="headerlink" title="linux磁盘分区"></a>linux磁盘分区</h3>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Linux进阶"><a href="#Linux进阶" class="headerlink" title="Linux进阶"></a>Linux进阶</h2><p>Linux是一个全面的生态圈，主流的it技术都是基于Linux平台开发。</p><ul><li>数据库软件，mysql，mariadb，postgresql</li><li>web server ，nginx</li><li>大数据，hadoop，spark</li><li>消息队列，kafka</li><li>虚拟化技术 kvm</li><li>容器技术 docker，k8s</li></ul><h3 id="Linux注意事项"><a href="#Linux注意事项" class="headerlink" title="Linux注意事项"></a>Linux注意事项</h3><ol><li>Linux严格区分大小写</li><li>Linux中的所有内容以文件形式保存，包括硬件</li><li>Linux不靠扩展名区分文件类型</li><li>Linux所有存储设备都必须挂在后才能使用</li></ol><h3 id="Linux磁盘分区"><a href="#Linux磁盘分区" class="headerlink" title="Linux磁盘分区"></a>Linux磁盘分区</h3><table><thead><tr><th>硬件</th><th>设备文件名</th></tr></thead><tbody><tr><td>IDE硬盘</td><td>/dev/hd[a-d]</td></tr><tr><td>SCSI/SATA/USB硬盘</td><td>/dev/sd[a-p]</td></tr><tr><td>光驱</td><td>/dev/cdrom或/dev/hdc</td></tr><tr><td>软盘</td><td>/dev/fd[0-1]</td></tr><tr><td>打印机</td><td>/dev/lp[0-2]或/dev/usb/lp[0-15]</td></tr><tr><td>鼠标</td><td>/dev/mouse</td></tr></tbody></table><ul><li>主分区：最多只能有4个</li><li>扩展分区</li><li>逻辑分区</li><li>Linux各目录的作用</li></ul><p>###VMware三种网络模式</p><p>VMnet0: 用于桥接模式下的虚拟交换机</p><p>VMnet1: 用于仅主机模式下的虚拟交换机</p><p>VMnet8: 用于NAT模式下的虚拟交换机</p><p><strong>桥接模式：</strong> 将主机网卡与虚拟机虚拟的网卡利用虚拟网桥进行通信。类似于把物理主机虚拟为一个交换机，所有桥接设置的虚拟机连连接在这个交换机的一个接口上，物理主机也同样插在这个交换机中，所有桥接下的网卡可以相互访问而不干扰。</p><p>桥接模式下，虚拟机ip地址于主机在同一网段，联网后，网关与DNS与主机网卡一致。</p><p><strong>NAT模式：</strong> 主机网卡直接与虚拟NAT设备相连，然后虚拟NAT设备与虚拟DHCP服务器一起俩姐在VMnet8啥办法。VMnet网卡实现了主机与虚拟机之间的通信。</p><p>NAT模式下，虚拟机和主机不在同一网段下，主机是虚拟机的“上级”。（桥接模式下虚拟机与主机可能会导致ip资源紧缺） </p><p><strong>仅主机模式：</strong> 仅主机模式可以看作是NAT模式去除了虚拟NAT设备，然后使用VMnet1虚拟网卡连接VMnet1虚拟交换机来与虚拟机通信的。Host-Only模式将虚拟机与外网隔开，使虚拟机成为一个独立的系统，只与主机相互通讯。 </p>]]></content>
       
       
       <categories>

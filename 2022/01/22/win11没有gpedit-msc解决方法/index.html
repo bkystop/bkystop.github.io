@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Linux进阶, bkys的客栈">
+    <meta name="keywords" content="解决win11没有gpedit.msc, bkys的客栈">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Linux进阶 | bkys的客栈</title>
+    <title>解决win11没有gpedit.msc | bkys的客栈</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/hacker.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -430,12 +430,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/20220121154407.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/20220122133821.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Linux进阶</h1>
+                    <h1 class="description center-align post-title">解决win11没有gpedit.msc</h1>
                 </div>
             </div>
         </div>
@@ -551,8 +551,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/linux/">
-                                <span class="chip bg-color">linux</span>
+                            <a href="/tags/windows11/">
+                                <span class="chip bg-color">windows11</span>
                             </a>
                         
                     </div>
@@ -576,7 +576,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-18
+                    2022-01-22
                 </div>
                 
 
@@ -590,7 +590,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    571
+                    98
                 </div>
                 
 
@@ -607,68 +607,21 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Linux进阶"><a href="#Linux进阶" class="headerlink" title="Linux进阶"></a>Linux进阶</h2><p>Linux是一个全面的生态圈，主流的it技术都是基于Linux平台开发。</p>
-<ul>
-<li>数据库软件，mysql，mariadb，postgresql</li>
-<li>web server ，nginx</li>
-<li>大数据，hadoop，spark</li>
-<li>消息队列，kafka</li>
-<li>虚拟化技术 kvm</li>
-<li>容器技术 docker，k8s</li>
+                <ul>
+<li>新建一个记事本，复制下面内容</li>
 </ul>
-<h3 id="Linux注意事项"><a href="#Linux注意事项" class="headerlink" title="Linux注意事项"></a>Linux注意事项</h3><ol>
-<li>Linux严格区分大小写</li>
-<li>Linux中的所有内容以文件形式保存，包括硬件</li>
-<li>Linux不靠扩展名区分文件类型</li>
-<li>Linux所有存储设备都必须挂在后才能使用</li>
-</ol>
-<h3 id="Linux磁盘分区"><a href="#Linux磁盘分区" class="headerlink" title="Linux磁盘分区"></a>Linux磁盘分区</h3><table>
-<thead>
-<tr>
-<th>硬件</th>
-<th>设备文件名</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>IDE硬盘</td>
-<td>/dev/hd[a-d]</td>
-</tr>
-<tr>
-<td>SCSI/SATA/USB硬盘</td>
-<td>/dev/sd[a-p]</td>
-</tr>
-<tr>
-<td>光驱</td>
-<td>/dev/cdrom或/dev/hdc</td>
-</tr>
-<tr>
-<td>软盘</td>
-<td>/dev/fd[0-1]</td>
-</tr>
-<tr>
-<td>打印机</td>
-<td>/dev/lp[0-2]或/dev/usb/lp[0-15]</td>
-</tr>
-<tr>
-<td>鼠标</td>
-<td>/dev/mouse</td>
-</tr>
-</tbody></table>
+<pre class=" language-shell"><code class="language-shell">@echo off
+
+dir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum >List.txt
+
+dir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum >>List.txt
+
+for /f %%i in ('findstr /i . List.txt 2^>nul') do dism /online /norestart /add-package:"C:\Windows\servicing\Packages\%%i"
+</code></pre>
 <ul>
-<li>主分区：最多只能有4个</li>
-<li>扩展分区</li>
-<li>逻辑分区</li>
-<li>Linux各目录的作用</li>
+<li>将后缀改为.bat，以管理员身份运行</li>
+<li>等待终端运行完毕，按下<strong>WIN+R</strong> ,输入<strong>gpedit.msc</strong> 即可</li>
 </ul>
-<p>###VMware三种网络模式</p>
-<p>VMnet0: 用于桥接模式下的虚拟交换机</p>
-<p>VMnet1: 用于仅主机模式下的虚拟交换机</p>
-<p>VMnet8: 用于NAT模式下的虚拟交换机</p>
-<p><strong>桥接模式：</strong> 将主机网卡与虚拟机虚拟的网卡利用虚拟网桥进行通信。类似于把物理主机虚拟为一个交换机，所有桥接设置的虚拟机连连接在这个交换机的一个接口上，物理主机也同样插在这个交换机中，所有桥接下的网卡可以相互访问而不干扰。</p>
-<p>桥接模式下，虚拟机ip地址于主机在同一网段，联网后，网关与DNS与主机网卡一致。</p>
-<p><strong>NAT模式：</strong> 主机网卡直接与虚拟NAT设备相连，然后虚拟NAT设备与虚拟DHCP服务器一起俩姐在VMnet8啥办法。VMnet网卡实现了主机与虚拟机之间的通信。</p>
-<p>NAT模式下，虚拟机和主机不在同一网段下，主机是虚拟机的“上级”。（桥接模式下虚拟机与主机可能会导致ip资源紧缺） </p>
-<p><strong>仅主机模式：</strong> 仅主机模式可以看作是NAT模式去除了虚拟NAT设备，然后使用VMnet1虚拟网卡连接VMnet1虚拟交换机来与虚拟机通信的。Host-Only模式将虚拟机与外网隔开，使虚拟机成为一个独立的系统，只与主机相互通讯。 </p>
 
                 
             </div>
@@ -695,7 +648,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://bkys.world/2022/01/18/Linux%E8%BF%9B%E9%98%B6/">http://bkys.world/2022/01/18/Linux%E8%BF%9B%E9%98%B6/</a>
+                    <a href="http://bkys.world/2022/01/22/win11%E6%B2%A1%E6%9C%89gpedit-msc%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">http://bkys.world/2022/01/22/win11%E6%B2%A1%E6%9C%89gpedit-msc%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -733,8 +686,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/linux/">
-                                    <span class="chip bg-color">linux</span>
+                                <a href="/tags/windows11/">
+                                    <span class="chip bg-color">windows11</span>
                                 </a>
                             
                         </div>
@@ -957,9 +910,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/01/22/win11%E6%B2%A1%E6%9C%89gpedit-msc%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
                     <div class="card-image">
@@ -976,9 +930,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -991,6 +945,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1009,12 +964,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/01/07/docker%E5%9F%BA%E7%A1%80/">
+                <a href="/2022/01/18/Linux%E8%BF%9B%E9%98%B6/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/20220107210323.png" class="responsive-img" alt="docker基础">
+                        <img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/20220121154407.png" class="responsive-img" alt="Linux进阶">
                         
-                        <span class="card-title">docker基础</span>
+                        <span class="card-title">Linux进阶</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1025,14 +980,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/docker%E7%AF%87/" class="post-category">
-                                    docker篇
+                            <a href="/categories/%E7%B3%BB%E7%BB%9F%E7%AF%87/" class="post-category">
+                                    系统篇
                                 </a>
                             
                             
@@ -1042,8 +997,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/docker/">
-                        <span class="chip bg-color">docker</span>
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
                 </div>
