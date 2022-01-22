@@ -590,7 +590,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    571
+                    917
                 </div>
                 
 
@@ -607,7 +607,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Linux进阶"><a href="#Linux进阶" class="headerlink" title="Linux进阶"></a>Linux进阶</h2><p>Linux是一个全面的生态圈，主流的it技术都是基于Linux平台开发。</p>
+                <p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-yum.html">https://www.runoob.com/linux/linux-yum.html</a>   </p>
+<h2 id="Linux进阶"><a href="#Linux进阶" class="headerlink" title="Linux进阶"></a>Linux进阶</h2><p>Linux是一个全面的生态圈，主流的it技术都是基于Linux平台开发。</p>
 <ul>
 <li>数据库软件，mysql，mariadb，postgresql</li>
 <li>web server ，nginx</li>
@@ -660,8 +661,7 @@
 <li>逻辑分区</li>
 <li>Linux各目录的作用</li>
 </ul>
-<p>###VMware三种网络模式</p>
-<p>VMnet0: 用于桥接模式下的虚拟交换机</p>
+<h3 id="VMware三种网络模式"><a href="#VMware三种网络模式" class="headerlink" title="VMware三种网络模式"></a>VMware三种网络模式</h3><p>VMnet0: 用于桥接模式下的虚拟交换机</p>
 <p>VMnet1: 用于仅主机模式下的虚拟交换机</p>
 <p>VMnet8: 用于NAT模式下的虚拟交换机</p>
 <p><strong>桥接模式：</strong> 将主机网卡与虚拟机虚拟的网卡利用虚拟网桥进行通信。类似于把物理主机虚拟为一个交换机，所有桥接设置的虚拟机连连接在这个交换机的一个接口上，物理主机也同样插在这个交换机中，所有桥接下的网卡可以相互访问而不干扰。</p>
@@ -669,7 +669,41 @@
 <p><strong>NAT模式：</strong> 主机网卡直接与虚拟NAT设备相连，然后虚拟NAT设备与虚拟DHCP服务器一起俩姐在VMnet8啥办法。VMnet网卡实现了主机与虚拟机之间的通信。</p>
 <p>NAT模式下，虚拟机和主机不在同一网段下，主机是虚拟机的“上级”。（桥接模式下虚拟机与主机可能会导致ip资源紧缺） </p>
 <p><strong>仅主机模式：</strong> 仅主机模式可以看作是NAT模式去除了虚拟NAT设备，然后使用VMnet1虚拟网卡连接VMnet1虚拟交换机来与虚拟机通信的。Host-Only模式将虚拟机与外网隔开，使虚拟机成为一个独立的系统，只与主机相互通讯。 </p>
-
+<h3 id="vi与vim"><a href="#vi与vim" class="headerlink" title="vi与vim"></a>vi与vim</h3><p><strong>vi编辑器是Linux系统下的标准（文本）编辑器（windows中的notepad），vim可以看作是vi的升级版。vi用于文本编辑，vim更适用于coding</strong> </p>
+<p>安装Centos后，默认是安装了vi编辑器的，但没有安装vim,用以下命令安装</p>
+<pre class=" language-shell"><code class="language-shell">yum -y install yum*
+</code></pre>
+<h4 id="vim的三种模式"><a href="#vim的三种模式" class="headerlink" title="vim的三种模式"></a>vim的三种模式</h4><ul>
+<li>命令模式：不能对文本直接编辑，可使用快捷键进行增删改查（打开后的默认模式）</li>
+<li>编辑模式：可直接对文本进行编辑（命令模式下输入i（输入模式），a(输入模式光标前移一位)）</li>
+<li>末行模式：在末行输入命令进行操作（输入 ： 或 / 或 ？ ）</li>
+</ul>
+<h4 id="vim常用命令"><a href="#vim常用命令" class="headerlink" title="vim常用命令"></a>vim常用命令</h4><pre class=" language-shell"><code class="language-shell">vim [filename] # 打开文件，若文件不存在则自动新建
+</code></pre>
+<ul>
+<li>移动光标：h，j,k,l(上，下，左，右)</li>
+<li>ctrl+b：向后一页，ctrl+f：向前一页</li>
+</ul>
+<pre class=" language-shell"><code class="language-shell">yy   # 拷贝当前行
+p    # 粘贴
+3yy  # 拷贝当前行向下的3行
+dd   # 删除
+3dd  # 删除当前行向下的5行
+/hello + 回车 # 查找关键词hello 输入n可跳转到下一个关键字
+G    # 跳转到末行
+gg   # 跳转到首行
+u    # 撤销
+:set nu    # 设置行号
+:set noun  # 取消行号
+:5  # 光标到第5行
+:q  # 离开vi
+:q! # 退出不保存
+:wq # 保存后退出
+:w  # 保存编辑的内容
+:w! # 强制写入该文件
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/20220122182933.png"></p>
+<h3 id="Linux指令"><a href="#Linux指令" class="headerlink" title="Linux指令"></a>Linux指令</h3>
                 
             </div>
             <hr/>
