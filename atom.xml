@@ -6,7 +6,7 @@
   <link href="http://bkys.world/atom.xml" rel="self"/>
   
   <link href="http://bkys.world/"/>
-  <updated>2022-01-22T10:35:07.645Z</updated>
+  <updated>2022-01-24T15:34:51.282Z</updated>
   <id>http://bkys.world/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python可视化</title>
+    <link href="http://bkys.world/2022/01/24/python%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    <id>http://bkys.world/2022/01/24/python%E5%8F%AF%E8%A7%86%E5%8C%96/</id>
+    <published>2022-01-24T15:34:51.000Z</published>
+    <updated>2022-01-24T15:34:51.282Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>解决win11没有gpedit.msc</title>
