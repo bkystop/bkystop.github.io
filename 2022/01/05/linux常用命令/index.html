@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="bkys的客栈" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 6.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="bkys的客栈" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -583,7 +583,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-07
+                    2022-01-28
                 </div>
                 
 
@@ -618,14 +618,14 @@
 <li>开源：linux系统所有组件的源代码都是开源的。</li>
 <li>linux软件资源消耗小</li>
 </ol>
-<h3 id="linux终端命令"><a href="#linux终端命令" class="headerlink" title="linux终端命令"></a>linux终端命令</h3><h4 id="终端命令格式"><a href="#终端命令格式" class="headerlink" title="终端命令格式"></a>终端命令格式</h4><pre><code>command [-options] [parameeter]  # 命令名+选项+参数
+<h3 id="linux终端命令"><a href="#linux终端命令" class="headerlink" title="linux终端命令"></a>linux终端命令</h3><h4 id="终端命令格式"><a href="#终端命令格式" class="headerlink" title="终端命令格式"></a>终端命令格式</h4><pre class=" language-shell"><code class="language-shell">command [-options] [parameeter]  # 命令名+选项+参数
 </code></pre>
-<h4 id="查阅命令信息"><a href="#查阅命令信息" class="headerlink" title="查阅命令信息"></a>查阅命令信息</h4><pre><code>command -help  # 显示该命令的帮助信息
+<h4 id="查阅命令信息"><a href="#查阅命令信息" class="headerlink" title="查阅命令信息"></a>查阅命令信息</h4><pre class=" language-shell"><code class="language-shell">command -help  # 显示该命令的帮助信息
 </code></pre>
 <ul>
 <li> -man 查阅command命令使用手册</li>
 </ul>
-<h4 id="常用linux命令"><a href="#常用linux命令" class="headerlink" title="常用linux命令"></a>常用linux命令</h4><pre><code>list  # list的缩写  查看当前文件夹（目录）
+<h4 id="常用linux命令"><a href="#常用linux命令" class="headerlink" title="常用linux命令"></a>常用linux命令</h4><pre class=" language-shell"><code class="language-shell">list  # list的缩写  查看当前文件夹（目录）
 pwd  # print work directory  查看当前所在文件夹
 cd [文件名] # change directory  切换文件夹
 touch [文件名] # touch  新建不存在文件
@@ -645,20 +645,20 @@ vi [文件名]  # 打开并浏览文件
 <h4 id="解压与安装"><a href="#解压与安装" class="headerlink" title="解压与安装"></a>解压与安装</h4><ul>
 <li>压缩文件（linux中压缩包多为tar格式，相当于windows中的zip）</li>
 </ul>
-<pre><code>tar -zcvf 打包文件.tar.gz 被压缩的文件／路径...  # 压缩文件
+<pre class=" language-shell"><code class="language-shell">tar -zcvf 打包文件.tar.gz 被压缩的文件／路径...  # 压缩文件
 tar -zxvf 打包文件.tar.gz  # 解压缩文件  # 解压缩文件
 tar -zxvf 打包文件.tar.gz -C 目标路径  # 解压缩到指定路径
 </code></pre>
 <ul>
 <li>软件安装</li>
 </ul>
-<pre><code>yum -y install [安装包名]  # 下载并安装一个rpm包
+<pre class=" language-shell"><code class="language-shell">yum -y install [安装包名]  # 下载并安装一个rpm包
 yum update [package]  # 更新一个rpm包
 yum remove [package]  # 删除一个rpm包
 yum list  # 列出当前系统中安装的所有包
 </code></pre>
 <p>一般需要什么安装直接网上搜索，或者官网均已提供安装命令</p>
-<h4 id="系统命令"><a href="#系统命令" class="headerlink" title="系统命令"></a>系统命令</h4><pre><code>su  # 切换到root权限
+<h4 id="系统命令"><a href="#系统命令" class="headerlink" title="系统命令"></a>系统命令</h4><pre class=" language-she&amp;#39;l&amp;#39;l"><code class="language-she&amp;#39;l&amp;#39;l">su  # 切换到root权限
 shutdown -h now  # 立即关机
 shutdown -r now  # 立即重启
 passwd  # 修改密码
