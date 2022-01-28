@@ -6,7 +6,7 @@
   <link href="http://bkys.world/atom.xml" rel="self"/>
   
   <link href="http://bkys.world/"/>
-  <updated>2022-01-28T10:06:03.615Z</updated>
+  <updated>2022-01-28T10:21:50.938Z</updated>
   <id>http://bkys.world/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://bkys.world/2022/01/24/python%E5%9F%BA%E7%A1%80/"/>
     <id>http://bkys.world/2022/01/24/python%E5%9F%BA%E7%A1%80/</id>
     <published>2022-01-24T15:34:51.000Z</published>
-    <updated>2022-01-28T10:06:03.615Z</updated>
+    <updated>2022-01-28T10:21:50.938Z</updated>
     
     
       
@@ -34,10 +34,8 @@
     
     
     
-    <category term="语言篇" scheme="http://bkys.world/categories/%E8%AF%AD%E8%A8%80%E7%AF%87/"/>
+    <category term="python篇" scheme="http://bkys.world/categories/python%E7%AF%87/"/>
     
-    
-    <category term="python" scheme="http://bkys.world/tags/python/"/>
     
   </entry>
   
