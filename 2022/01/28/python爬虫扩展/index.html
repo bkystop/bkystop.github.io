@@ -704,34 +704,45 @@ t_list <span class="token operator">=</span> bs<span class="token punctuation">.
 <span class="token keyword">print</span><span class="token punctuation">(</span>t_list<span class="token punctuation">)</span>
 </code></pre>
 <ul>
-<li><p>传入一个函数，根据函数的要求来搜索</p>
+<li>传入一个函数，根据函数的要求来搜索</li>
+</ul>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
 <span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request
+file <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span><span class="token string">"http://www.baidu.com"</span><span class="token punctuation">)</span>
+
+html <span class="token operator">=</span> file<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+
+bs <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">,</span><span class="token string">"html.parser"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">name_is_exists</span><span class="token punctuation">(</span>tag<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    <span class="token keyword">return</span> tag<span class="token punctuation">.</span>has_attr<span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 搜索有name标签的</span>
+
+t_list <span class="token operator">=</span> bs<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span>name_is_exists<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># print(t_list)</span>
+
+<span class="token keyword">for</span> item <span class="token keyword">in</span> t_list<span class="token punctuation">:</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span>t_list<span class="token punctuation">)</span>     <span class="token comment" spellcheck="true"># 以列表形式打印</span>
 </code></pre>
-</li>
+<ul>
+<li>kwargs 参数</li>
 </ul>
-<p>file = urllib.request.urlopen(“<a target="_blank" rel="noopener" href="http://www.baidu.com&quot;/">http://www.baidu.com"</a>)<br>html = file.read().decode(‘utf-8’)<br>bs = BeautifulSoup(html,”html.parser”)</p>
-<p>def name_is_exists(tag):<br>    return tag.has_attr(“name”)  # 搜索有name标签的</p>
-<p>t_list = bs.find_all(name_is_exists)</p>
-<h1 id="print-t-list"><a href="#print-t-list" class="headerlink" title="print(t_list)"></a>print(t_list)</h1><p>for item in t_list:<br>    print(t_list)     # 以列表形式打印</p>
-<pre><code>
-+ kwargs 参数
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
+<span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request
 
-​```python
-from bs4 import BeautifulSoup
-import urllib.request
+file <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span><span class="token string">"http://www.baidu.com"</span><span class="token punctuation">)</span>
+html <span class="token operator">=</span> file<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+bs <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">,</span><span class="token string">"html.parser"</span><span class="token punctuation">)</span>
 
-file = urllib.request.urlopen("http://www.baidu.com")
-html = file.read().decode('utf-8')
-bs = BeautifulSoup(html,"html.parser")
+<span class="token comment" spellcheck="true"># t_list = bs.find_all(id="head")</span>
 
-# t_list = bs.find_all(id="head")
+<span class="token comment" spellcheck="true"># t_list = bs.find_all(class_=True)  # 包含class及其子内容</span>
 
-# t_list = bs.find_all(class_=True)  # 包含class及其子内容
-
-# print(t_list)
-for item in t_list:
-  print(item)     # 以打印head中的所有子内容
+<span class="token comment" spellcheck="true"># print(t_list)</span>
+<span class="token keyword">for</span> item <span class="token keyword">in</span> t_list<span class="token punctuation">:</span>
+  <span class="token keyword">print</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>     <span class="token comment" spellcheck="true"># 以打印head中的所有子内容</span>
 </code></pre>
 <ul>
 <li>text参数</li>
@@ -982,12 +993,7 @@ m <span class="token operator">=</span> re<span class="token punctuation">.</spa
 a <span class="token operator">=</span> r<span class="token string">"\abc\'"</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
 </code></pre>
-<h3 id="保存数据"><a href="#保存数据" class="headerlink" title="保存数据"></a>保存数据</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> xlwt
-
-workbook <span class="token operator">=</span> xlwt<span class="token punctuation">.</span>Workbook<span class="token punctuation">(</span>encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 创建workbook对象</span>
-worksheet <span class="token operator">=</span> workbook<span class="token punctuation">.</span>add_sheet<span class="token punctuation">(</span><span class="token string">"sheet1"</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 创建工作表</span>
-worksheet<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token string">'hello'</span><span class="token punctuation">)</span>
-workbook<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">'student.xls'</span><span class="token punctuation">)</span>
+<h2 id="SQLite"><a href="#SQLite" class="headerlink" title="SQLite"></a>SQLite</h2><pre class=" language-python"><code class="language-python">
 </code></pre>
 
                 
