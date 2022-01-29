@@ -6,7 +6,7 @@
   <link href="http://bkys.world/atom.xml" rel="self"/>
   
   <link href="http://bkys.world/"/>
-  <updated>2022-01-29T10:03:50.750Z</updated>
+  <updated>2022-01-29T14:06:23.464Z</updated>
   <id>http://bkys.world/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://bkys.world/2022/01/28/python%E7%88%AC%E8%99%AB%E6%89%A9%E5%B1%95/"/>
     <id>http://bkys.world/2022/01/28/python%E7%88%AC%E8%99%AB%E6%89%A9%E5%B1%95/</id>
     <published>2022-01-28T14:10:00.000Z</published>
-    <updated>2022-01-29T10:03:50.750Z</updated>
+    <updated>2022-01-29T14:06:23.464Z</updated>
     
     
       
@@ -46,7 +46,7 @@
     <link href="http://bkys.world/2022/01/28/python%E7%88%AC%E5%8F%96%E8%B1%86%E7%93%A3top250/"/>
     <id>http://bkys.world/2022/01/28/python%E7%88%AC%E5%8F%96%E8%B1%86%E7%93%A3top250/</id>
     <published>2022-01-28T10:49:29.000Z</published>
-    <updated>2022-01-28T14:04:35.922Z</updated>
+    <updated>2022-01-29T14:05:09.051Z</updated>
     
     
       
@@ -71,7 +71,7 @@
     <link href="http://bkys.world/2022/01/24/python%E5%9F%BA%E7%A1%80/"/>
     <id>http://bkys.world/2022/01/24/python%E5%9F%BA%E7%A1%80/</id>
     <published>2022-01-24T15:34:51.000Z</published>
-    <updated>2022-01-28T10:48:46.743Z</updated>
+    <updated>2022-01-29T11:40:08.149Z</updated>
     
     
       
@@ -86,6 +86,8 @@
     
     <category term="python篇" scheme="http://bkys.world/categories/python%E7%AF%87/"/>
     
+    
+    <category term="python" scheme="http://bkys.world/tags/python/"/>
     
   </entry>
   

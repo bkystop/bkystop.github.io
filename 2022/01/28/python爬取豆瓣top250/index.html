@@ -430,7 +430,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/20220129220431.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -583,14 +583,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-28
+                    2022-01-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    633
+                    2.5k
                 </div>
                 
 
@@ -693,6 +693,312 @@
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>   <span class="token comment" spellcheck="true"># 当程序执行时</span>
 <span class="token comment" spellcheck="true"># 调用函数</span>
     main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="获取数据"><a href="#获取数据" class="headerlink" title="获取数据"></a>获取数据</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup   <span class="token comment" spellcheck="true"># 网页解析，获取数据</span>
+<span class="token keyword">import</span> re    <span class="token comment" spellcheck="true"># 正则表达式，进行文字匹配</span>
+<span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">,</span>urllib<span class="token punctuation">.</span>error   <span class="token comment" spellcheck="true"># 制定url，获取数据</span>
+<span class="token keyword">import</span> xlwt  <span class="token comment" spellcheck="true"># 进行excel操作</span>
+<span class="token keyword">import</span> sqlite3  <span class="token comment" spellcheck="true"># 进行sqllite数据库操作</span>
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    baseurl <span class="token operator">=</span> <span class="token string">"https://movie.douban.com/top250?start="</span>
+    <span class="token comment" spellcheck="true"># 爬取网页</span>
+    datelist <span class="token operator">=</span> getData<span class="token punctuation">(</span>baseurl<span class="token punctuation">)</span>
+    savepath <span class="token operator">=</span> <span class="token string">".\\豆瓣电影Top.xls"</span>
+    <span class="token comment" spellcheck="true"># 保存数据</span>
+    <span class="token comment" spellcheck="true"># saveData(savepath)</span>
+
+
+
+<span class="token keyword">def</span> <span class="token function">getData</span><span class="token punctuation">(</span>baseurl<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    datalist <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true"># 调用获取信息的函数：10次</span>
+        url <span class="token operator">=</span> baseurl <span class="token operator">+</span> str<span class="token punctuation">(</span>i <span class="token operator">*</span> <span class="token number">25</span><span class="token punctuation">)</span>
+        html <span class="token operator">=</span> askURL<span class="token punctuation">(</span>url<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 保存获取到的网页源码</span>
+
+    <span class="token keyword">return</span> datalist
+
+<span class="token comment" spellcheck="true"># 得到指定一个url的网页内容</span>
+<span class="token keyword">def</span> <span class="token function">askURL</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    head <span class="token operator">=</span> <span class="token punctuation">{</span>      <span class="token comment" spellcheck="true"># 模拟浏览器头部信息（伪装）</span>
+        <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla / 5.0(Windows NT 10.0;Win64;x64) AppleWebKit / 537.36(KHTML, likeGecko) Chrome / 97.0.4692.71Safari / 537.36"</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true"># 用户代理，告诉豆瓣，我们是什么类型的及其，浏览器（本质是告诉浏览器。我们可以接收什么水平的信息）</span>
+
+    request <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>head<span class="token punctuation">)</span>
+    html <span class="token operator">=</span> <span class="token string">""</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        response <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>request<span class="token punctuation">)</span>
+        html <span class="token operator">=</span> response<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">"utf-"</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span>
+    <span class="token keyword">except</span> urllib<span class="token punctuation">.</span>error<span class="token punctuation">.</span>URLError <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> hasattr<span class="token punctuation">(</span>e<span class="token punctuation">,</span> <span class="token string">"code"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>code<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> hasattr<span class="token punctuation">(</span>e<span class="token punctuation">,</span> <span class="token string">"reason"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>reason<span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> html
+
+<span class="token keyword">def</span> <span class="token function">saveData</span><span class="token punctuation">(</span>baseurl<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>   <span class="token comment" spellcheck="true"># 当程序执行时</span>
+<span class="token comment" spellcheck="true"># 调用函数</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="解析内容"><a href="#解析内容" class="headerlink" title="解析内容"></a>解析内容</h2><ul>
+<li>使用BeautifulSoup定位特定的标签位置</li>
+<li>使用正则表达式找到具体的内容</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup   <span class="token comment" spellcheck="true"># 网页解析，获取数据</span>
+<span class="token keyword">import</span> re    <span class="token comment" spellcheck="true"># 正则表达式，进行文字匹配</span>
+<span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">,</span>urllib<span class="token punctuation">.</span>error   <span class="token comment" spellcheck="true"># 制定url，获取数据</span>
+<span class="token keyword">import</span> xlwt  <span class="token comment" spellcheck="true"># 进行excel操作</span>
+<span class="token keyword">import</span> sqlite3  <span class="token comment" spellcheck="true"># 进行sqllite数据库操作</span>
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    baseurl <span class="token operator">=</span> <span class="token string">"https://movie.douban.com/top250?start="</span>
+    <span class="token comment" spellcheck="true"># 爬取网页</span>
+    datelist <span class="token operator">=</span> getData<span class="token punctuation">(</span>baseurl<span class="token punctuation">)</span>
+    savepath <span class="token operator">=</span> <span class="token string">".\\豆瓣电影Top.xls"</span>
+    <span class="token comment" spellcheck="true"># 保存数据</span>
+    <span class="token comment" spellcheck="true"># saveData(savepath)</span>
+
+<span class="token comment" spellcheck="true"># 影片详情的规则</span>
+findLink <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">'&lt;a href="(.*?)">'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 创建正则表达式对象，表示规则（字符串的模式）</span>
+<span class="token comment" spellcheck="true"># 硬片图片</span>
+findImgSrc <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">'&lt;img.*src="(.*?)">'</span><span class="token punctuation">,</span>re<span class="token punctuation">.</span>S<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># .不包括换行的概念，re.S 让换行符包含在字符中</span>
+<span class="token comment" spellcheck="true">#片名</span>
+findTitle <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">'&lt;span class="title">(.*)&lt;/span>'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#评分</span>
+findRating <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">'&lt;span class="rating_num" property="v:average">(.*)&lt;/span>'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#评价人数</span>
+findJudge <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">'&lt;span>(\d*)人评价&lt;/span>'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#概况</span>
+findInq <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">'&lt;span class="inq">(.*)&lt;/span>'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#相关内容</span>
+findBd <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">'&lt;p class="">(.*?)&lt;/p>\n&lt;div'</span><span class="token punctuation">,</span>re<span class="token punctuation">.</span>S<span class="token punctuation">)</span>
+
+
+
+<span class="token keyword">def</span> <span class="token function">getData</span><span class="token punctuation">(</span>baseurl<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    datalist <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true"># 调用获取信息的函数：10次</span>
+        url <span class="token operator">=</span> baseurl <span class="token operator">+</span> str<span class="token punctuation">(</span>i <span class="token operator">*</span> <span class="token number">25</span><span class="token punctuation">)</span>
+        html <span class="token operator">=</span> askURL<span class="token punctuation">(</span>url<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 保存获取到的网页源码</span>
+
+        <span class="token comment" spellcheck="true"># 逐一解析数据</span>
+        soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">,</span><span class="token string">"html.parser"</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> item <span class="token keyword">in</span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">,</span>class_<span class="token operator">=</span><span class="token string">"item"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>   <span class="token comment" spellcheck="true"># 查找符合要求的字符串，形成列表,class加下划线，表示属性值</span>
+            <span class="token comment" spellcheck="true"># print(item)   # 测试：查看一部电影的所有信息</span>
+            data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+            item <span class="token operator">=</span> str<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+
+            <span class="token comment" spellcheck="true"># 影片详情的超链接</span>
+            link <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>findLink<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># re库通过正则表达式查早指定的字符串</span>
+            data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>link<span class="token punctuation">)</span>                    <span class="token comment" spellcheck="true"># 添加链接</span>
+
+            imgSrc <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>findImgSrc<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>imgSrc<span class="token punctuation">)</span>                  <span class="token comment" spellcheck="true"># 添加图片</span>
+
+            titles <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>findTitle<span class="token punctuation">,</span>item<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 片面，可能只有一个中文名</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>len<span class="token punctuation">(</span>titles<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                ctitie <span class="token operator">=</span> titles<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+                data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>ctitie<span class="token punctuation">)</span>                    <span class="token comment" spellcheck="true"># 添加中文名</span>
+                otitle <span class="token operator">=</span> titles<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span><span class="token string">""</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true"># 去掉无关符号</span>
+                data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>otitle<span class="token punctuation">)</span>                     <span class="token comment" spellcheck="true"># 添加外国名</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>titles<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                data<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span>                         <span class="token comment" spellcheck="true">#  若没有外国名留空</span>
+
+            rating <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>findRating<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>rating<span class="token punctuation">)</span>                       <span class="token comment" spellcheck="true"># 添加评分</span>
+
+            judgeNum <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>findJudge<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>judgeNum<span class="token punctuation">)</span>                      <span class="token comment" spellcheck="true"># 添加评价人数</span>
+
+            inq <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>findInq<span class="token punctuation">,</span>item<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> len<span class="token punctuation">(</span>inq<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                inq <span class="token operator">=</span> inq<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"。"</span><span class="token punctuation">,</span><span class="token string">"，"</span><span class="token punctuation">)</span>        <span class="token comment" spellcheck="true"># 去掉句号</span>
+                data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>inq<span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>inq<span class="token punctuation">)</span>                           <span class="token comment" spellcheck="true"># 添加概述</span>
+
+            bd <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>findBd<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            bd <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">'&lt;br(\s+)?/>(\s+)?'</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> bd<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 去掉&lt;br/></span>
+            bd <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> bd<span class="token punctuation">)</span>                    <span class="token comment" spellcheck="true">#  替换/</span>
+            data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>bd<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>                   <span class="token comment" spellcheck="true"># 去掉前后空格</span>
+
+            datalist<span class="token punctuation">.</span>append<span class="token punctuation">(</span>data<span class="token punctuation">)</span>                     <span class="token comment" spellcheck="true"># 将处理好的一部电影信息放入datalist</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>datalist<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> datalist
+
+<span class="token comment" spellcheck="true"># 得到指定一个url的网页内容</span>
+<span class="token keyword">def</span> <span class="token function">askURL</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    head <span class="token operator">=</span> <span class="token punctuation">{</span>      <span class="token comment" spellcheck="true"># 模拟浏览器头部信息（伪装）</span>
+        <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla / 5.0(Windows NT 10.0;Win64;x64) AppleWebKit / 537.36(KHTML, likeGecko) Chrome / 97.0.4692.71Safari / 537.36"</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true"># 用户代理，告诉豆瓣，我们是什么类型的及其，浏览器（本质是告诉浏览器。我们可以接收什么水平的信息）</span>
+
+    request <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>head<span class="token punctuation">)</span>
+    html <span class="token operator">=</span> <span class="token string">""</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        response <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>request<span class="token punctuation">)</span>
+        html <span class="token operator">=</span> response<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">"utf-"</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># print(html)</span>
+    <span class="token keyword">except</span> urllib<span class="token punctuation">.</span>error<span class="token punctuation">.</span>URLError <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> hasattr<span class="token punctuation">(</span>e<span class="token punctuation">,</span> <span class="token string">"code"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>code<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> hasattr<span class="token punctuation">(</span>e<span class="token punctuation">,</span> <span class="token string">"reason"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>reason<span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> html
+
+<span class="token keyword">def</span> <span class="token function">saveData</span><span class="token punctuation">(</span>baseurl<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>   <span class="token comment" spellcheck="true"># 当程序执行时</span>
+<span class="token comment" spellcheck="true"># 调用函数</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="保存数据"><a href="#保存数据" class="headerlink" title="保存数据"></a>保存数据</h2><ul>
+<li>以utf-8编码创建一个Excel对象</li>
+<li>创建一个sheet表</li>
+<li>往单元格写入内容</li>
+<li>保存表格</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># -*- codeing = utf-8 -*-</span>
+<span class="token comment" spellcheck="true"># @Time : 2022/1/28 21:06</span>
+<span class="token comment" spellcheck="true"># @Author : bkys</span>
+<span class="token comment" spellcheck="true"># @File : spider.py</span>
+<span class="token comment" spellcheck="true"># @Software : PyCharm</span>
+
+
+<span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup   <span class="token comment" spellcheck="true"># 网页解析，获取数据</span>
+<span class="token keyword">import</span> re    <span class="token comment" spellcheck="true"># 正则表达式，进行文字匹配</span>
+<span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">,</span>urllib<span class="token punctuation">.</span>error   <span class="token comment" spellcheck="true"># 制定url，获取数据</span>
+<span class="token keyword">import</span> xlwt  <span class="token comment" spellcheck="true"># 进行excel操作</span>
+<span class="token keyword">import</span> sqlite3  <span class="token comment" spellcheck="true"># 进行sqllite数据库操作</span>
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    baseurl <span class="token operator">=</span> <span class="token string">"https://movie.douban.com/top250?start="</span>
+    <span class="token comment" spellcheck="true"># 爬取网页</span>
+    datalist <span class="token operator">=</span> getData<span class="token punctuation">(</span>baseurl<span class="token punctuation">)</span>
+    savepath <span class="token operator">=</span> <span class="token string">".\\豆瓣电影Top.xls"</span>
+    <span class="token comment" spellcheck="true"># 保存数据</span>
+    saveData<span class="token punctuation">(</span>datalist<span class="token punctuation">,</span>savepath<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 影片详情的规则</span>
+findLink <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">'&lt;a href="(.*?)">'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 创建正则表达式对象，表示规则（字符串的模式）</span>
+<span class="token comment" spellcheck="true"># 硬片图片</span>
+findImgSrc <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">'&lt;img.*src="(.*?)">'</span><span class="token punctuation">,</span>re<span class="token punctuation">.</span>S<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># .不包括换行的概念，re.S 让换行符包含在字符中</span>
+<span class="token comment" spellcheck="true">#片名</span>
+findTitle <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">'&lt;span class="title">(.*)&lt;/span>'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#评分</span>
+findRating <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">'&lt;span class="rating_num" property="v:average">(.*)&lt;/span>'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#评价人数</span>
+findJudge <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">'&lt;span>(\d*)人评价&lt;/span>'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#概况</span>
+findInq <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">'&lt;span class="inq">(.*)&lt;/span>'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#相关内容</span>
+findBd <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">'&lt;p class="">(.*?)&lt;/p>\n&lt;div'</span><span class="token punctuation">,</span>re<span class="token punctuation">.</span>S<span class="token punctuation">)</span>
+
+
+
+<span class="token keyword">def</span> <span class="token function">getData</span><span class="token punctuation">(</span>baseurl<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    datalist <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true"># 调用获取信息的函数：10次</span>
+        url <span class="token operator">=</span> baseurl <span class="token operator">+</span> str<span class="token punctuation">(</span>i <span class="token operator">*</span> <span class="token number">25</span><span class="token punctuation">)</span>
+        html <span class="token operator">=</span> askURL<span class="token punctuation">(</span>url<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 保存获取到的网页源码</span>
+
+        <span class="token comment" spellcheck="true"># 逐一解析数据</span>
+        soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">,</span><span class="token string">"html.parser"</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> item <span class="token keyword">in</span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">,</span>class_<span class="token operator">=</span><span class="token string">"item"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>   <span class="token comment" spellcheck="true"># 查找符合要求的字符串，形成列表,class加下划线，表示属性值</span>
+            <span class="token comment" spellcheck="true"># print(item)   # 测试：查看一部电影的所有信息</span>
+            data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+            item <span class="token operator">=</span> str<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+
+            <span class="token comment" spellcheck="true"># 影片详情的超链接</span>
+            link <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>findLink<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># re库通过正则表达式查早指定的字符串</span>
+            data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>link<span class="token punctuation">)</span>                    <span class="token comment" spellcheck="true"># 添加链接</span>
+
+            imgSrc <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>findImgSrc<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>imgSrc<span class="token punctuation">)</span>                  <span class="token comment" spellcheck="true"># 添加图片</span>
+
+            titles <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>findTitle<span class="token punctuation">,</span>item<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 片面，可能只有一个中文名</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>len<span class="token punctuation">(</span>titles<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                ctitie <span class="token operator">=</span> titles<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+                data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>ctitie<span class="token punctuation">)</span>                    <span class="token comment" spellcheck="true"># 添加中文名</span>
+                otitle <span class="token operator">=</span> titles<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span><span class="token string">""</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true"># 去掉无关符号</span>
+                data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>otitle<span class="token punctuation">)</span>                     <span class="token comment" spellcheck="true"># 添加外国名</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>titles<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                data<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span>                         <span class="token comment" spellcheck="true">#  若没有外国名留空</span>
+
+            rating <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>findRating<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>rating<span class="token punctuation">)</span>                       <span class="token comment" spellcheck="true"># 添加评分</span>
+
+            judgeNum <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>findJudge<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>judgeNum<span class="token punctuation">)</span>                      <span class="token comment" spellcheck="true"># 添加评价人数</span>
+
+            inq <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>findInq<span class="token punctuation">,</span>item<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> len<span class="token punctuation">(</span>inq<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                inq <span class="token operator">=</span> inq<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"。"</span><span class="token punctuation">,</span><span class="token string">"，"</span><span class="token punctuation">)</span>        <span class="token comment" spellcheck="true"># 去掉句号</span>
+                data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>inq<span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>inq<span class="token punctuation">)</span>                           <span class="token comment" spellcheck="true"># 添加概述</span>
+
+            bd <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>findBd<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            bd <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">'&lt;br(\s+)?/>(\s+)?'</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> bd<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 去掉&lt;br/></span>
+            bd <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> bd<span class="token punctuation">)</span>                    <span class="token comment" spellcheck="true">#  替换/</span>
+            data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>bd<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>                   <span class="token comment" spellcheck="true"># 去掉前后空格</span>
+
+            datalist<span class="token punctuation">.</span>append<span class="token punctuation">(</span>data<span class="token punctuation">)</span>                     <span class="token comment" spellcheck="true"># 将处理好的一部电影信息放入datalist</span>
+    <span class="token keyword">return</span> datalist
+
+<span class="token comment" spellcheck="true"># 得到指定一个url的网页内容</span>
+<span class="token keyword">def</span> <span class="token function">askURL</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    head <span class="token operator">=</span> <span class="token punctuation">{</span>      <span class="token comment" spellcheck="true"># 模拟浏览器头部信息（伪装）</span>
+        <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla / 5.0(Windows NT 10.0;Win64;x64) AppleWebKit / 537.36(KHTML, likeGecko) Chrome / 97.0.4692.71Safari / 537.36"</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true"># 用户代理，告诉豆瓣，我们是什么类型的及其，浏览器（本质是告诉浏览器。我们可以接收什么水平的信息）</span>
+
+    request <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>head<span class="token punctuation">)</span>
+    html <span class="token operator">=</span> <span class="token string">""</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        response <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>request<span class="token punctuation">)</span>
+        html <span class="token operator">=</span> response<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">"utf-"</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># print(html)</span>
+    <span class="token keyword">except</span> urllib<span class="token punctuation">.</span>error<span class="token punctuation">.</span>URLError <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> hasattr<span class="token punctuation">(</span>e<span class="token punctuation">,</span> <span class="token string">"code"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>code<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> hasattr<span class="token punctuation">(</span>e<span class="token punctuation">,</span> <span class="token string">"reason"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>reason<span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> html
+
+<span class="token keyword">def</span> <span class="token function">saveData</span><span class="token punctuation">(</span>datalist<span class="token punctuation">,</span>savapath<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    book <span class="token operator">=</span> xlwt<span class="token punctuation">.</span>Workbook<span class="token punctuation">(</span>encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">,</span>style_compression<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 创建workbook对象</span>
+    sheet <span class="token operator">=</span> book<span class="token punctuation">.</span>add_sheet<span class="token punctuation">(</span><span class="token string">"豆瓣电影Top250"</span><span class="token punctuation">,</span>cell_overwrite_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 创建工作表</span>
+    col <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">"电影详情链接"</span><span class="token punctuation">,</span><span class="token string">"图片链接"</span><span class="token punctuation">,</span><span class="token string">"影片中文名"</span><span class="token punctuation">,</span><span class="token string">"影片外国名"</span><span class="token punctuation">,</span><span class="token string">"评分"</span><span class="token punctuation">,</span><span class="token string">"评价数"</span><span class="token punctuation">,</span><span class="token string">"概况"</span><span class="token punctuation">,</span><span class="token string">"相关信息"</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        sheet<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>i<span class="token punctuation">,</span>col<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 列名</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">250</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"第%d条"</span> <span class="token operator">%</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        data <span class="token operator">=</span> datalist<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            sheet<span class="token punctuation">.</span>write<span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>j<span class="token punctuation">,</span>data<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    book<span class="token punctuation">.</span>save<span class="token punctuation">(</span>savapath<span class="token punctuation">)</span>
+
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>   <span class="token comment" spellcheck="true"># 当程序执行时</span>
+<span class="token comment" spellcheck="true"># 调用函数</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"爬取完毕"</span><span class="token punctuation">)</span>
 </code></pre>
 
                 
@@ -989,8 +1295,7 @@
                 <a href="/2022/01/28/python%E7%88%AC%E8%99%AB%E6%89%A9%E5%B1%95/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="python爬虫扩展">
+                        <img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/20220129220557.png" class="responsive-img" alt="python爬虫扩展">
                         
                         <span class="card-title">python爬虫扩展</span>
                     </div>
@@ -1064,6 +1369,14 @@
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
                 </div>
                 
             </div>
