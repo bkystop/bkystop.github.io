@@ -6,7 +6,7 @@
   <link href="http://bkys.world/atom.xml" rel="self"/>
   
   <link href="http://bkys.world/"/>
-  <updated>2022-01-29T14:18:19.220Z</updated>
+  <updated>2022-01-30T08:34:17.345Z</updated>
   <id>http://bkys.world/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>豆瓣top250数据可视化</title>
+    <link href="http://bkys.world/2022/01/30/%E8%B1%86%E7%93%A3top250%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    <id>http://bkys.world/2022/01/30/%E8%B1%86%E7%93%A3top250%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</id>
+    <published>2022-01-30T03:01:14.000Z</published>
+    <updated>2022-01-30T08:34:17.345Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python篇" scheme="http://bkys.world/categories/python%E7%AF%87/"/>
+    
+    
+    <category term="-python -Flask" scheme="http://bkys.world/tags/python-Flask/"/>
+    
+  </entry>
+  
+  <entry>
     <title>python爬虫扩展</title>
     <link href="http://bkys.world/2022/01/28/python%E7%88%AC%E8%99%AB%E6%89%A9%E5%B1%95/"/>
     <id>http://bkys.world/2022/01/28/python%E7%88%AC%E8%99%AB%E6%89%A9%E5%B1%95/</id>
     <published>2022-01-28T14:10:00.000Z</published>
-    <updated>2022-01-29T14:18:19.220Z</updated>
+    <updated>2022-01-30T14:00:48.237Z</updated>
     
     
       
