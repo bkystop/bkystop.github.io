@@ -583,14 +583,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-05
+                    2022-02-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    725
+                    677
                 </div>
                 
 
@@ -640,42 +640,42 @@ git init # 完成初始化
 <h3 id="添加文件到git仓库"><a href="#添加文件到git仓库" class="headerlink" title="添加文件到git仓库"></a>添加文件到git仓库</h3><pre><code>git add &lt;FileName&gt;  # 将文件放入暂存区，可反复使用，同时添加多个文件
 git commit -m &lt;message&gt;  # 将文件添加到版本库（暂存区——&gt;当前分支）
 </code></pre>
-<h3 id="查看仓库状态"><a href="#查看仓库状态" class="headerlink" title="查看仓库状态"></a>查看仓库状态</h3><pre><code>git diff &lt;&gt;
+<h3 id="查看仓库状态"><a href="#查看仓库状态" class="headerlink" title="查看仓库状态"></a>查看仓库状态</h3><pre class=" language-shell"><code class="language-shell">git diff <>
 </code></pre>
-<h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><pre><code>git log  # 查看历史提交记录（git log --pretty=online,日志单独成行），HEAD（当前版本）
+<h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><pre class=" language-shell"><code class="language-shell">git log  # 查看历史提交记录（git log --pretty=online,日志单独成行），HEAD（当前版本）
 git reset --hard HAED^ # 回退一个版本 HEAD^^(两个版本)
 git reflog  # 查看历史的每一次命令
 </code></pre>
-<h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><pre><code>git check --&lt;filename&gt;  # 撤销修改
-rm &lt;filename&gt;  # 删除文件
+<h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><pre class=" language-shell"><code class="language-shell">git check --<filename>  # 撤销修改
+rm <filename>  # 删除文件
 </code></pre>
-<h3 id="将本地库内容推送到远程库"><a href="#将本地库内容推送到远程库" class="headerlink" title="将本地库内容推送到远程库"></a>将本地库内容推送到远程库</h3><pre><code>git push -u origin master  # 第一次推送
+<h3 id="将本地库内容推送到远程库"><a href="#将本地库内容推送到远程库" class="headerlink" title="将本地库内容推送到远程库"></a>将本地库内容推送到远程库</h3><pre class=" language-shell"><code class="language-shell">git push -u origin master  # 第一次推送
 git push origin master # 提交后，推送本地的最新修改
 </code></pre>
-<h3 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h3><pre><code>git clone &lt;网址&gt;
+<h3 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h3><pre class=" language-shell"><code class="language-shell">git clone <网址>
 </code></pre>
-<h3 id="操作分支"><a href="#操作分支" class="headerlink" title="操作分支"></a>操作分支</h3><pre><code>git branch  # 查看分支（git branch -a查看所有分支）
-git branch &lt;name&gt;  # 创建分支
-git checkout &lt;name&gt;  # 切换分支（git checkout -b &lt;name&gt;创建且切换分支）
-git merge &lt;name&gt;  # 合并指定分支到当前分支 
-git branch -d &lt;name&gt;  # 删除分支
-git branch -D &lt;name&gt;  # 强制删除
+<h3 id="操作分支"><a href="#操作分支" class="headerlink" title="操作分支"></a>操作分支</h3><pre class=" language-shell"><code class="language-shell">git branch  # 查看分支（git branch -a查看所有分支）
+git branch <name>  # 创建分支
+git checkout <name>  # 切换分支（git checkout -b <name>创建且切换分支）
+git merge <name>  # 合并指定分支到当前分支 
+git branch -d <name>  # 删除分支
+git branch -D <name>  # 强制删除
 git log --graph --pretty=oneline --abbrev-commit  #  查看分支合并情况
 </code></pre>
-<h3 id="查看远程库信息"><a href="#查看远程库信息" class="headerlink" title="查看远程库信息"></a>查看远程库信息</h3><pre><code>git remote (-v)  # 查看远程库信息
+<h3 id="查看远程库信息"><a href="#查看远程库信息" class="headerlink" title="查看远程库信息"></a>查看远程库信息</h3><pre class=" language-shell"><code class="language-shell">git remote (-v)  # 查看远程库信息
 </code></pre>
-<h3 id="抓取分支"><a href="#抓取分支" class="headerlink" title="抓取分支"></a>抓取分支</h3><pre><code>git pull origin  # 抓取分支（默认克隆master）
+<h3 id="抓取分支"><a href="#抓取分支" class="headerlink" title="抓取分支"></a>抓取分支</h3><pre class=" language-shell"><code class="language-shell">git pull origin  # 抓取分支（默认克隆master）
 </code></pre>
 <p>远程仓库默认名：origin</p>
-<h3 id="操作标签"><a href="#操作标签" class="headerlink" title="操作标签"></a>操作标签</h3><pre><code>git tag &lt;tagname&gt;  # 创建标签
+<h3 id="操作标签"><a href="#操作标签" class="headerlink" title="操作标签"></a>操作标签</h3><pre class=" language-she&amp;#39;l"><code class="language-she&amp;#39;l">git tag <tagname>  # 创建标签
 git tag  # 查看所有标签
-git show &lt;tagname&gt;  # 查看所有标签信息
-git push origin &lt;tagname&gt;  # 推送一个本地标签到远程库
+git show <tagname>  # 查看所有标签信息
+git push origin <tagname>  # 推送一个本地标签到远程库
 git push origin --tags  # 推送全部未推送的本地标签到远程库
-git push origin &lt;tagname&gt;  # 推送指定标签到远程库
-git tag -d &lt;tagname&gt;  # 删除一个本地标签
+git push origin <tagname>  # 推送指定标签到远程库
+git tag -d <tagname>  # 删除一个本地标签
 git push origin：refs/tags  # 删除远程标签
-git push origin --delete &lt;tagname&gt;  # 删除远程标签
+git push origin --delete <tagname>  # 删除远程标签
 </code></pre>
 
                 
