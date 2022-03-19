@@ -4,6 +4,81 @@
   
     
     <entry>
+      <title>单片机</title>
+      <link href="/2022/03/11/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+      <url>/2022/03/11/%E5%8D%95%E7%89%87%E6%9C%BA/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="单片机基础"><a href="#单片机基础" class="headerlink" title="单片机基础"></a>单片机基础</h2><ul><li>概念：</li><li>基本部件：</li></ul><h3 id="数值信息在计算机中表示"><a href="#数值信息在计算机中表示" class="headerlink" title="数值信息在计算机中表示"></a>数值信息在计算机中表示</h3><h4 id="有符号整数"><a href="#有符号整数" class="headerlink" title="有符号整数"></a>有符号整数</h4><p>原码：(-127~+127)</p><ul><li><p>符号位（0为+，1为-）+绝对值（7）</p><ul><li><p>+0：00000000</p></li><li><p>-0：10000000</p></li></ul></li></ul><p>反码：(-127~+127)</p><ul><li>正数：符号位（0）+绝对值（7）<ul><li>+0：00000000</li></ul></li><li>负数：符号位（1）+绝对值各位取反（7）<ul><li>-0：11111111</li></ul></li></ul><p>补码：(-128 ~+127)</p><ul><li>正数：符号位（0）+绝对值（7）<ul><li>+0：00000000</li></ul></li><li>负数：符号位（1）+绝对值各位取反+1（7）<ul><li>-0：00000000</li></ul></li><li>补码的”回转”特性 <ul><li>求补运算：符号位和数值为一起取反再加以，得到其相反数的补码</li></ul></li></ul><h3 id="MCS-51系列单片机"><a href="#MCS-51系列单片机" class="headerlink" title="MCS-51系列单片机"></a>MCS-51系列单片机</h3><ul><li>命名规则：</li><li>结构原理：</li><li>运算部件：<ul><li>累加器ACC：</li><li>辅助寄存器B：</li><li>标志寄存器PSW：是一个8位的寄存器，它用于保存指令执行结果的状态</li></ul></li><li>控制部件:<ul><li>控制部件是单片机的控制中心，它包括定时和控制电路、指令寄存器、指令译码器、程序计数器PC ( Porgram Counter )、堆栈指针SP控制部件是单片机的控制中心，它包括定时和控制电路、指令寄存器、指令译码器、程序计数器PC ( Porgram Counter )、堆栈指针SP( Stack Pointer )、数据指针DPTR ( Data Pointer Register )等。</li><li>它先以振荡信号为基准产生CPU的时序，从ROM中取出指令到指令寄存器，然后在指令译码器中对指令进行译码，产生指令执行所需的各种控制信号，送到单片机内部的各功能部件，指挥各功能部件产生相应的操作，完成对应的功能。</li></ul></li><li>存储器结构：<ul><li>程序存储器ROM:存放单片机工作是的程序。<ul><li>片内程序存储器</li><li>片外程序存储器</li></ul></li><li>数据存储器RAM:<ul><li>片内数据存储器</li><li>片外数据存储器</li></ul></li></ul></li><li>引脚及功能说明：<ul><li>p0口：p0.0~p0.7.</li><li>p1口：</li><li>p2口：</li><li>p3口：</li><li>ALE:地址锁存信号输出段</li><li>PSEN:</li><li>RST</li><li>EA</li><li>VCC</li><li>GND</li></ul></li><li>冯诺依曼体系和哈佛体系</li><li>I/O接口<ul><li>p1：准双向口，只做I/O接口使用</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>计算机网络</title>
+      <link href="/2022/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+      <url>/2022/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><ol><li>主机：计算机网络上任何一种能够连接网络设备的都被称为主机或者端系统。、</li><li>通信链路：通信链路是有物理链路连接到一起组成的一种物理通路。</li><li>传输速率：单位(bit/s),用来度量不同链路从一个端系统到另一个端系统传输数据的速率。</li><li>路由器：一种交换机，主要用于转发数据。</li><li>路径：一个分组所经历一系列通信链路和分组交换机称为通过这个网络的路径。 </li><li>网络协议：网络协议是计算机网络中进行数据交换而建立的规则、标准或者约定。</li><li> 分组：当一台端系统向另外一台端系统发送数据时，通常会将数据进行分片，然后为每段加上首部字节，从而形成计算机网络的专业术语：分组。这些分组通过网络发送到端系统，然后再进行数据处理。 </li><li>IP:  网际协议，它规定了路由器和端系统之间发送和接收的分组格式。</li><li>IP 地址：IP 地址就是网际协议地址，在互联网中唯一标识主机的一种地址。每一台入网的设备都会有一个 IP 地址，这个 IP 又分为内网 IP 和公网 IP。</li><li>协议：协议定义了两个以上通信实体之间交换报文格式和顺序所遵从的标准。 </li><li>分布式应用程序：多个端系统之间相互交换数据的端系统被称为分布式应用程序。 </li><li>转发表： 路由内部记录报文路径的映射关系的一种记录。 </li><li>报文：同窗指的是应用层的分组。</li><li>报文段：通常把运输层的分组称为报文段。 </li><li>数据报：通常将网络层的分组称为数据报。 </li><li>帧：一般把链路层的分组称为帧。 </li><li>时延：时延指的是一个报文或者分组从网络的一端传递到另一端所需要的时间，时延分类有发送时延、传播时延、处理时延、排队时延，总时延 = 发送时延+传播时延+处理时延+排队时延。</li><li>丢包：在计算机网络中指分组出现丢失的现象。</li><li>吞吐量：吞吐量在计算机网络中指的是单位时间内成功传输数据的数量。 </li><li>端口号：在同一台主机内，端口号用于标识不同应用程序进程。 </li><li>URI：全称是（Uniform Resource Identifier），中文名称是统一资源标识符，使用它就能够唯一地标记互联网上资源。 </li><li>URL：全称是（Uniform Resource Locator），中文名称是统一资源定位符，它实际上是 URI 的一个子集。</li><li>HTML：HTML 称为超文本标记语言，是一种标识性的语言。它包括一系列标签．通过这些标签可以将网络上的文档格式统一，使分散的 Internet 资源连接为一个逻辑整体。HTML 文本是由 HTML 命令组成的描述性文本，HTML 命令可以说明文字，图形、动画、声音、表格、链接等。 </li><li> Web 页面：Web 页面也叫做 Web Page，它是由对象组成，一个对象(object)`简单来说就是一个文件，这个文件可以是 HTML 文件、一个图片、一段 Java 应用程序等，它们都可以通过 URI 来找到。一个 Web 页面包含了很多对象，Web 页面可以说是对象的集合体。</li><li>Web 服务器：Web 服务器的正式名称叫做&nbsp;Web Server，Web 服务器可以向浏览器等 Web 客户端提供文档，也可以放置网站文件，让全世界浏览；可以放置数据文件，让全世界下载。目前最主流的三个 Web 服务器是 Apache、 Nginx 、IIS。</li><li> HTTP：TCP/IP 协议簇的一种，它是一个在计算机世界里专门在两点之间传输文字、图片、音频、视频等超文本数据的约定和规范。 </li><li>Cookie：HTTP 协议中的 Cookie 包括&nbsp;Web Cookie&nbsp;和浏览器 Cookie，它是服务器发送到 Web 浏览器的一小块数据。服务器发送到浏览器的 Cookie，浏览器会进行存储，并与下一个请求一起发送到服务器。通常，它用于判断两个请求是否来自于同一个浏览器，例如用户保持登录状态。 </li><li>TELNET 协议：远程登陆协议，它允许用户(Telnet 客户端)通过一个协商过程来与一个远程设备进行通信，它为用户提供了在本地计算机上完成远程主机工作的能力。 </li><li>SSH 协议：SSH 是一种建立在应用层上的安全加密协议。 因为 TELNET 的缺点是在主机和远程主机的发送数据包的过程中是明文传输，未经任何安全加密，易被互联网上不法分子嗅探到数据包所以不安全，为了数据的安全性，我们一般使用&nbsp;SSH&nbsp;进行远程登录。 </li><li>IPv4：网际协议的第四个版本，也是被广泛使用的一个版本。IPv4 是一种无连接的协议，无连接不保证数据的可靠性交付。使用 32 位的地址。 </li><li>IPv6：网际协议的第六个版本，IPv6 的地址长度是 128 位，由于 IPv4 最大的问题在于网络地址资源不足，严重制约了互联网的应用和发展。IPv6 的使用，不仅能解决网络地址资源数量的问题，而且也解决了多种接入设备连入互联网的障碍。 </li><li>接口：主机和物理链路之间的边界。 </li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>计算机操作系统</title>
+      <link href="/2022/02/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <url>/2022/02/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="计算机操作系统"><a href="#计算机操作系统" class="headerlink" title="计算机操作系统"></a>计算机操作系统</h1><ul><li>操作系统（Operating System，OS）：是管理计算机硬件与软件资源的系统软件，同时也是计算机系统的内核与基石。操作系统需要处理<strong>管理与配置内存、决定系统资源供需的优先次序、控制输入与输出设备、操作网络与管理文件系统等基本事务</strong>。</li></ul><h2 id="冯诺依曼体系"><a href="#冯诺依曼体系" class="headerlink" title="冯诺依曼体系"></a>冯诺依曼体系</h2><p>现代计算机之父冯诺伊曼最先提出程序存储的思想，并将其运用在计算机的设计之中，该思想约定了用二进制进行计算和存储，还定义计算机基本结构为 5 个部分，分别是<strong>中央处理器（CPU）、内存、输入设备、输出设备、总线</strong>。 </p><h3 id="cpu"><a href="#cpu" class="headerlink" title="cpu"></a>cpu</h3><h4 id="cpu-1"><a href="#cpu-1" class="headerlink" title="cpu"></a>cpu</h4><p>CPU （Central Processing Unit）中央处理器，类比人脑，作为计算机系统的运算和控制核心，是信息处理、程序运行的最终执行单元。 </p><h4 id="cpu内部处理过程"><a href="#cpu内部处理过程" class="headerlink" title="cpu内部处理过程"></a>cpu内部处理过程</h4><p><strong>例：</strong>程序编译的过程：用高级语言编写的程序——&gt;程序编译后转换成机器语言的 <strong>exe</strong> 文件（二进制可执行文件）——&gt;程序运行时，在<strong>内存</strong>中生成 exe 副本——&gt;<strong>cpu</strong>解释并执行程序内容  （cpu负责解释和运行最终转换成机器语言的内容）</p><h4 id="cpu物理构成"><a href="#cpu物理构成" class="headerlink" title="cpu物理构成"></a>cpu物理构成</h4><ul><li>控制单元：从内存中提取指令并解码执行</li><li>算数逻辑单元：处理算数和逻辑运算</li></ul><p>CPU 是计算机的大脑，由许多晶体管组成的电子部件。接收数据输入，执行指令并处理信息。它与输入/输出（I / O）设备进行通信，这些设备向 CPU 发送数据和从 CPU 接收数据。 </p><h4 id="cpu功能构成"><a href="#cpu功能构成" class="headerlink" title="cpu功能构成"></a>cpu功能构成</h4><p>CPU 的内部由<strong>寄存器、控制器、运算器和时钟</strong>四部分组成，各部分之间通过电信号连通。 </p><ul><li>寄存器：是中央处理器内的组成部分。它们可以用来暂存指令、数据和地址。可以将其看作是内存的一种。根据种类的不同，一个 CPU 内部会有 20 - 100个寄存器。</li><li>控制器：负责把内存上的指令、数据读入寄存器，并根据指令的结果控制计算机</li><li>运算器：负责运算从内存中读入寄存器的数据</li><li>时钟： 负责发出 CPU 开始计时的时钟信号</li></ul><table><thead><tr><th>寄存器种类</th><th>功能</th></tr></thead><tbody><tr><td>累加寄存器</td><td>存储运行的数据和运算后的数据。</td></tr><tr><td>标志寄存器</td><td>用于反应处理器的状态和运算结果的某些特征以及控制指令的执行。</td></tr><tr><td>程序计数器</td><td>程序计数器是用于存放下一条指令所在单元的地址的地方。</td></tr><tr><td>基址寄存器</td><td>存储数据内存的起始位置</td></tr><tr><td>变址寄存器</td><td>存储基址寄存器的相对地址</td></tr><tr><td>通用寄存器</td><td>存储任意数据</td></tr><tr><td>指令寄存器</td><td>储存正在被运行的指令</td></tr><tr><td>栈寄存器</td><td>存储栈区域的起始位置</td></tr></tbody></table><p><strong>程序计数器、累加寄存器、标志寄存器、指令寄存器和栈寄存器</strong> 只有一个，其他寄存器一般有多个。 </p><h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><ul><li>内存（Memory）是程序与CPU进行沟通的桥梁。计算机中所有程序的运行都是在内存中进行的，内存又被称为主存，其作用是存放 CPU 中的运算数据，以及与硬盘等外部存储设备交换的数据。计算机在运行中，CPU 就会把需要运算的数据调到主存中进行运算，当运算完成后CPU再将结果传送出来，主存的运行也决定了计算机的稳定运行。 </li></ul><h4 id="内存的物理结构"><a href="#内存的物理结构" class="headerlink" title="内存的物理结构"></a>内存的物理结构</h4><p>内存的内部是由各种 IC 电路组成的，主要分为三种存储器 </p><ul><li>随机存储器（RAM）：内存中最重要的一种，表示既可以从中读取数据，也可以写入数据。当机器关闭时，内存中的信息会丢失。</li><li>只读存储器（ROM）：一般只能用于数据的读取，不能写入数据，但是当机器停电时，这些数据不会丢失。</li><li>高速缓存（Cache）：Cache 分为一级缓存（L1 Cache）、二级缓存（L2 Cache）、三级缓存（L3 Cache）这些数据，它位于内存和 CPU 之间，是一个读写速度比内存更快的存储器。当 CPU 向内存写入数据时，这些数据也会被写入高速缓存中。当 CPU 需要读取数据时，会直接从高速缓存中直接读取，当需要的数据在Cache中没有，CPU会再去读取内存中的数据。</li></ul><h3 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h3><ul><li>代码跟数据在RAM跟ROM中是线性存储， 数据存储的单位是一个二进制位。最小的存储单位是字节。 </li></ul><h5 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h5><ul><li>计算机最主要的存储部件是内存和磁盘。磁盘中存储的程序必须加载到内存中才能运行</li></ul><h5 id="磁盘的物理结构"><a href="#磁盘的物理结构" class="headerlink" title="磁盘的物理结构"></a>磁盘的物理结构</h5><ul><li>磁盘是通过其物理表面划分成多个空间来使用的。划分的方式有两种：可变长方式(将物理结构划分成长度可变的空间)和&nbsp;扇区方式(将磁盘结构划分为固定长度的空间)。一般 Windows 所使用的硬盘和软盘都是使用扇区,在扇区中，把磁盘表面分成若干个同心圆的空间就是&nbsp;磁道，把磁道按照固定大小的存储空间划分而成的就是&nbsp;扇区。</li></ul><h5 id="磁盘的构造"><a href="#磁盘的构造" class="headerlink" title="磁盘的构造"></a>磁盘的构造</h5><ul><li>磁盘缓存：指把从磁盘中读出的数据存储到内存的方式，提高了了磁盘访问的速度。 </li><li>虚拟内存是内存和磁盘交互的第二个媒介。虚拟内存是假想的内存（实际上是磁盘）。 </li></ul><h5 id="文件存储"><a href="#文件存储" class="headerlink" title="文件存储"></a>文件存储</h5><ul><li>文件是将数据存储在磁盘等存储媒介的一种形式。程序文件中最基本的存储数据单位是字节（B = Byte ）。文件就是字节数据的集合 。</li></ul><h3 id="总线"><a href="#总线" class="headerlink" title="总线"></a>总线</h3><p>总线是用于 CPU 和内存以及其他设备之间的通信，主要有以下三种：</p><ul><li>地址总线：用于指定 CPU 将要操作的内存地址。</li><li>数据总线：用于读写内存的数据。</li><li>控制总线：用于发送和接收信号，比如中断、设备复位等信号，CPU 收到信号后响应，这时也需要控制总线。</li></ul><h4 id="输入-输出设备"><a href="#输入-输出设备" class="headerlink" title="输入/输出设备"></a>输入/输出设备</h4><ul><li>输入设备向计算机输入数据，计算机经过计算后，把数据输出给输出设备。比如键盘按键时需要和 CPU 进行交互，这时就需要用到控制总线。 </li></ul><h2 id="操作系统环境"><a href="#操作系统环境" class="headerlink" title="操作系统环境"></a>操作系统环境</h2><p>程序中包含着运行环境（运行环境 = 操作系统 + 硬件），操作系统又可以被称为软件，它是由一系列的指令组成的。 </p><ul><li>操作系统版本：应用程序运行在何种系统环境，即Windows 、Linux 等 。</li><li>处理器：处理器指的就是 CPU，电脑的计算能力，通俗来讲就是每秒钟能处理的指令数。</li><li>显卡：图形处理器（Graphic Processing Unit，GPU），显卡承担图形的输出任务。</li><li>内存：内存即主存，应用程序在运行时能够动态分析指令的这部分存储空间，它的大小也能决定你电脑的运行速度。</li><li>存储空间：存储空间指的就是应用程序安装所占用的磁盘空间。</li></ul><h4 id="不同操作系统的-API"><a href="#不同操作系统的-API" class="headerlink" title="不同操作系统的 API"></a>不同操作系统的 API</h4><ul><li>应用程序向系统传递指令的途径称为&nbsp;<strong>API</strong>(Application Programming Interface)。Windows 以及 Linux 操作系统的 API，提供了任何应用程序都可以利用的函数组合。不同操作系统的 API 是有差异的。键盘输入、鼠标输入、显示器输出、文件输入和输出等同外围设备进行交互的功能，都是通过 API 提供的。 </li></ul><h4 id="Windows-操作系统的特征"><a href="#Windows-操作系统的特征" class="headerlink" title="Windows 操作系统的特征"></a>Windows 操作系统的特征</h4><ul><li>Windows 操作系统有32位和64位两个版本 (xx位操作系统表示的是处理效率最高的数据大小)</li></ul><ul><li><p>通过 API函数集成来提供系统调用(API 通过多个dll文件来提供，各个 API 的实体都是用 C 语言编写的函数。)</p></li><li><p>提供了采用图形用户界面的用户界面</p></li><li><p>通过WYSIWYG 实现打印输出，WYSIWYG 其实就是 What You See Is What You Get ，值得是显示器上显示的图形和文本都是可以原样输出到打印机打印的。</p></li><li><p>提供多任务功能，即能够同时开启多个任务。(通时钟分割技术来实现多任务功能的。时钟分割指的是短时间间隔内，多个程序切换运行的方式。在用户看来，就好像是多个程序在同时运行，其底层是&nbsp;CPU 时间切片，这也是多线程多任务的核心)</p></li><li><p>提供网络功能和数据库功能</p></li><li><p>通过即插即用实现设备驱动的自设定</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>豆瓣top250数据可视化</title>
       <link href="/2022/01/30/%E8%B1%86%E7%93%A3top250%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
       <url>/2022/01/30/%E8%B1%86%E7%93%A3top250%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
@@ -20,7 +95,9 @@
       
         <tags>
             
-            <tag> -python -Flask </tag>
+            <tag> python </tag>
+            
+            <tag> Flask </tag>
             
         </tags>
       
@@ -208,7 +285,7 @@
       <link href="/2022/01/05/Picgo-github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/"/>
       <url>/2022/01/05/Picgo-github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>#Picgo+github搭建图床</p><h4 id="在GitHub中新建-public-仓库-gt-创建-token-gt-复制-token-备用"><a href="#在GitHub中新建-public-仓库-gt-创建-token-gt-复制-token-备用" class="headerlink" title="在GitHub中新建 public 仓库 -> 创建 token -> 复制 token 备用"></a>在GitHub中新建 public 仓库 -&gt; 创建 token -&gt; 复制 token 备用</h4><ol><li><p>&nbsp;git hub新建仓库，权限为公开，勾选Add a README file ，仓库名随意。</p></li><li><p>仓库建立后，右上角图像下方 sitting -&gt;在页面左边选择&nbsp; Developer settings -&gt;页面左边Personal access tokens -&gt; 页面右上 Generate new token （token description 随便填一下，勾选repo）-&gt; 创建</p></li><li><p>会生成一个token码，需要保存。（关闭页面后会消失）</p></li><li><p>生成如下仓库（img不用管）</p><p><img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/imgblog.png"></p></li></ol><h4 id="下载并配置"><a href="#下载并配置" class="headerlink" title="下载并配置"></a>下载并配置</h4><p>进入[picgo官网][ ]下载，下载自己电脑适配的稳定版本</p><h5 id="注意下载成功后，页面不会自动弹出，在电脑的右下方"><a href="#注意下载成功后，页面不会自动弹出，在电脑的右下方" class="headerlink" title="注意下载成功后，页面不会自动弹出，在电脑的右下方"></a>注意下载成功后，页面不会自动弹出，在电脑的右下方</h5><p><img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/pic.png"></p><h5 id="图床设置-gt-选择github-gt-进行如下配置"><a href="#图床设置-gt-选择github-gt-进行如下配置" class="headerlink" title="图床设置 -> 选择github -> 进行如下配置"></a>图床设置 -&gt; 选择github -&gt; 进行如下配置</h5><p><img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/picgoex.png"></p><ul><li>自定义域名除仓库名外为固定写法  <a href="https://lcdn.jsdelivr.net/gh/bkystop/imgblog">https://lcdn.jsdelivr.net/gh/bkystop/imgblog</a></li><li>配置完成后确定并设为默认图床</li></ul><h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ul><li><p>直接将文件拖至上传区即可上传完成</p></li><li><p>点击相册使用图片</p><p><img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/picgouse.png"></p></li></ul><h3 id="通过使用图床也可以解决hexo-clean删除本地图片的问题"><a href="#通过使用图床也可以解决hexo-clean删除本地图片的问题" class="headerlink" title="通过使用图床也可以解决hexo clean删除本地图片的问题"></a>通过使用图床也可以解决hexo clean删除本地图片的问题</h3>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>#Picgo+github搭建图床</p><h4 id="在GitHub中新建-public-仓库-gt-创建-token-gt-复制-token-备用"><a href="#在GitHub中新建-public-仓库-gt-创建-token-gt-复制-token-备用" class="headerlink" title="在GitHub中新建 public 仓库 -> 创建 token -> 复制 token 备用"></a>在GitHub中新建 public 仓库 -&gt; 创建 token -&gt; 复制 token 备用</h4><ol><li><p>&nbsp;git hub新建仓库，权限为公开，勾选Add a README file ，仓库名随意。</p></li><li><p>仓库建立后，右上角图像下方 settings -&gt;在页面左边选择&nbsp; Developer settings -&gt;页面左边Personal access tokens -&gt; 页面右上 Generate new token （token description 随便填一下，勾选repo）-&gt; 创建</p></li><li><p>会生成一个token码，需要保存。（关闭页面后会消失）</p></li><li><p>生成如下仓库（img不用管）</p><p><img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/imgblog.png"></p></li></ol><h4 id="下载并配置"><a href="#下载并配置" class="headerlink" title="下载并配置"></a>下载并配置</h4><p>进入[picgo官网][ ]下载，下载自己电脑适配的稳定版本</p><h5 id="注意下载成功后，页面不会自动弹出，在电脑的右下方"><a href="#注意下载成功后，页面不会自动弹出，在电脑的右下方" class="headerlink" title="注意下载成功后，页面不会自动弹出，在电脑的右下方"></a>注意下载成功后，页面不会自动弹出，在电脑的右下方</h5><p><img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/pic.png"></p><h5 id="图床设置-gt-选择github-gt-进行如下配置"><a href="#图床设置-gt-选择github-gt-进行如下配置" class="headerlink" title="图床设置 -> 选择github -> 进行如下配置"></a>图床设置 -&gt; 选择github -&gt; 进行如下配置</h5><p><img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/picgoex.png"></p><ul><li>自定义域名除仓库名外为固定写法  <a href="https://lcdn.jsdelivr.net/gh/bkystop/imgblog">https://lcdn.jsdelivr.net/gh/bkystop/imgblog</a></li><li>配置完成后确定并设为默认图床</li></ul><h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ul><li><p>直接将文件拖至上传区即可上传完成</p></li><li><p>点击相册使用图片</p><p><img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/picgouse.png"></p></li></ul><h4 id="错误401"><a href="#错误401" class="headerlink" title="错误401"></a>错误401</h4><ul><li>重置token</li></ul><h4 id="通过使用图床也可以解决hexo-clean删除本地图片的问题"><a href="#通过使用图床也可以解决hexo-clean删除本地图片的问题" class="headerlink" title="通过使用图床也可以解决hexo clean删除本地图片的问题"></a>通过使用图床也可以解决hexo clean删除本地图片的问题</h4>]]></content>
       
       
       <categories>
