@@ -4,81 +4,6 @@
   
     
     <entry>
-      <title>单片机</title>
-      <link href="/2022/03/11/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-      <url>/2022/03/11/%E5%8D%95%E7%89%87%E6%9C%BA/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="单片机基础"><a href="#单片机基础" class="headerlink" title="单片机基础"></a>单片机基础</h2><ul><li>概念：</li><li>基本部件：</li></ul><h3 id="数值信息在计算机中表示"><a href="#数值信息在计算机中表示" class="headerlink" title="数值信息在计算机中表示"></a>数值信息在计算机中表示</h3><h4 id="有符号整数"><a href="#有符号整数" class="headerlink" title="有符号整数"></a>有符号整数</h4><p>原码：(-127~+127)</p><ul><li><p>符号位（0为+，1为-）+绝对值（7）</p><ul><li><p>+0：00000000</p></li><li><p>-0：10000000</p></li></ul></li></ul><p>反码：(-127~+127)</p><ul><li>正数：符号位（0）+绝对值（7）<ul><li>+0：00000000</li></ul></li><li>负数：符号位（1）+绝对值各位取反（7）<ul><li>-0：11111111</li></ul></li></ul><p>补码：(-128 ~+127)</p><ul><li>正数：符号位（0）+绝对值（7）<ul><li>+0：00000000</li></ul></li><li>负数：符号位（1）+绝对值各位取反+1（7）<ul><li>-0：00000000</li></ul></li><li>补码的”回转”特性 <ul><li>求补运算：符号位和数值为一起取反再加以，得到其相反数的补码</li></ul></li></ul><h3 id="MCS-51系列单片机"><a href="#MCS-51系列单片机" class="headerlink" title="MCS-51系列单片机"></a>MCS-51系列单片机</h3><ul><li>命名规则：</li><li>结构原理：</li><li>运算部件：<ul><li>累加器ACC：</li><li>辅助寄存器B：</li><li>标志寄存器PSW：是一个8位的寄存器，它用于保存指令执行结果的状态</li></ul></li><li>控制部件:<ul><li>控制部件是单片机的控制中心，它包括定时和控制电路、指令寄存器、指令译码器、程序计数器PC ( Porgram Counter )、堆栈指针SP控制部件是单片机的控制中心，它包括定时和控制电路、指令寄存器、指令译码器、程序计数器PC ( Porgram Counter )、堆栈指针SP( Stack Pointer )、数据指针DPTR ( Data Pointer Register )等。</li><li>它先以振荡信号为基准产生CPU的时序，从ROM中取出指令到指令寄存器，然后在指令译码器中对指令进行译码，产生指令执行所需的各种控制信号，送到单片机内部的各功能部件，指挥各功能部件产生相应的操作，完成对应的功能。</li></ul></li><li>存储器结构：<ul><li>程序存储器ROM:存放单片机工作是的程序。<ul><li>片内程序存储器</li><li>片外程序存储器</li></ul></li><li>数据存储器RAM:<ul><li>片内数据存储器</li><li>片外数据存储器</li></ul></li></ul></li><li>引脚及功能说明：<ul><li>p0口：p0.0~p0.7.</li><li>p1口：</li><li>p2口：</li><li>p3口：</li><li>ALE:地址锁存信号输出段</li><li>PSEN:</li><li>RST</li><li>EA</li><li>VCC</li><li>GND</li></ul></li><li>冯诺依曼体系和哈佛体系</li><li>I/O接口<ul><li>p1：准双向口，只做I/O接口使用</li></ul></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 学习笔记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 学习笔记 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>计算机网络</title>
-      <link href="/2022/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-      <url>/2022/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><ol><li>主机：计算机网络上任何一种能够连接网络设备的都被称为主机或者端系统。、</li><li>通信链路：通信链路是有物理链路连接到一起组成的一种物理通路。</li><li>传输速率：单位(bit/s),用来度量不同链路从一个端系统到另一个端系统传输数据的速率。</li><li>路由器：一种交换机，主要用于转发数据。</li><li>路径：一个分组所经历一系列通信链路和分组交换机称为通过这个网络的路径。 </li><li>网络协议：网络协议是计算机网络中进行数据交换而建立的规则、标准或者约定。</li><li> 分组：当一台端系统向另外一台端系统发送数据时，通常会将数据进行分片，然后为每段加上首部字节，从而形成计算机网络的专业术语：分组。这些分组通过网络发送到端系统，然后再进行数据处理。 </li><li>IP:  网际协议，它规定了路由器和端系统之间发送和接收的分组格式。</li><li>IP 地址：IP 地址就是网际协议地址，在互联网中唯一标识主机的一种地址。每一台入网的设备都会有一个 IP 地址，这个 IP 又分为内网 IP 和公网 IP。</li><li>协议：协议定义了两个以上通信实体之间交换报文格式和顺序所遵从的标准。 </li><li>分布式应用程序：多个端系统之间相互交换数据的端系统被称为分布式应用程序。 </li><li>转发表： 路由内部记录报文路径的映射关系的一种记录。 </li><li>报文：同窗指的是应用层的分组。</li><li>报文段：通常把运输层的分组称为报文段。 </li><li>数据报：通常将网络层的分组称为数据报。 </li><li>帧：一般把链路层的分组称为帧。 </li><li>时延：时延指的是一个报文或者分组从网络的一端传递到另一端所需要的时间，时延分类有发送时延、传播时延、处理时延、排队时延，总时延 = 发送时延+传播时延+处理时延+排队时延。</li><li>丢包：在计算机网络中指分组出现丢失的现象。</li><li>吞吐量：吞吐量在计算机网络中指的是单位时间内成功传输数据的数量。 </li><li>端口号：在同一台主机内，端口号用于标识不同应用程序进程。 </li><li>URI：全称是（Uniform Resource Identifier），中文名称是统一资源标识符，使用它就能够唯一地标记互联网上资源。 </li><li>URL：全称是（Uniform Resource Locator），中文名称是统一资源定位符，它实际上是 URI 的一个子集。</li><li>HTML：HTML 称为超文本标记语言，是一种标识性的语言。它包括一系列标签．通过这些标签可以将网络上的文档格式统一，使分散的 Internet 资源连接为一个逻辑整体。HTML 文本是由 HTML 命令组成的描述性文本，HTML 命令可以说明文字，图形、动画、声音、表格、链接等。 </li><li> Web 页面：Web 页面也叫做 Web Page，它是由对象组成，一个对象(object)`简单来说就是一个文件，这个文件可以是 HTML 文件、一个图片、一段 Java 应用程序等，它们都可以通过 URI 来找到。一个 Web 页面包含了很多对象，Web 页面可以说是对象的集合体。</li><li>Web 服务器：Web 服务器的正式名称叫做&nbsp;Web Server，Web 服务器可以向浏览器等 Web 客户端提供文档，也可以放置网站文件，让全世界浏览；可以放置数据文件，让全世界下载。目前最主流的三个 Web 服务器是 Apache、 Nginx 、IIS。</li><li> HTTP：TCP/IP 协议簇的一种，它是一个在计算机世界里专门在两点之间传输文字、图片、音频、视频等超文本数据的约定和规范。 </li><li>Cookie：HTTP 协议中的 Cookie 包括&nbsp;Web Cookie&nbsp;和浏览器 Cookie，它是服务器发送到 Web 浏览器的一小块数据。服务器发送到浏览器的 Cookie，浏览器会进行存储，并与下一个请求一起发送到服务器。通常，它用于判断两个请求是否来自于同一个浏览器，例如用户保持登录状态。 </li><li>TELNET 协议：远程登陆协议，它允许用户(Telnet 客户端)通过一个协商过程来与一个远程设备进行通信，它为用户提供了在本地计算机上完成远程主机工作的能力。 </li><li>SSH 协议：SSH 是一种建立在应用层上的安全加密协议。 因为 TELNET 的缺点是在主机和远程主机的发送数据包的过程中是明文传输，未经任何安全加密，易被互联网上不法分子嗅探到数据包所以不安全，为了数据的安全性，我们一般使用&nbsp;SSH&nbsp;进行远程登录。 </li><li>IPv4：网际协议的第四个版本，也是被广泛使用的一个版本。IPv4 是一种无连接的协议，无连接不保证数据的可靠性交付。使用 32 位的地址。 </li><li>IPv6：网际协议的第六个版本，IPv6 的地址长度是 128 位，由于 IPv4 最大的问题在于网络地址资源不足，严重制约了互联网的应用和发展。IPv6 的使用，不仅能解决网络地址资源数量的问题，而且也解决了多种接入设备连入互联网的障碍。 </li><li>接口：主机和物理链路之间的边界。 </li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 学习笔记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 学习笔记 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>计算机操作系统</title>
-      <link href="/2022/02/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-      <url>/2022/02/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="计算机操作系统"><a href="#计算机操作系统" class="headerlink" title="计算机操作系统"></a>计算机操作系统</h1><ul><li>操作系统（Operating System，OS）：是管理计算机硬件与软件资源的系统软件，同时也是计算机系统的内核与基石。操作系统需要处理<strong>管理与配置内存、决定系统资源供需的优先次序、控制输入与输出设备、操作网络与管理文件系统等基本事务</strong>。</li></ul><h2 id="冯诺依曼体系"><a href="#冯诺依曼体系" class="headerlink" title="冯诺依曼体系"></a>冯诺依曼体系</h2><p>现代计算机之父冯诺伊曼最先提出程序存储的思想，并将其运用在计算机的设计之中，该思想约定了用二进制进行计算和存储，还定义计算机基本结构为 5 个部分，分别是<strong>中央处理器（CPU）、内存、输入设备、输出设备、总线</strong>。 </p><h3 id="cpu"><a href="#cpu" class="headerlink" title="cpu"></a>cpu</h3><h4 id="cpu-1"><a href="#cpu-1" class="headerlink" title="cpu"></a>cpu</h4><p>CPU （Central Processing Unit）中央处理器，类比人脑，作为计算机系统的运算和控制核心，是信息处理、程序运行的最终执行单元。 </p><h4 id="cpu内部处理过程"><a href="#cpu内部处理过程" class="headerlink" title="cpu内部处理过程"></a>cpu内部处理过程</h4><p><strong>例：</strong>程序编译的过程：用高级语言编写的程序——&gt;程序编译后转换成机器语言的 <strong>exe</strong> 文件（二进制可执行文件）——&gt;程序运行时，在<strong>内存</strong>中生成 exe 副本——&gt;<strong>cpu</strong>解释并执行程序内容  （cpu负责解释和运行最终转换成机器语言的内容）</p><h4 id="cpu物理构成"><a href="#cpu物理构成" class="headerlink" title="cpu物理构成"></a>cpu物理构成</h4><ul><li>控制单元：从内存中提取指令并解码执行</li><li>算数逻辑单元：处理算数和逻辑运算</li></ul><p>CPU 是计算机的大脑，由许多晶体管组成的电子部件。接收数据输入，执行指令并处理信息。它与输入/输出（I / O）设备进行通信，这些设备向 CPU 发送数据和从 CPU 接收数据。 </p><h4 id="cpu功能构成"><a href="#cpu功能构成" class="headerlink" title="cpu功能构成"></a>cpu功能构成</h4><p>CPU 的内部由<strong>寄存器、控制器、运算器和时钟</strong>四部分组成，各部分之间通过电信号连通。 </p><ul><li>寄存器：是中央处理器内的组成部分。它们可以用来暂存指令、数据和地址。可以将其看作是内存的一种。根据种类的不同，一个 CPU 内部会有 20 - 100个寄存器。</li><li>控制器：负责把内存上的指令、数据读入寄存器，并根据指令的结果控制计算机</li><li>运算器：负责运算从内存中读入寄存器的数据</li><li>时钟： 负责发出 CPU 开始计时的时钟信号</li></ul><table><thead><tr><th>寄存器种类</th><th>功能</th></tr></thead><tbody><tr><td>累加寄存器</td><td>存储运行的数据和运算后的数据。</td></tr><tr><td>标志寄存器</td><td>用于反应处理器的状态和运算结果的某些特征以及控制指令的执行。</td></tr><tr><td>程序计数器</td><td>程序计数器是用于存放下一条指令所在单元的地址的地方。</td></tr><tr><td>基址寄存器</td><td>存储数据内存的起始位置</td></tr><tr><td>变址寄存器</td><td>存储基址寄存器的相对地址</td></tr><tr><td>通用寄存器</td><td>存储任意数据</td></tr><tr><td>指令寄存器</td><td>储存正在被运行的指令</td></tr><tr><td>栈寄存器</td><td>存储栈区域的起始位置</td></tr></tbody></table><p><strong>程序计数器、累加寄存器、标志寄存器、指令寄存器和栈寄存器</strong> 只有一个，其他寄存器一般有多个。 </p><h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><ul><li>内存（Memory）是程序与CPU进行沟通的桥梁。计算机中所有程序的运行都是在内存中进行的，内存又被称为主存，其作用是存放 CPU 中的运算数据，以及与硬盘等外部存储设备交换的数据。计算机在运行中，CPU 就会把需要运算的数据调到主存中进行运算，当运算完成后CPU再将结果传送出来，主存的运行也决定了计算机的稳定运行。 </li></ul><h4 id="内存的物理结构"><a href="#内存的物理结构" class="headerlink" title="内存的物理结构"></a>内存的物理结构</h4><p>内存的内部是由各种 IC 电路组成的，主要分为三种存储器 </p><ul><li>随机存储器（RAM）：内存中最重要的一种，表示既可以从中读取数据，也可以写入数据。当机器关闭时，内存中的信息会丢失。</li><li>只读存储器（ROM）：一般只能用于数据的读取，不能写入数据，但是当机器停电时，这些数据不会丢失。</li><li>高速缓存（Cache）：Cache 分为一级缓存（L1 Cache）、二级缓存（L2 Cache）、三级缓存（L3 Cache）这些数据，它位于内存和 CPU 之间，是一个读写速度比内存更快的存储器。当 CPU 向内存写入数据时，这些数据也会被写入高速缓存中。当 CPU 需要读取数据时，会直接从高速缓存中直接读取，当需要的数据在Cache中没有，CPU会再去读取内存中的数据。</li></ul><h3 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h3><ul><li>代码跟数据在RAM跟ROM中是线性存储， 数据存储的单位是一个二进制位。最小的存储单位是字节。 </li></ul><h5 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h5><ul><li>计算机最主要的存储部件是内存和磁盘。磁盘中存储的程序必须加载到内存中才能运行</li></ul><h5 id="磁盘的物理结构"><a href="#磁盘的物理结构" class="headerlink" title="磁盘的物理结构"></a>磁盘的物理结构</h5><ul><li>磁盘是通过其物理表面划分成多个空间来使用的。划分的方式有两种：可变长方式(将物理结构划分成长度可变的空间)和&nbsp;扇区方式(将磁盘结构划分为固定长度的空间)。一般 Windows 所使用的硬盘和软盘都是使用扇区,在扇区中，把磁盘表面分成若干个同心圆的空间就是&nbsp;磁道，把磁道按照固定大小的存储空间划分而成的就是&nbsp;扇区。</li></ul><h5 id="磁盘的构造"><a href="#磁盘的构造" class="headerlink" title="磁盘的构造"></a>磁盘的构造</h5><ul><li>磁盘缓存：指把从磁盘中读出的数据存储到内存的方式，提高了了磁盘访问的速度。 </li><li>虚拟内存是内存和磁盘交互的第二个媒介。虚拟内存是假想的内存（实际上是磁盘）。 </li></ul><h5 id="文件存储"><a href="#文件存储" class="headerlink" title="文件存储"></a>文件存储</h5><ul><li>文件是将数据存储在磁盘等存储媒介的一种形式。程序文件中最基本的存储数据单位是字节（B = Byte ）。文件就是字节数据的集合 。</li></ul><h3 id="总线"><a href="#总线" class="headerlink" title="总线"></a>总线</h3><p>总线是用于 CPU 和内存以及其他设备之间的通信，主要有以下三种：</p><ul><li>地址总线：用于指定 CPU 将要操作的内存地址。</li><li>数据总线：用于读写内存的数据。</li><li>控制总线：用于发送和接收信号，比如中断、设备复位等信号，CPU 收到信号后响应，这时也需要控制总线。</li></ul><h4 id="输入-输出设备"><a href="#输入-输出设备" class="headerlink" title="输入/输出设备"></a>输入/输出设备</h4><ul><li>输入设备向计算机输入数据，计算机经过计算后，把数据输出给输出设备。比如键盘按键时需要和 CPU 进行交互，这时就需要用到控制总线。 </li></ul><h2 id="操作系统环境"><a href="#操作系统环境" class="headerlink" title="操作系统环境"></a>操作系统环境</h2><p>程序中包含着运行环境（运行环境 = 操作系统 + 硬件），操作系统又可以被称为软件，它是由一系列的指令组成的。 </p><ul><li>操作系统版本：应用程序运行在何种系统环境，即Windows 、Linux 等 。</li><li>处理器：处理器指的就是 CPU，电脑的计算能力，通俗来讲就是每秒钟能处理的指令数。</li><li>显卡：图形处理器（Graphic Processing Unit，GPU），显卡承担图形的输出任务。</li><li>内存：内存即主存，应用程序在运行时能够动态分析指令的这部分存储空间，它的大小也能决定你电脑的运行速度。</li><li>存储空间：存储空间指的就是应用程序安装所占用的磁盘空间。</li></ul><h4 id="不同操作系统的-API"><a href="#不同操作系统的-API" class="headerlink" title="不同操作系统的 API"></a>不同操作系统的 API</h4><ul><li>应用程序向系统传递指令的途径称为&nbsp;<strong>API</strong>(Application Programming Interface)。Windows 以及 Linux 操作系统的 API，提供了任何应用程序都可以利用的函数组合。不同操作系统的 API 是有差异的。键盘输入、鼠标输入、显示器输出、文件输入和输出等同外围设备进行交互的功能，都是通过 API 提供的。 </li></ul><h4 id="Windows-操作系统的特征"><a href="#Windows-操作系统的特征" class="headerlink" title="Windows 操作系统的特征"></a>Windows 操作系统的特征</h4><ul><li>Windows 操作系统有32位和64位两个版本 (xx位操作系统表示的是处理效率最高的数据大小)</li></ul><ul><li><p>通过 API函数集成来提供系统调用(API 通过多个dll文件来提供，各个 API 的实体都是用 C 语言编写的函数。)</p></li><li><p>提供了采用图形用户界面的用户界面</p></li><li><p>通过WYSIWYG 实现打印输出，WYSIWYG 其实就是 What You See Is What You Get ，值得是显示器上显示的图形和文本都是可以原样输出到打印机打印的。</p></li><li><p>提供多任务功能，即能够同时开启多个任务。(通时钟分割技术来实现多任务功能的。时钟分割指的是短时间间隔内，多个程序切换运行的方式。在用户看来，就好像是多个程序在同时运行，其底层是&nbsp;CPU 时间切片，这也是多线程多任务的核心)</p></li><li><p>提供网络功能和数据库功能</p></li><li><p>通过即插即用实现设备驱动的自设定</p></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 学习笔记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 学习笔记 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>豆瓣top250数据可视化</title>
       <link href="/2022/01/30/%E8%B1%86%E7%93%A3top250%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
       <url>/2022/01/30/%E8%B1%86%E7%93%A3top250%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
@@ -181,106 +106,6 @@
     
     
     <entry>
-      <title>解决win11没有gpedit.msc</title>
-      <link href="/2022/01/22/win11%E6%B2%A1%E6%9C%89gpedit-msc%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
-      <url>/2022/01/22/win11%E6%B2%A1%E6%9C%89gpedit-msc%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><ul><li>新建一个记事本，复制下面内容</li></ul><pre class=" language-shell"><code class="language-shell">@echo offdir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum >List.txtdir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum >>List.txtfor /f %%i in ('findstr /i . List.txt 2^>nul') do dism /online /norestart /add-package:"C:\Windows\servicing\Packages\%%i"</code></pre><ul><li>将后缀改为.bat，以管理员身份运行</li><li>等待终端运行完毕，按下<strong>WIN+R</strong> ,输入<strong>gpedit.msc</strong> 即可</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 系统篇 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> windows11 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Linux进阶</title>
-      <link href="/2022/01/18/Linux%E8%BF%9B%E9%98%B6/"/>
-      <url>/2022/01/18/Linux%E8%BF%9B%E9%98%B6/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://www.runoob.com/linux/linux-yum.html">https://www.runoob.com/linux/linux-yum.html</a>   </p><h2 id="Linux进阶"><a href="#Linux进阶" class="headerlink" title="Linux进阶"></a>Linux进阶</h2><p>Linux是一个全面的生态圈，主流的it技术都是基于Linux平台开发。</p><ul><li>数据库软件，mysql，mariadb，postgresql</li><li>web server ，nginx</li><li>大数据，hadoop，spark</li><li>消息队列，kafka</li><li>虚拟化技术 kvm</li><li>容器技术 docker，k8s</li></ul><h3 id="Linux注意事项"><a href="#Linux注意事项" class="headerlink" title="Linux注意事项"></a>Linux注意事项</h3><ol><li>Linux严格区分大小写</li><li>Linux中的所有内容以文件形式保存，包括硬件</li><li>Linux不靠扩展名区分文件类型</li><li>Linux所有存储设备都必须挂在后才能使用</li></ol><h3 id="Linux磁盘分区"><a href="#Linux磁盘分区" class="headerlink" title="Linux磁盘分区"></a>Linux磁盘分区</h3><table><thead><tr><th>硬件</th><th>设备文件名</th></tr></thead><tbody><tr><td>IDE硬盘</td><td>/dev/hd[a-d]</td></tr><tr><td>SCSI/SATA/USB硬盘</td><td>/dev/sd[a-p]</td></tr><tr><td>光驱</td><td>/dev/cdrom或/dev/hdc</td></tr><tr><td>软盘</td><td>/dev/fd[0-1]</td></tr><tr><td>打印机</td><td>/dev/lp[0-2]或/dev/usb/lp[0-15]</td></tr><tr><td>鼠标</td><td>/dev/mouse</td></tr></tbody></table><ul><li>主分区：最多只能有4个</li><li>扩展分区</li><li>逻辑分区</li><li>Linux各目录的作用</li></ul><h3 id="VMware三种网络模式"><a href="#VMware三种网络模式" class="headerlink" title="VMware三种网络模式"></a>VMware三种网络模式</h3><p>VMnet0: 用于桥接模式下的虚拟交换机</p><p>VMnet1: 用于仅主机模式下的虚拟交换机</p><p>VMnet8: 用于NAT模式下的虚拟交换机</p><p><strong>桥接模式：</strong> 将主机网卡与虚拟机虚拟的网卡利用虚拟网桥进行通信。类似于把物理主机虚拟为一个交换机，所有桥接设置的虚拟机连连接在这个交换机的一个接口上，物理主机也同样插在这个交换机中，所有桥接下的网卡可以相互访问而不干扰。</p><p>桥接模式下，虚拟机ip地址于主机在同一网段，联网后，网关与DNS与主机网卡一致。</p><p><strong>NAT模式：</strong> 主机网卡直接与虚拟NAT设备相连，然后虚拟NAT设备与虚拟DHCP服务器一起俩姐在VMnet8啥办法。VMnet网卡实现了主机与虚拟机之间的通信。</p><p>NAT模式下，虚拟机和主机不在同一网段下，主机是虚拟机的“上级”。（桥接模式下虚拟机与主机可能会导致ip资源紧缺） </p><p><strong>仅主机模式：</strong> 仅主机模式可以看作是NAT模式去除了虚拟NAT设备，然后使用VMnet1虚拟网卡连接VMnet1虚拟交换机来与虚拟机通信的。Host-Only模式将虚拟机与外网隔开，使虚拟机成为一个独立的系统，只与主机相互通讯。 </p><h3 id="vi与vim"><a href="#vi与vim" class="headerlink" title="vi与vim"></a>vi与vim</h3><p><strong>vi编辑器是Linux系统下的标准（文本）编辑器（windows中的notepad），vim可以看作是vi的升级版。vi用于文本编辑，vim更适用于coding</strong> </p><p>安装Centos后，默认是安装了vi编辑器的，但没有安装vim,用以下命令安装</p><pre class=" language-shell"><code class="language-shell">yum -y install yum*</code></pre><h4 id="vim的三种模式"><a href="#vim的三种模式" class="headerlink" title="vim的三种模式"></a>vim的三种模式</h4><ul><li>命令模式：不能对文本直接编辑，可使用快捷键进行增删改查（打开后的默认模式）</li><li>编辑模式：可直接对文本进行编辑（命令模式下输入i（输入模式），a(输入模式光标前移一位)）</li><li>末行模式：在末行输入命令进行操作（输入 ： 或 / 或 ？ ）</li></ul><h4 id="vim常用命令"><a href="#vim常用命令" class="headerlink" title="vim常用命令"></a>vim常用命令</h4><pre class=" language-shell"><code class="language-shell">vim [filename] # 打开文件，若文件不存在则自动新建</code></pre><ul><li>移动光标：h，j,k,l(上，下，左，右)</li><li>ctrl+b：向后一页，ctrl+f：向前一页</li></ul><pre class=" language-shell"><code class="language-shell">yy   # 拷贝当前行p    # 粘贴3yy  # 拷贝当前行向下的3行dd   # 删除3dd  # 删除当前行向下的5行/hello + 回车 # 查找关键词hello 输入n可跳转到下一个关键字G    # 跳转到末行gg   # 跳转到首行u    # 撤销:set nu    # 设置行号:set noun  # 取消行号:5  # 光标到第5行:q  # 离开vi:q! # 退出不保存:wq # 保存后退出:w  # 保存编辑的内容:w! # 强制写入该文件</code></pre><p><img src="https://cdn.jsdelivr.net/gh/bkystop/imgblog/img/20220122182933.png"></p><h3 id="Linux指令"><a href="#Linux指令" class="headerlink" title="Linux指令"></a>Linux指令</h3>]]></content>
-      
-      
-      <categories>
-          
-          <category> 系统篇 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>docker基础</title>
-      <link href="/2022/01/07/docker%E5%9F%BA%E7%A1%80/"/>
-      <url>/2022/01/07/docker%E5%9F%BA%E7%A1%80/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="docker简述"><a href="#docker简述" class="headerlink" title="docker简述"></a>docker简述</h2><ul><li>Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的<a href="https://baike.baidu.com/item/%E9%95%9C%E5%83%8F/1574">镜像</a>中，然后发布到任何流行的&nbsp;<a href="https://baike.baidu.com/item/Linux">Linux</a>或<a href="https://baike.baidu.com/item/Windows/165458">Windows</a>操作系统的机器上，也可以实现<a href="https://baike.baidu.com/item/%E8%99%9A%E6%8B%9F%E5%8C%96/547949">虚拟化</a>。容器是完全使用<a href="https://baike.baidu.com/item/%E6%B2%99%E7%AE%B1/393318">沙箱</a>机制，相互之间不会有任何接口。 (百度百科)</li><li>优点：<ol><li>简化配置</li><li>应用隔离</li><li>服务合并</li><li>快速部署</li><li>环境统一</li><li>计算机资源的高效利用</li></ol></li></ul><h2 id="docker基本组成"><a href="#docker基本组成" class="headerlink" title="docker基本组成"></a>docker基本组成</h2><ul><li>镜像（image）：docker镜像相当于一个模板，可以通过模板创建容器。一个镜像可以创建多个容器。</li><li>容器(container):  docker利用容器技术，可以独立运行一个或一组应用。</li><li>仓库（repository）： 仓库就是存放镜像的地方。</li></ul><h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><h2 id="docker命令"><a href="#docker命令" class="headerlink" title="docker命令"></a>docker命令</h2><h3 id="docker服务相关命令"><a href="#docker服务相关命令" class="headerlink" title="docker服务相关命令"></a>docker服务相关命令</h3><ul><li>启动docker服务：systemctl start docekr</li><li>停止docker命令：systemctl stop docker</li><li>重启docker命令：systemctl restart docker</li><li> 查看docker服务系统：systemctl status docker</li><li>设置开机启动docker服务：systemctl enable docekr </li></ul><h3 id="docker镜像相关命令"><a href="#docker镜像相关命令" class="headerlink" title="docker镜像相关命令"></a>docker镜像相关命令</h3><ul><li><p>查看本地所有镜像：docker iamges</p><pre class=" language-shell"><code class="language-shell">docker images -q # 查看的镜像的id</code></pre></li><li><p>搜索镜像：docker search 镜像名称</p></li><li><p> 拉取镜像：docker pull 镜像名称</p></li><li><p>删除本地镜像：docker rmi 镜像id</p><pre class=" language-shell"><code class="language-shell">docker rmi 'doceker images -a' #删除本地所有镜像</code></pre></li></ul><h3 id="docker容器相关命令"><a href="#docker容器相关命令" class="headerlink" title="docker容器相关命令"></a>docker容器相关命令</h3><ul><li><p>查看容器：docker ps # 查看正在运行的容器</p><pre class=" language-shell"><code class="language-shell">docker ps –a # 查看所有容器</code></pre></li><li><p>启动容器：docekr run 参数</p><h5 id="参数说明："><a href="#参数说明：" class="headerlink" title="参数说明："></a>参数说明：</h5><pre><code>    -i：保持容器运行。通常与 -t 同时使用。加入it这两个参数后，容器创建后自动进入器中，退出容器后，容器自动关闭。     -t：为容器重新分配一个伪输入终端，通常与 -i 同时使用。    -d：以守护（后台）模式运行容器。创建一个容器在后台运行，需要使用docker exec 进入容器。退出后，容器不会关闭。    -it 创建的容器一般称为交互式容器，-id 创建的容器一般称为守护式容器    --name：为创建的容器命名。</code></pre></li><li><p>进入容器:  docker exec 参数 #退出后，容器不关闭</p></li><li><p>停止容器:  docekr stop 容器名称</p></li><li><p>启动容器：docker start 容器名称</p></li><li><p>删除容器：docekr rm 容器名称</p></li><li><p>查看容器信息：docker inspect 容器名称</p></li></ul><h3 id="docker容器的数据卷"><a href="#docker容器的数据卷" class="headerlink" title="docker容器的数据卷"></a>docker容器的数据卷</h3><ul><li>数据卷概念:宿主机的一个目录或文件</li><li>数据卷作用:<ul><li>容器数据持久化</li><li>客户端和容器数据交换</li><li>容器间数据交换</li></ul></li><li>数据卷容器:创建一个容器，挂载一个目录，让其他容器继承自该容器( –volume-from )。</li></ul><h3 id="docker应用部署"><a href="#docker应用部署" class="headerlink" title="docker应用部署"></a>docker应用部署</h3><h4 id="部署mysql"><a href="#部署mysql" class="headerlink" title="部署mysql"></a>部署mysql</h4><ul><li>搜索mysql镜像：docket search mysql</li><li>拉取mysql镜像：docker pull mysql：5.6</li><li>创建容器，设置端口映射，目录映射：</li></ul><pre class=" language-shell"><code class="language-shell">mkdir ~/mysqlcd ~/mysql #在/root目录下创建mysql目录用于存储mysql数据信息docker run -id\ -p 3306:3306\-name = c_name\-v $PWD/conf:/etc/mysql/conf.d\-v $PWD/logs:/logs \-v $PWD/data:/var/lib/mysql \-e MYSQL_ROOT_PASSWORD=123456 \mysql:5.6</code></pre><h5 id="参数说明：-1"><a href="#参数说明：-1" class="headerlink" title="参数说明："></a>参数说明：</h5><p>​        -p 3306:3306：将容器的 3306 端口映射到宿主机的 3307 端口。<br>        -v $PWD/conf:/etc/mysql/conf.d：将主机当前目录下的 conf/my.cnf 挂载到容器的 /etc/mysql/my.cnf。配置目录<br>        -v $PWD/logs:/logs：将主机当前目录下的 logs 目录挂载到容器的 /logs。日志目录<br>        -v $PWD/data:/var/lib/mysql ：将主机当前目录下的data目录挂载到容器的 /var/lib/mysql 。数据目录<br>        -e MYSQL_ROOT_PASSWORD=123456：初始化 root 用户的密码。</p><ul><li>进入容器：docker exec -it c_mysql /bin/bash</li></ul><h4 id="部署tomcat："><a href="#部署tomcat：" class="headerlink" title="部署tomcat："></a>部署tomcat：</h4><ul><li>搜索，拉取</li><li> 创建容器，设置端口映射、目录映射</li></ul><pre class=" language-shell"><code class="language-shell">mkdir ~/tomcat# 在/root目录下创建tomcat目录用于存储tomcat数据信息cd ~/tomcatdocker run -id --name=c_tomcat \-p 8080:8080 \-v $PWD:/usr/local/tomcat/webapps \tomcat                                                 </code></pre><h5 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h5><pre><code>   -p 8080:8080：将容器的8080端口映射到主机的8080端口   -v $PWD:/usr/local/tomcat/webapps将主机中当前目录挂载到容器的webapps</code></pre><h4 id="部署nginx"><a href="#部署nginx" class="headerlink" title="部署nginx"></a>部署nginx</h4><ul><li>搜索，拉取</li><li>创建容器，设置端口映射、目录映射</li></ul><pre class=" language-shell"><code class="language-shell">mkdir ~/nginx  # 在/root目录下创建nginx目录用于存储nginx数据信息cd ~/nginxmkdir confcd conf</code></pre><h5 id="vim-nginx-conf-在-nginx-conf-下创建nginx-conf文件-粘贴下面内容"><a href="#vim-nginx-conf-在-nginx-conf-下创建nginx-conf文件-粘贴下面内容" class="headerlink" title="vim nginx.conf 在~/nginx/conf/下创建nginx.conf文件,粘贴下面内容"></a>vim nginx.conf 在~/nginx/conf/下创建nginx.conf文件,粘贴下面内容</h5><pre class=" language-shell"><code class="language-shell">user  nginx;worker_processes  1;error_log  /var/log/nginx/error.log warn;pid        /var/run/nginx.pid;events {    worker_connections  1024;}http {    include       /etc/nginx/mime.types;    default_type  application/octet-stream;    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '                      '$status $body_bytes_sent "$http_referer" '                      '"$http_user_agent" "$http_x_forwarded_for"';    access_log  /var/log/nginx/access.log  main;    sendfile        on;    #tcp_nopush     on;    keepalive_timeout  65;    #gzip  on;    include /etc/nginx/conf.d/*.conf;}</code></pre><pre class=" language-shell"><code class="language-shell">docker run -id --name=c_nginx \-p 80:80 \-v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf \-v $PWD/logs:/var/log/nginx \-v $PWD/html:/usr/share/nginx/html \nginx                  - </code></pre><h5 id="参数说明：-2"><a href="#参数说明：-2" class="headerlink" title="参数说明："></a>参数说明：</h5><pre><code>    -p 80:80：将容器的 80端口映射到宿主机的 80 端口。    -v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf：将主机当前目录下的/conf/nginx.conf 挂载到容器的 :/etc/nginx/nginx.conf。配置目录    -v $PWD/logs:/var/log/nginx：将主机当前目录下的 logs 目录挂载到容器的/var/log/nginx。日志目录</code></pre><h4 id="部署redis"><a href="#部署redis" class="headerlink" title="部署redis"></a>部署redis</h4><ul><li>搜索，拉取</li><li>创建容器  <code>docker run -id --name = c_redis 6379:6379 redis:5.0</code> </li></ul><h4 id="部署私有仓库："><a href="#部署私有仓库：" class="headerlink" title="部署私有仓库："></a>部署私有仓库：</h4><h5 id="Docker-私有仓库搭建"><a href="#Docker-私有仓库搭建" class="headerlink" title="Docker 私有仓库搭建"></a>Docker 私有仓库搭建</h5><ol><li><p>拉取私有仓库镜像 ：docker pull registry</p></li><li><p>启动私有仓库容器 ：docker run -id –name=registry -p 5000:5000 registry</p></li><li><p>打开浏览器 输入地址http://私有仓库服务器ip:5000/v2/_catalog，看到{“repositories”:[]} 表示私有仓库 搭建成功</p></li><li><p>修改daemon.json   </p><pre class=" language-shell"><code class="language-shell">vim /etc/docker/daemon.json &nbsp;  </code></pre></li></ol><p>在上述文件中添加一个key，保存退出。此步用于让 docker 信任私有仓库地址；注意将私有仓库服务器ip修改为自己私有仓库服务器真实ip<br>{“insecure-registries”:[“私有仓库服务器ip:5000”]} </p><ol start="5"><li>重启docker 服务 </li></ol><pre class=" language-shell"><code class="language-shell">systemctl restart dockerdocker start registry</code></pre><h5 id="将镜像上传至私有仓库"><a href="#将镜像上传至私有仓库" class="headerlink" title="将镜像上传至私有仓库"></a>将镜像上传至私有仓库</h5>]]></content>
-      
-      
-      <categories>
-          
-          <category> docker篇 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> docker </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>html入门</title>
-      <link href="/2022/01/06/html%E5%85%A5%E9%97%A8/"/>
-      <url>/2022/01/06/html%E5%85%A5%E9%97%A8/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="html简介"><a href="#html简介" class="headerlink" title="html简介"></a>html简介</h2><ul><li>HTML，全称“Hyper Text Markup Language（超文本标记语言）” 。</li></ul><h2 id="html基本的标签"><a href="#html基本的标签" class="headerlink" title="html基本的标签"></a>html基本的标签</h2><h3 id="head标签"><a href="#head标签" class="headerlink" title="head标签"></a>head标签</h3><p><code>&lt;title&gt;</code> 定义网页的标题</p><p><code>&lt;meta&gt;</code> 定义网页的基本信息</p><p><code>&lt;style&gt;</code> 定义css样式</p><p> <code>&lt;link&gt;</code> 链接外部css文件或脚本文件</p><p><code>&lt;script&gt;</code> 定义脚本语言</p><p><code>&lt;base&gt;</code> 定义页面所有链接的基础定位</p><h3 id="body标签"><a href="#body标签" class="headerlink" title="body标签"></a>body标签</h3><h4 id="段落与文字"><a href="#段落与文字" class="headerlink" title="段落与文字"></a>段落与文字</h4><p><code>&lt;h1&gt;&lt;h1&gt;~&lt;h6&gt;&lt;h6&gt;</code> 标题（header）</p><p><code>&lt;p&gt;</code> 段落（paragraph）</p><p><code>&lt;br&gt;</code> 换行（break）</p><p><code>&lt;hr&gt;</code> 水平线（horizontal rule）</p><p><code>&lt;div&gt;</code> 分割 [块元素]（divsion）</p><p><code>&lt;span&gt;</code> 区域[行内元素]（span）</p><ul><li><p>块元素：<code>&lt;h1&gt;~&lt;h6&gt;,p,hr,div</code></p><p>特点：</p><ol><li>独占一行，排斥其他元素与其同一行，包块块元素与行内元素。</li><li>块元素内部可以容纳其他块元素或行元素。</li></ol></li><li><p>行内元素：<code>&lt;strong&gt;,&lt;em&gt;,&lt;span&gt;</code></p><p>特点：</p><ol><li>可以与其他行内元素同一行。</li><li>行内内部可以容纳其他行内元素，但不可以容纳块元素。</li></ol></li><li><p>标签分类：一般标签：有开始符号和结束符号（有始有终） <code>&lt;body&gt;&lt;body&gt;</code> </p></li></ul><p>​                           自闭合标签：只有开始符号没有结束符号<code>&lt;br/&gt;</code></p><h4 id="文本格式化标签"><a href="#文本格式化标签" class="headerlink" title="文本格式化标签"></a>文本格式化标签</h4><p><code>&lt;strong&gt;</code> 字体加粗</p><p><code>em</code> 斜体</p><p><code>cite</code> 引用</p><p><code>&lt;sup&gt;</code> 上标</p><p><code>&lt;sub&gt;</code> 下标</p><h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><h5 id="lt-ol-gt-有序列表（ordered-list）"><a href="#lt-ol-gt-有序列表（ordered-list）" class="headerlink" title="<ol> 有序列表（ordered list）"></a><code>&lt;ol&gt;</code> 有序列表（ordered list）</h5><p>​    type值属性：1   数字1，2，3</p><p>​                a  小写字母a，b，c</p><p>​                A  大写字母A,   B,  C</p><p>​                i   小写罗马数字</p><p>​                I   大写罗马数字</p><h5 id="lt-ul-gt-无序列表（unordered-list）"><a href="#lt-ul-gt-无序列表（unordered-list）" class="headerlink" title="<ul> 无序列表（unordered list）"></a><code>&lt;ul&gt;</code> 无序列表（unordered list）</h5><p>​    type值属性：disc   默认值，实心原点</p><p>​                circle   空心圆</p><p>​                square   实心正方形</p><h5 id="lt-dl-gt-定义列表（definition-list）"><a href="#lt-dl-gt-定义列表（definition-list）" class="headerlink" title="<dl> 定义列表（definition list）:"></a><code>&lt;dl&gt;</code> 定义列表（definition list）:</h5><p>​                <code>&lt;dl&gt;</code> 定义列表（definition list) :定义列表的开始和结束</p><p>​                <code>&lt;dt&gt;</code> 定义名词（definition term) ：后面添加要解释的名词</p><p>​                <code>&lt;dd&gt;</code> 定义描述  (definition description) ：后面添加该名词的具体描述</p><ul><li>列表内放 <code>&lt;li&gt;</code> 标签：列表项（list ltem）</li></ul><h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><h5 id="表格基本标签"><a href="#表格基本标签" class="headerlink" title="表格基本标签"></a>表格基本标签</h5><p><code>&lt;table&gt;</code> 表格</p><p><code>&lt;tr&gt;</code> 表格行（table row）</p><p><code>&lt;td&gt;</code> 表格单元格（table data）</p><h5 id="表格基本结构"><a href="#表格基本结构" class="headerlink" title="表格基本结构"></a>表格基本结构</h5><p><code>&lt;thead&gt;</code> 表头</p><p><code>&lt;tbody&gt;</code> 表身</p><p><code>&lt;tfoot&gt;</code> 表教</p><p><code>&lt;th&gt;</code> 表头单元格 （table header）</p><ul><li>在表格钟，合并行，合并列也是我们常用的方法。</li></ul><h4 id="图像标签"><a href="#图像标签" class="headerlink" title="图像标签"></a>图像标签</h4><h5 id="img-常用属性"><a href="#img-常用属性" class="headerlink" title="img 常用属性"></a>img 常用属性</h5><p><code>&lt;src&gt;</code> 图像的文件地址</p><p><code>&lt;alt&gt;</code> 图片显示不出来时的提示文字</p><p><code>&lt;title&gt;</code> 鼠标移动到图片的提示文字</p><ul><li><p>相对路径： 引用的文件位置是相对当前文件的位置而言 </p></li><li><p>绝对路径： 指的是文件的完整路径</p></li><li><p>图片格式：</p><ol><li><p>jpg ： 可以较好的处理大面积色调的图像</p></li><li><p>png： 图片体积小，可以无损压缩</p></li><li><p>gitf：图像效果较差，可以制作动画</p></li></ol></li></ul><h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><h5 id="超链接使用a标签"><a href="#超链接使用a标签" class="headerlink" title="超链接使用a标签"></a>超链接使用a标签</h5><p><code>&lt;a href="链接地址" target="目标窗口的打开方式"&gt;</code> </p><ul><li><p>target属性值：</p><ol><li><p> _self：默认方式，当前窗口打开链接。</p></li><li><p>_blank: 在一个新窗口中打开链接 </p></li><li><p>_top: 在顶层框架中打开链接 </p></li><li><p>_parent: 在当前框架的上一层里打开链接 </p></li></ol></li></ul><h4 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h4><h5 id="input-表单"><a href="#input-表单" class="headerlink" title="input 表单"></a>input 表单</h5><p>type属性值：</p><pre><code> 1. text：单行文本框    2. password：密码文本框    3. button：按钮    4. reset： 重置按钮    5. image： 图像形式的提交按钮    6. radio： 单选按钮    7. checkbok： 复选按钮、    8. gidden：隐藏字段    9. files： 文件上传    10. `&lt;textarea rows="行数" cols="列数"&gt;多行文本框内容&lt;/textarea&gt; ` :多行文本框</code></pre><h4 id="音频"><a href="#音频" class="headerlink" title="音频"></a>音频</h4><h5 id="插入音频："><a href="#插入音频：" class="headerlink" title="插入音频："></a>插入音频：</h5><p><code>&lt;embed src="多媒体文件地址" width="播放界面的宽度" height="播放界面的高度"&gt;&lt;/embed&gt;</code> </p><h5 id="插入背景音乐"><a href="#插入背景音乐" class="headerlink" title="插入背景音乐"></a>插入背景音乐</h5><p><code>&lt;bgsound src="背景音乐的地址"/&gt; </code> </p><p><code>loop="2"</code>表示重复2次，<code>loop="infinite"</code>或者<code>loop="-1"</code>表示无限次循环播放</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端篇 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> html </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Picgo+github搭建图床</title>
       <link href="/2022/01/05/Picgo-github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/"/>
       <url>/2022/01/05/Picgo-github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</url>
@@ -300,31 +125,6 @@
             <tag> picgo </tag>
             
             <tag> github </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>linux常用命令</title>
-      <link href="/2022/01/05/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-      <url>/2022/01/05/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><h3 id="linux简介"><a href="#linux简介" class="headerlink" title="linux简介"></a>linux简介</h3><ul><li>Linux 能运行主要的 UNIX 工具软件、应用程序和网络协议。它支持 32 位和 64 位硬件。Linux 继承了 Unix 以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。 </li><li>目前市面上较知名的发行版有：Ubuntu、RedHat、CentOS、Debian （本文基于Centos）</li><li>优点：</li></ul><ol><li>稳定安全：&nbsp;  Linux系统在设计的时候就是针对多用户环境的，采取了许多安全技术措施，其中有对读、写进行权限控制、审计跟踪、核心授权等技术，作为一个普通用户，通常只能读写自己的文件， 不会影响系统。 </li><li>安装便利：软件安装均通过yum源命令安装。（yum就像一个仓库，包含软件包，只有版本区别，无正版盗版之分）</li><li>开源：linux系统所有组件的源代码都是开源的。</li><li>linux软件资源消耗小</li></ol><h3 id="linux终端命令"><a href="#linux终端命令" class="headerlink" title="linux终端命令"></a>linux终端命令</h3><h4 id="终端命令格式"><a href="#终端命令格式" class="headerlink" title="终端命令格式"></a>终端命令格式</h4><pre class=" language-shell"><code class="language-shell">command [-options] [parameeter]  # 命令名+选项+参数</code></pre><h4 id="查阅命令信息"><a href="#查阅命令信息" class="headerlink" title="查阅命令信息"></a>查阅命令信息</h4><pre class=" language-shell"><code class="language-shell">command -help  # 显示该命令的帮助信息</code></pre><ul><li> -man 查阅command命令使用手册</li></ul><h4 id="常用linux命令"><a href="#常用linux命令" class="headerlink" title="常用linux命令"></a>常用linux命令</h4><pre class=" language-shell"><code class="language-shell">list  # list的缩写  查看当前文件夹（目录）pwd  # print work directory  查看当前所在文件夹cd [文件名] # change directory  切换文件夹touch [文件名] # touch  新建不存在文件mkdir [文件名] # make directory  新建文件夹rm [文件名] # remove  删除文件clear  # clear  清屏find - name ""  # 按名字查找文件，""可放文件部分名称，其余*代替mv 源文件\目录 目标目录  # move  移动文件cat [文件名]  # 命令窗口输出文件内容vi [文件名]  # 打开并浏览文件</code></pre><ul><li>ctrl  + shift + = 放大终端字体（shift+=即为加号，去键盘按一下就明白了）</li><li>ctrl + - 缩小终端</li><li>敲出命令，文件或目录的前几个字母，Tab 自动补全（没有歧义的情况下）</li></ul><h4 id="解压与安装"><a href="#解压与安装" class="headerlink" title="解压与安装"></a>解压与安装</h4><ul><li>压缩文件（linux中压缩包多为tar格式，相当于windows中的zip）</li></ul><pre class=" language-shell"><code class="language-shell">tar -zcvf 打包文件.tar.gz 被压缩的文件／路径...  # 压缩文件tar -zxvf 打包文件.tar.gz  # 解压缩文件  # 解压缩文件tar -zxvf 打包文件.tar.gz -C 目标路径  # 解压缩到指定路径</code></pre><ul><li>软件安装</li></ul><pre class=" language-shell"><code class="language-shell">yum -y install [安装包名]  # 下载并安装一个rpm包yum update [package]  # 更新一个rpm包yum remove [package]  # 删除一个rpm包yum list  # 列出当前系统中安装的所有包</code></pre><p>一般需要什么安装直接网上搜索，或者官网均已提供安装命令</p><h4 id="系统命令"><a href="#系统命令" class="headerlink" title="系统命令"></a>系统命令</h4><pre class=" language-she&amp;#39;l&amp;#39;l"><code class="language-she&amp;#39;l&amp;#39;l">su  # 切换到root权限shutdown -h now  # 立即关机shutdown -r now  # 立即重启passwd  # 修改密码</code></pre><h1 id="更多命令参考-百度百科linux命令-https-baike-baidu-com-item-linux-E5-91-BD-E4-BB-A4-1750369-fr-aladdin"><a href="#更多命令参考-百度百科linux命令-https-baike-baidu-com-item-linux-E5-91-BD-E4-BB-A4-1750369-fr-aladdin" class="headerlink" title="更多命令参考 [百度百科linux命令][https://baike.baidu.com/item/linux%E5%91%BD%E4%BB%A4/1750369?fr=aladdin]"></a>更多命令参考 [百度百科linux命令][<a href="https://baike.baidu.com/item/linux%E5%91%BD%E4%BB%A4/1750369?fr=aladdin%5D">https://baike.baidu.com/item/linux%E5%91%BD%E4%BB%A4/1750369?fr=aladdin]</a></h1>]]></content>
-      
-      
-      <categories>
-          
-          <category> 系统篇 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> linux </tag>
             
         </tags>
       
@@ -404,31 +204,6 @@
             <tag> hexo </tag>
             
             <tag> github </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>git学习记录</title>
-      <link href="/2022/01/01/git%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
-      <url>/2022/01/01/git%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="git简介"><a href="#git简介" class="headerlink" title="git简介"></a>git简介</h1><ul><li>git是一个免费的、分布式的版本控制工具，或是一个强调了速度快的源代码管理工具。每一个Git的工作目录都是一个完全独立的代码库，并拥有完整的历史记录和版本追踪能力，不依赖 于网络和中心服务器。 </li><li>优点</li></ul><ol><li>git的社区开源，且拥有丰富的资料，项目</li><li>分布式的版本管理，不会出现中心服务器死机就影响工作（集中式管理），强调个体</li><li>公共服务其压力和数据量都不会太大。</li><li>速度快，灵活。</li><li>离线工作，管理代码成本低。</li></ol><ul><li>缺点</li></ul><ol><li>学习周期较长。</li><li>代码保密性较差。</li></ol><h1 id="git-命令"><a href="#git-命令" class="headerlink" title="git 命令"></a>git 命令</h1><h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><pre class=" language-shell"><code class="language-shell">sudo apt install git</code></pre><h3 id="配置git环境"><a href="#配置git环境" class="headerlink" title="配置git环境"></a>配置git环境</h3><pre class=" language-she&amp;#39;l&amp;#39;l"><code class="language-she&amp;#39;l&amp;#39;l">git config --global user.name "你的用户名"git config --global user.email "你的邮箱"</code></pre><h3 id="创建版本库（-git目录）"><a href="#创建版本库（-git目录）" class="headerlink" title="创建版本库（.git目录）"></a>创建版本库（.git目录）</h3><pre class=" language-she&amp;#39;l&amp;#39;l"><code class="language-she&amp;#39;l&amp;#39;l">git init  </code></pre><p>本地空仓库的创建需要在空目录下</p><pre class=" language-she&amp;#39;l&amp;#39;l"><code class="language-she&amp;#39;l&amp;#39;l">mkdir gitspace  # 创建空目录cd gitspace  # 进入空仓库git init # 完成初始化</code></pre><h3 id="添加文件到git仓库"><a href="#添加文件到git仓库" class="headerlink" title="添加文件到git仓库"></a>添加文件到git仓库</h3><pre class=" language-she&amp;#39;l&amp;#39;l"><code class="language-she&amp;#39;l&amp;#39;l">git add <FileName>  # 将文件放入暂存区，可反复使用，同时添加多个文件git commit -m <message>  # 将文件添加到版本库（暂存区——>当前分支）</code></pre><h3 id="查看仓库状态"><a href="#查看仓库状态" class="headerlink" title="查看仓库状态"></a>查看仓库状态</h3><pre class=" language-shell"><code class="language-shell">git diff <></code></pre><h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><pre class=" language-shell"><code class="language-shell">git log  # 查看历史提交记录（git log --pretty=online,日志单独成行），HEAD（当前版本）git reset --hard HAED^ # 回退一个版本 HEAD^^(两个版本)git reflog  # 查看历史的每一次命令</code></pre><h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><pre class=" language-shell"><code class="language-shell">git check --<filename>  # 撤销修改rm <filename>  # 删除文件</code></pre><h3 id="将本地库内容推送到远程库"><a href="#将本地库内容推送到远程库" class="headerlink" title="将本地库内容推送到远程库"></a>将本地库内容推送到远程库</h3><pre class=" language-shell"><code class="language-shell">git push -u origin master  # 第一次推送git push origin master # 提交后，推送本地的最新修改</code></pre><h3 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h3><pre class=" language-shell"><code class="language-shell">git clone <网址></code></pre><h3 id="操作分支"><a href="#操作分支" class="headerlink" title="操作分支"></a>操作分支</h3><pre class=" language-shell"><code class="language-shell">git branch  # 查看分支（git branch -a查看所有分支）git branch <name>  # 创建分支git checkout <name>  # 切换分支（git checkout -b <name>创建且切换分支）git merge <name>  # 合并指定分支到当前分支 git branch -d <name>  # 删除分支git branch -D <name>  # 强制删除git log --graph --pretty=oneline --abbrev-commit  #  查看分支合并情况</code></pre><h3 id="查看远程库信息"><a href="#查看远程库信息" class="headerlink" title="查看远程库信息"></a>查看远程库信息</h3><pre class=" language-shell"><code class="language-shell">git remote (-v)  # 查看远程库信息</code></pre><h3 id="抓取分支"><a href="#抓取分支" class="headerlink" title="抓取分支"></a>抓取分支</h3><pre class=" language-shell"><code class="language-shell">git pull origin  # 抓取分支（默认克隆master）</code></pre><p>远程仓库默认名：origin</p><h3 id="操作标签"><a href="#操作标签" class="headerlink" title="操作标签"></a>操作标签</h3><pre class=" language-she&amp;#39;l"><code class="language-she&amp;#39;l">git tag <tagname>  # 创建标签git tag  # 查看所有标签git show <tagname>  # 查看所有标签信息git push origin <tagname>  # 推送一个本地标签到远程库git push origin --tags  # 推送全部未推送的本地标签到远程库git push origin <tagname>  # 推送指定标签到远程库git tag -d <tagname>  # 删除一个本地标签git push origin：refs/tags  # 删除远程标签git push origin --delete <tagname>  # 删除远程标签</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> 工具篇 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> git </tag>
             
         </tags>
       
