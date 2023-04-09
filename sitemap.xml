@@ -360,6 +360,13 @@
   </url>
   
   <url>
+    <loc>http://bkystop.github.io/tags/PHP/</loc>
+    <lastmod>2023-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://bkystop.github.io/tags/Python%E7%88%AC%E8%99%AB/</loc>
     <lastmod>2023-04-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -396,13 +403,6 @@
   
   <url>
     <loc>http://bkystop.github.io/tags/hexo/</loc>
-    <lastmod>2023-04-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://bkystop.github.io/tags/PHP/</loc>
     <lastmod>2023-04-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
