@@ -1,0 +1,210 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>vim指令详解 | bkysの客栈</title><meta name="author" content="bkys"><meta name="copyright" content="bkys"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="vim模式及命令vim的四种模式 正常模式(normal-mode):不能对文本直接编辑，可使用快捷键进行增删改查（打开后的默认模式） 插入模式(insert-mode):可直接对文本进行编辑（普通模式下输入i进入输入模式） 命令模式(command-mode):在末行输入命令进行操作 可视模式(visual-mode)  对于初学者，安装后建议运行vimtutor进入官方文档，如果是不是中文可运">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim指令详解">
+<meta property="og:url" content="http://bkystop.github.io/2022/03/15/vim%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="bkysの客栈">
+<meta property="og:description" content="vim模式及命令vim的四种模式 正常模式(normal-mode):不能对文本直接编辑，可使用快捷键进行增删改查（打开后的默认模式） 插入模式(insert-mode):可直接对文本进行编辑（普通模式下输入i进入输入模式） 命令模式(command-mode):在末行输入命令进行操作 可视模式(visual-mode)  对于初学者，安装后建议运行vimtutor进入官方文档，如果是不是中文可运">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://th.bing.com/th/id/OIP.NSo9kAyFIGRbqWqnOI7GCAHaGI?w=217&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+<meta property="article:published_time" content="2022-03-15T05:54:17.000Z">
+<meta property="article:modified_time" content="2023-04-09T09:11:04.115Z">
+<meta property="article:author" content="bkys">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="vim">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://th.bing.com/th/id/OIP.NSo9kAyFIGRbqWqnOI7GCAHaGI?w=217&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"><link rel="shortcut icon" href="https://th.bing.com/th/id/OIP.GKw_Efoi-Jsf_OzGf3BSDwHaEd?w=269&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"><link rel="canonical" href="http://bkystop.github.io/2022/03/15/vim%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'vim指令详解',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-09 17:11:04'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="bkysの客栈" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://th.bing.com/th/id/OIP.GKw_Efoi-Jsf_OzGf3BSDwHaEd?w=269&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时光机</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://th.bing.com/th/id/OIP.NSo9kAyFIGRbqWqnOI7GCAHaGI?w=217&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7')"><nav id="nav"><span id="blog-info"><a href="/" title="bkysの客栈"><span class="site-name">bkysの客栈</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时光机</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">vim指令详解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-03-15T05:54:17.000Z" title="Created 2022-03-15 13:54:17">2022-03-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-04-09T09:11:04.115Z" title="Updated 2023-04-09 17:11:04">2023-04-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux%E7%AF%87/">Linux篇</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="vim指令详解"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="vim模式及命令"><a href="#vim模式及命令" class="headerlink" title="vim模式及命令"></a>vim模式及命令</h1><h2 id="vim的四种模式"><a href="#vim的四种模式" class="headerlink" title="vim的四种模式"></a>vim的四种模式</h2><ul>
+<li>正常模式(normal-mode):不能对文本直接编辑，可使用快捷键进行增删改查（打开后的默认模式）</li>
+<li>插入模式(insert-mode):可直接对文本进行编辑（普通模式下输入i进入输入模式）</li>
+<li>命令模式(command-mode):在末行输入命令进行操作</li>
+<li>可视模式(visual-mode)</li>
+</ul>
+<p><strong>对于初学者，安装后建议运行<code>vimtutor</code>进入官方文档，如果是不是中文可运行<code>vimtuor zh</code>,先根据文档进行练习</strong></p>
+<h2 id="vim四种模式的切换"><a href="#vim四种模式的切换" class="headerlink" title="vim四种模式的切换"></a>vim四种模式的切换</h2><ul>
+<li><p>普通模式<br>在任何模式下，只要按下 Esc 键就可以返回普通模式。</p>
+</li>
+<li><p>普通模式进入插入模式（插入模式则类似于记事本）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">i # 在光标所在字符前开始输入文字并进入插入模式</span><br><span class="line">a # 在光标所在字符后开始输入文字并进入插入模式</span><br><span class="line">o # 在光标所在行的下面单独开一新行来输入文字并进入插入模式</span><br><span class="line">s # 删除光标所在的字符并进入插入模式</span><br><span class="line">I # 在行首开始输入文字并进入插入模式</span><br><span class="line">A # 在行尾开始输入文字并进入插入模式</span><br><span class="line">O # 在光标所在行的上面单独开一新行来输入文字并进入插入模式。</span><br><span class="line">S # 删除光标所在行并进入插入模式</span><br><span class="line">c[n]w # 改写光标后1(n)个词。</span><br><span class="line">c[n]l # 改写光标后n个字母。</span><br><span class="line">c[n]h # 改写光标前n个字母。</span><br><span class="line">[n]cc # 修改当前[n]行。</span><br><span class="line">[n]s  # 以输入的文本替代光标之后1(n)个字符，相当于c[n]l。</span><br><span class="line">[n]S  # 删除指定数目的行，并以所输入文本代替之。</span><br></pre></td></tr></table></figure></li>
+<li><p>进入可视模式（可视模式相当于高亮选取文本后的普通模式)</p>
+<ul>
+<li>普通模式 按键 v 进入Vim字符选择可视化模式</li>
+<li>普通模式Ctrl + v进入块选择模式<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vis # 选中一个句子</span><br><span class="line">vib # 选中一个block</span><br><span class="line">viw # 选中一个单词</span><br><span class="line">vip # 选中一个段落</span><br><span class="line">va&#123; # 选中&#123;&#125;中间内容，包括&#123;&#125;</span><br><span class="line">vi( # 选中()中间内容</span><br><span class="line">vi&#123; # 选中&#123;&#125;中间的内容,不包括&#123;&#125;</span><br><span class="line">vi&lt; # 选中&lt;&gt;中间内容</span><br><span class="line">vi[ # 选中[]中间内容</span><br><span class="line">vi” # 选中”&quot;中间内容</span><br><span class="line">vi’ # 选中”中间的内容</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>命令模式</p>
+<ul>
+<li>正常模式输入:进入命令模式<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">:q  # 离开vim</span><br><span class="line">:q! # 退出不保存</span><br><span class="line">:wq # 保存后退出</span><br><span class="line">:w  # 保存编辑的内容</span><br><span class="line">:w! # 强制写入该文件</span><br></pre></td></tr></table></figure>
+<h2 id="操作文件"><a href="#操作文件" class="headerlink" title="操作文件"></a>操作文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim filename  # 用vim打开指定文件夹</span><br><span class="line">vim -r filename  # 恢复上次异常退出的文件</span><br><span class="line">vim -R filename  # 以只读的方式打开文件，但可以强制保存</span><br><span class="line">vim -M file      # 以只读的方式打开文件，不可以强制保存</span><br></pre></td></tr></table></figure>
+<h2 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h2></li>
+</ul>
+</li>
+<li><p>可配合number使用，3j (下移三行)，3w（后移三个单词）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">h或退格   # 左移一个字符；</span><br><span class="line">l或空格   # 右移一个字符；</span><br><span class="line">j        # 下移一行；</span><br><span class="line">k: 		 # 上移一行；</span><br><span class="line">- 		 # 把光标移至上一行第一个非空白字符。</span><br><span class="line">w/W  	 # 移动到下一个word/WORD的开头（WORD表示不包含单词相邻的标点）</span><br><span class="line">e/E      # 移动到下一个word/WORD的结尾		</span><br><span class="line">b/B      # 回到上一个word/WORD的开头</span><br><span class="line">ge/gE    # 回到上一个word/WORD的开头</span><br><span class="line">(		 # 前移1句。</span><br><span class="line">) 		 # 后移1句。</span><br><span class="line">&#123; 		 # 前移1段。</span><br><span class="line">&#125; 		 # 后移1段。</span><br><span class="line">fc       # 把光标移到同一行的下一个c字符处</span><br><span class="line">Fc       # 把光标移到同一行的上一个c字符处</span><br><span class="line">tc       # 把光标移到同一行的下一个c字符前</span><br><span class="line">Tc       # 把光标移到同一行的上一个c字符后</span><br></pre></td></tr></table></figure></li>
+<li><p>不可配合number使用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">0 # 移动当前行开头</span><br><span class="line">^ # 移动到当前行第一个非空白字符</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="comment"># 移动到当前行行尾</span></span></span><br><span class="line">g # 移动光标所在屏幕行行尾</span><br><span class="line">gg/G # 移动到文件开头/结尾: 把光标移到递n列上。</span><br><span class="line">nG   #到文件第n行</span><br><span class="line">:[n]&lt;cr&gt; # 移动到第n行&lt;cr&gt;为回车</span><br><span class="line">:$&lt;cr&gt; # 移动到最后一行。</span><br><span class="line">H # 把光标移到屏幕最顶端一行</span><br><span class="line">M # 把光标移到屏幕中间一行</span><br><span class="line">L # 把光标移到屏幕最底端一行</span><br><span class="line">gi # 快速回到上次编辑的地方</span><br><span class="line">zz   # 将当前行移动到屏幕中央</span><br><span class="line">zt   #将当前行移动到屏幕顶端</span><br><span class="line">zb   # 将当前行移动到屏幕底端</span><br><span class="line">m&#123;a-z&#125;  # 标记光标所在位置，局部标记，只用于当前文件</span><br><span class="line">m&#123;A-Z&#125;  # 标记光标所在位置，全局标记。标记之后，退出Vim， 重新启动，标记仍然有效。</span><br><span class="line">`&#123;a-z&#125;  # 移动到标记位置。</span><br><span class="line">‘&#123;a-z&#125;: # 移动到标记行的行首。</span><br><span class="line">:marks  # 显示所有标记。</span><br><span class="line">:delmarks a b # 删除标记a和b。</span><br><span class="line">:delmarks a-c # 删除标记a、b和c。</span><br><span class="line">:delmarks a c-f # 删除标记a、c、d、e、f。</span><br><span class="line">:delmarks! # 删除当前缓冲区的所有标记。</span><br></pre></td></tr></table></figure>
+<h2 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">yy/Y   # 复制当前行</span><br><span class="line">p    # 粘贴</span><br><span class="line">3yy  # 复制当前行向下的3行</span><br><span class="line">dd   # 删除</span><br><span class="line">3dd  # 删除当前行向下的5行</span><br><span class="line">y    # 复制在可视模式下选中的文本。</span><br><span class="line">[n]x #  剪切光标右边n个字符，相当于d[n]l。</span><br><span class="line">[n]X # 剪切光标左边n个字符，相当于d[n]h。</span><br><span class="line">y[n]w  # 复制n个词。</span><br><span class="line">y[n]l  # 复制光标右边n个字符。</span><br><span class="line">y[n]h  # 复制光标左边1(n)个字符。</span><br><span class="line">d[n]w  # 删除（剪切）1(n)个单词</span><br><span class="line">d[n]l  # 删除（剪切）光标右边n个字符。</span><br><span class="line">d[n]h  # 删除（剪切）光标左边n个字符。</span><br><span class="line">d0     # 删除（剪切）当前位置到行首的内容</span><br><span class="line">[n] dd # 删除（剪切）n行。</span><br><span class="line">:m,nd&lt;cr&gt; # 剪切m行到n行的内容。</span><br><span class="line">dgg    # 剪切光标以上的所有行。</span><br><span class="line">dG:    # 剪切光标以下的所有行。</span><br><span class="line">daw和das # 剪切一个词和剪切一个句子，即使光标不在词首和句首也没关系。</span><br><span class="line">p: 在光标之后粘贴。</span><br><span class="line">P: 在光标之前粘贴。</span><br></pre></td></tr></table></figure>
+<h2 id="查找替换"><a href="#查找替换" class="headerlink" title="查找替换"></a>查找替换</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/string # 在后面的文本中查找string</span><br><span class="line">?string # 在前面的文本中查找string</span><br><span class="line">n # 向后查找下一个</span><br><span class="line">N # 向前查找下一个</span><br><span class="line">:s/old/new  # 用new替换当前行第一个old</span><br><span class="line">:s/old/new/g # 用new替换当前行所有的old</span><br><span class="line">:n1,n2s/old/new/g # 用new替换文件n1行到n2行所有的old</span><br><span class="line">:%s/old/new/g # 用new替换文件中所有的old。</span><br><span class="line">:%s/^/xxx/g  # 在每一行的行首插入xxx，^表示行首</span><br><span class="line">:%s//xxx/g   # 在每一行的行尾插入xxx，表示行尾</span><br><span class="line">r # 替换光标处的字符，同样支持汉字。</span><br><span class="line">R # 进入替换模式（依次向后替换），按esc回到正常模式。</span><br></pre></td></tr></table></figure></li>
+<li><p>参数说明</p>
+<ul>
+<li>g 全局变量</li>
+<li>c每个替换都将需要用户确认（%s/old/new/gc）</li>
+<li>i则忽略大小写(ignore)</li>
+</ul>
+</li>
+</ul>
+<h2 id="分屏浏览"><a href="#分屏浏览" class="headerlink" title="分屏浏览"></a>分屏浏览</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">vim -o file1 file2 # 水平分割窗口，同时打开file1和file2</span><br><span class="line">vim -O file1 file2 # 垂直分割窗口，同时打开file1和file2</span><br><span class="line">:sp filename # 水平分割窗口打开文件夹</span><br><span class="line">:vs filename # 垂直分割窗口打开文件夹</span><br><span class="line">:nsp filename # 水平分割出一个n行高的窗口</span><br><span class="line">:nvs filename# 垂直分割出一个n行高的窗口</span><br><span class="line">:qa  # 关闭所有窗口，退出vim。</span><br><span class="line">:wa  # 保存所有修改过的窗口</span><br><span class="line">ctrl+w # 切换到下一个窗口。或者是ctrl+w w</span><br><span class="line">ctrl+w p #  切换到前一个窗口</span><br><span class="line">ctrl+w t(b) # 切换到最上（下）面的窗口。</span><br><span class="line">ctrl+w H(L,K,J) # 将当前窗口移动到最左（右、上、下）面</span><br><span class="line">ctrl+w T  # 将当前的窗口移动到新的标签页上。</span><br><span class="line">ctrl+w + # 当前窗口增高一行。也可以用n增高n行。</span><br><span class="line">ctrl+w - # 当前窗口减小一行。也可以用n减小n行。</span><br><span class="line">ctrl+w _  # 当前窗口扩展到尽可能的大。也可以用n设定行数。</span><br><span class="line">:resize n  # 当前窗口n行高。</span><br><span class="line">ctrl+w =   #  所有窗口同样高度。</span><br><span class="line">n ctrl+w _ # 当前窗口的高度设定为n行。</span><br><span class="line">ctrl+w &lt;  # 当前窗口减少一列。也可以用n减少n列。</span><br><span class="line">ctrl+w &gt;  # 当前窗口增宽一列。也可以用n增宽n列。</span><br><span class="line">ctrl+w |  # –当前窗口尽可能的宽。也可以用n设定列数。</span><br></pre></td></tr></table></figure>
+
+<h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">u # 撤销一次</span><br><span class="line">U # 取消当前行中所有的改动。</span><br><span class="line">[n]u: # 取消n个改动。</span><br><span class="line">:undo 5 # 撤销5个改变。</span><br><span class="line">:undolist # 你的撤销历史。</span><br><span class="line">:earlier 1m # 回到1分钟前</span><br><span class="line">:later 10s # 前进10秒</span><br></pre></td></tr></table></figure>
+
+<h2 id="宏"><a href="#宏" class="headerlink" title="宏"></a>宏</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.  #重复上一个编辑动作</span><br><span class="line">qa：# 开始录制宏a（键盘操作记录）</span><br><span class="line">q： # 停止录制</span><br><span class="line">@a：# 播放宏a</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://bkystop.github.io">bkys</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://bkystop.github.io/2022/03/15/vim%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/">http://bkystop.github.io/2022/03/15/vim%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a><a class="post-meta__tags" href="/tags/vim/">vim</a></div><div class="post_share"><div class="social-share" data-image="https://th.bing.com/th/id/OIP.NSo9kAyFIGRbqWqnOI7GCAHaGI?w=217&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/03/16/vim%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/" title="vim的基础配置及优化指南"><img class="cover" src="https://th.bing.com/th?id=OIP.79Ri31EyF9wcP0tPShtDWQHaE2&amp;w=308&amp;h=202&amp;c=8&amp;rs=1&amp;qlt=90&amp;o=6&amp;dpr=1.3&amp;pid=3.1&amp;rm=2" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">vim的基础配置及优化指南</div></div></a></div><div class="next-post pull-right"><a href="/2022/03/14/WindowsDOS%E5%91%BD%E4%BB%A4/" title="WindowsDOS命令"><img class="cover" src="https://th.bing.com/th/id/OIP.PbCk0kEvyqm9eB3TXt78IgHaE8?w=259&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">WindowsDOS命令</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/03/16/vim%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/" title="vim的基础配置及优化指南"><img class="cover" src="https://th.bing.com/th?id=OIP.79Ri31EyF9wcP0tPShtDWQHaE2&w=308&h=202&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-16</div><div class="title">vim的基础配置及优化指南</div></div></a></div><div><a href="/2022/10/30/Kali%E5%9F%BA%E7%A1%80/" title="Kail基础"><img class="cover" src="https://th.bing.com/th/id/OIP.cIZX4Hgdd732brACavOibwHaD4?w=304&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-30</div><div class="title">Kail基础</div></div></a></div><div><a href="/2022/11/02/Kali%E6%90%AD%E5%BB%BAvulhub%E9%9D%B6%E5%9C%BA/" title="Kail搭建vulhub靶场"><img class="cover" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.cfKoysdMdX_NB3fz1Wz2SgHaDN?w=313&h=151&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-02</div><div class="title">Kail搭建vulhub靶场</div></div></a></div><div><a href="/2022/04/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="计算机操作系统"><img class="cover" src="https://th.bing.com/th/id/OIP.HRwcSPyXCUjBpWLyE879KgHaFj?w=228&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-05</div><div class="title">计算机操作系统</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://th.bing.com/th/id/OIP.GKw_Efoi-Jsf_OzGf3BSDwHaEd?w=269&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">bkys</div><div class="author-info__description">135413545</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vim%E6%A8%A1%E5%BC%8F%E5%8F%8A%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">vim模式及命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vim%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text">vim的四种模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vim%E5%9B%9B%E7%A7%8D%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%88%87%E6%8D%A2"><span class="toc-number">1.2.</span> <span class="toc-text">vim四种模式的切换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">操作文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8"><span class="toc-number">1.4.</span> <span class="toc-text">移动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4"><span class="toc-number">1.5.</span> <span class="toc-text">复制粘贴</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E6%9B%BF%E6%8D%A2"><span class="toc-number">1.6.</span> <span class="toc-text">查找替换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B1%8F%E6%B5%8F%E8%A7%88"><span class="toc-number">1.7.</span> <span class="toc-text">分屏浏览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%92%A4%E9%94%80"><span class="toc-number">1.8.</span> <span class="toc-text">撤销</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8F"><span class="toc-number">1.9.</span> <span class="toc-text">宏</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/04/09/Python%E7%88%AC%E5%8F%96%E6%96%97%E5%9B%BE%E7%BD%91/" title="Python爬取斗图网"><img src="https://img.pkdoutu.com/production/uploads/image/2022/01/02/20220102105000_CLgSsy.gif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python爬取斗图网"/></a><div class="content"><a class="title" href="/2023/04/09/Python%E7%88%AC%E5%8F%96%E6%96%97%E5%9B%BE%E7%BD%91/" title="Python爬取斗图网">Python爬取斗图网</a><time datetime="2023-04-09T09:14:16.000Z" title="Created 2023-04-09 17:14:16">2023-04-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/22/%E5%B9%B6%E5%8F%91%E7%88%AC%E8%99%AB/" title="并发爬虫"><img src="https://th.bing.com/th/id/OIP.mZKd3EMSqRKvhInKb8hl-wHaEK?w=333&amp;h=187&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="并发爬虫"/></a><div class="content"><a class="title" href="/2023/03/22/%E5%B9%B6%E5%8F%91%E7%88%AC%E8%99%AB/" title="并发爬虫">并发爬虫</a><time datetime="2023-03-22T07:48:04.000Z" title="Created 2023-03-22 15:48:04">2023-03-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/17/MySQL%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" title="MySQL常用指令"><img src="https://tse4-mm.cn.bing.net/th/id/OIP-C.PreZo9daH5jaXIqu4iPxSgHaC9?w=317&amp;h=140&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL常用指令"/></a><div class="content"><a class="title" href="/2023/02/17/MySQL%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" title="MySQL常用指令">MySQL常用指令</a><time datetime="2023-02-17T11:57:39.000Z" title="Created 2023-02-17 19:57:39">2023-02-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/06/Python%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" title="Python爬虫基础"><img src="https://th.bing.com/th/id/OIP.zyNsZRAsDyvjlDQ4-I9tPQHaDt?w=311&amp;h=175&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python爬虫基础"/></a><div class="content"><a class="title" href="/2023/02/06/Python%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" title="Python爬虫基础">Python爬虫基础</a><time datetime="2023-02-06T06:23:42.000Z" title="Created 2023-02-06 14:23:42">2023-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/07/Windows%E6%90%AD%E5%BB%BADVWA%E9%9D%B6%E5%9C%BA/" title="Windows搭建DVWA靶场"><img src="https://tse4-mm.cn.bing.net/th/id/OIP-C.qhftMzTkUUJQwfVoGep5NQHaEK?w=295&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows搭建DVWA靶场"/></a><div class="content"><a class="title" href="/2022/11/07/Windows%E6%90%AD%E5%BB%BADVWA%E9%9D%B6%E5%9C%BA/" title="Windows搭建DVWA靶场">Windows搭建DVWA靶场</a><time datetime="2022-11-07T14:23:44.000Z" title="Created 2022-11-07 22:23:44">2022-11-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By bkys</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
