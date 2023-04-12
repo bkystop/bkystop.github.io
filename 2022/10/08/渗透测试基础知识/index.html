@@ -1,0 +1,351 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>渗透测试基础知识 | bkysの客栈</title><meta name="author" content="bkys"><meta name="copyright" content="bkys"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="渗透测试基础基础名词解释 肉鸡：傀儡机（可以随意被我们控制），被远程控制的机器。 木马：表面伪装成了正常程序，运行后，可以获取系统控制权限。（灰鸽子，黑洞） 网页木马：表面伪装成普通的网页文件，或者将自己的代码直接插入到正常的网页中去，网页被访问时，浏览器就会将木马自动下载。 一句话木马：一端很小的网页代码后门，对网站进行控制。一句话木马主要配合菜刀试用   菜刀：文件管理，虚拟终端，数据库管理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="渗透测试基础知识">
+<meta property="og:url" content="http://bkystop.github.io/2022/10/08/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:site_name" content="bkysの客栈">
+<meta property="og:description" content="渗透测试基础基础名词解释 肉鸡：傀儡机（可以随意被我们控制），被远程控制的机器。 木马：表面伪装成了正常程序，运行后，可以获取系统控制权限。（灰鸽子，黑洞） 网页木马：表面伪装成普通的网页文件，或者将自己的代码直接插入到正常的网页中去，网页被访问时，浏览器就会将木马自动下载。 一句话木马：一端很小的网页代码后门，对网站进行控制。一句话木马主要配合菜刀试用   菜刀：文件管理，虚拟终端，数据库管理">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://th.bing.com/th/id/OIP.gQnHgPzH31faBJK2y07JWQHaEo?w=302&h=188&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+<meta property="article:published_time" content="2022-10-08T14:21:33.000Z">
+<meta property="article:modified_time" content="2023-04-09T13:30:24.580Z">
+<meta property="article:author" content="bkys">
+<meta property="article:tag" content="Windows">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://th.bing.com/th/id/OIP.gQnHgPzH31faBJK2y07JWQHaEo?w=302&h=188&c=7&r=0&o=5&dpr=1.3&pid=1.7"><link rel="shortcut icon" href="https://th.bing.com/th/id/OIP.GKw_Efoi-Jsf_OzGf3BSDwHaEd?w=269&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"><link rel="canonical" href="http://bkystop.github.io/2022/10/08/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '渗透测试基础知识',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-09 21:30:24'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="bkysの客栈" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://th.bing.com/th/id/OIP.GKw_Efoi-Jsf_OzGf3BSDwHaEd?w=269&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时光机</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://th.bing.com/th/id/OIP.gQnHgPzH31faBJK2y07JWQHaEo?w=302&amp;h=188&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7')"><nav id="nav"><span id="blog-info"><a href="/" title="bkysの客栈"><span class="site-name">bkysの客栈</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时光机</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">渗透测试基础知识</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-10-08T14:21:33.000Z" title="发表于 2022-10-08 22:21:33">2022-10-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-09T13:30:24.580Z" title="更新于 2023-04-09 21:30:24">2023-04-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AE%89%E5%85%A8%E7%AF%87/">安全篇</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="渗透测试基础知识"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="基础名词解释"><a href="#基础名词解释" class="headerlink" title="基础名词解释"></a>基础名词解释</h3><ul>
+<li>肉鸡：傀儡机（可以随意被我们控制），被远程控制的机器。</li>
+<li>木马：表面伪装成了正常程序，运行后，可以获取系统控制权限。（灰鸽子，黑洞）<ul>
+<li>网页木马：表面伪装成普通的网页文件，或者将自己的代码直接插入到正常的网页中去，网页被访问时，浏览器就会将木马自动下载。</li>
+<li>一句话木马：一端很小的网页代码后门，对网站进行控制。一句话木马主要配合菜刀试用</li>
+</ul>
+</li>
+<li>菜刀：文件管理，虚拟终端，数据库管理 </li>
+<li>挂马：将木马放入网站文件，使浏览者中马。</li>
+<li>大马：功能强大的网页后门，能执行命令，操作文件，连接数据库。</li>
+<li>小马：功能比较单一的网页。上传保存文件，用小马上传大马。</li>
+<li>黑页：入侵者对网页进行改写，公布自己的存在。</li>
+<li>后门：成功攻击后，攻击者系统植入特定程序或修改某些配置，方便下次控制。</li>
+<li>拖库：从数据库中导出数据。</li>
+<li>社工库：黑客与大数据结合的产物，黑客将泄露的用户信息进行整合，集中归档。</li>
+<li>撞库：黑客通过手机互联网已经泄露的用户和密码信息，生成对应字典表，尝试批量登录其他网站，得到一系列账号密码。 </li>
+<li>提权：提升自己在服务器中的权限。</li>
+<li>网络钓鱼：利用欺骗性的电子邮件或者web站点来进行诈骗，受骗者就会泄露自己的个人信息，账号密码。</li>
+<li>社会工程学攻击：一种通过对被攻击者心理弱点，好奇心，信任，贪婪等心理陷阱所采取的诈骗。将人性弱点与黑客攻击进行结合。</li>
+<li>rootkit：攻击者隐藏自己行踪，保留root权限的工具。达到长久控制的目的。</li>
+<li>IPS$：共享“命令管道”的资源。</li>
+<li>弱口令：强度不够，容易被猜解的密码。</li>
+<li>shell：命令行运行环境。</li>
+<li>webshell：以asp，php，jsp或cgi等网页文件形式存在的一个命令行运行环境，也可以称作为网页后门。</li>
+<li>溢出：缓冲区溢出。程序对接受的输入数据没有执行有效的检测而导致错误，造成程序崩溃或者执行攻击者的命令。</li>
+<li>注入：用户可以提交一段数据库查询代码，根据程序返回的结果，可以得知一些想要的数据。 </li>
+<li>注入点：可以实行注入的地方，通常是一个访问数据库的连接。注入点运行用户的权限不同，获得的权限也不同。</li>
+<li>旁站入侵：同一个服务器有多个站点，通过其中一个站点访问其他站点。</li>
+<li>C段入侵：从一个网段拿下一个服务器，通过这台服务器嗅探目标服务器上传输的数据。</li>
+<li>内网：局域网。</li>
+<li>外网：互联网。</li>
+<li>端口：一种数据传输的通道。</li>
+<li>免杀：通过各种方式（加壳，加密，修改特征码，加花指令）绕过杀毒软件拦截<ul>
+<li>加壳：利用特殊的算法，将exe可执行程序或dll动态连接数据库文件的编码进行改变（压缩，加密等），达到缩小文件体积或者加密程序编码，甚至躲过杀毒软件查杀。</li>
+<li>花指令：几句汇编指令，让汇编语句进行一些跳转，使杀毒软件不能正常的判断病毒文件的构造。</li>
+</ul>
+</li>
+<li>TCP/IP：网络通信协议，规范了网络上所有的通信设备。（主机之间数据来往的格式和传送方式，数据打包和寻址的标准方法）</li>
+<li>路由器：路由选择，将ip数据包正确的送到目的地。</li>
+<li>蜜罐：情报收集系统。故意让人攻击，引诱黑客来攻击，了解其攻击方法，所用工具，掌握其社交网络。</li>
+<li>DOS：拒绝服务攻击，目的是是计算机或网络无法正常服务。</li>
+<li>cc攻击：攻击者借助代理服务器生成指向受害主机的合法请求，实现DDOS和伪装。</li>
+<li>脚本注入攻击：把sql命令插入到web表单的输入域或者页面请求的查询字符串，欺骗服务器。</li>
+<li>加密技术：利用技术手段将数据变为乱码传送（加密），到达目的地后再用技术手段还原（解密）。</li>
+<li>欺骗攻击：IP欺骗,ARP欺骗,DNS欺骗,WEB欺骗，电子邮件欺骗，路由欺骗（通过指定路由器，以假冒身份与其他主机进行合法通信或发送假报文，是攻击主机出现错误动作），地址欺骗。</li>
+<li>嗅探：嗅探计算机网络的共享通讯隧道，共享以为着计算机能够接受到发送给其他计算机的信息，捕获在网络中传输的数据信息就称为嗅探。</li>
+<li>跳板：一个具有辅助作用的及其，利用这个主机作为一个间接工具，控制其他主机，一般和肉鸡连用。</li>
+<li>RARP反向地址解析协议：将硬件地址映射到网络地址</li>
+<li>UDP用户数据报协议：无连接的传输层协议，提供面向事务的简单不可靠信息传输服务。</li>
+<li>TCP协议：面向连接的，可靠的，基于字节流的传输层通信协议。</li>
+<li>FTP文件传输协议：用于文件的增删改查。</li>
+<li>SMTP简单邮件传输协议：传输电子邮件</li>
+<li>TELNET终端协议：允许用户以终端方式远程访问主机。</li>
+<li>HTTP超文本传输协议：简单的请求-响应协议，通常允许在TCP上。</li>
+<li>HTTPS安全超文本传输协议：通过在安全套接字层（SSL）协议上允许http来将安全添加到万维网中。</li>
+<li>TFTP：简单文件传输协议。</li>
+<li>ICMP（inter控制消息协议）：用于在ip，主机，路由器之间传输控制消息。（ping）</li>
+<li>DNS协议：将域名转换成IP地址的一种协议，也可以将ip地址转换成域名的一种协议。（nslookup）</li>
+<li>EXP/Exploit：漏洞利用代码，允许之后对目标进行攻击。</li>
+<li>POC/proof of Concept：漏洞验证代码，检测目标是否存在对应漏洞。</li>
+<li>Payload：成功允许EXP后，真正在目标系统执行的命令或代码。</li>
+<li>Shellcode：建立正向/反向shell而得名。</li>
+<li>Lan：局域网</li>
+<li>Peoxy：代理。一类程序或系统，接受来自客户机的浏览，并代表客户与服务器交互。代理能用于过滤应用级别的指定类型的浏览或缓存信息以提高性能。（过滤防火墙）</li>
+<li>CMS：内容管理系统。</li>
+<li>cve：漏洞披露。</li>
+<li>CNVD：国家信息安全漏洞共享平台。</li>
+<li>0day：负责应用程序的程序员或供应商所未知的软件缺陷。漏洞未知，没有可用的补丁程序。</li>
+<li>1day：刚发布，但已被官方发布补丁网络但还大量存在。</li>
+<li>Nday：已经被公布的0day。</li>
+<li>APT攻击：高级可持续攻击。</li>
+<li>渗透测试：黑盒测试，白盒测试，灰盒测试。</li>
+</ul>
+<h3 id="windows常用cmd命令"><a href="#windows常用cmd命令" class="headerlink" title="windows常用cmd命令"></a>windows常用cmd命令</h3><ul>
+<li>echo </li>
+<li>dir</li>
+<li>d: 和 cd</li>
+<li>tree</li>
+<li>md 创建目录 </li>
+<li>rd 删除目录</li>
+<li>ipconfig</li>
+<li>cls</li>
+<li>copy 复制、拼接文件</li>
+<li>move移动文件</li>
+<li>ren重命名</li>
+<li>del删除文件</li>
+<li>ping</li>
+<li>type显示文本文件的内容</li>
+<li>reg</li>
+</ul>
+<h3 id="linux目录"><a href="#linux目录" class="headerlink" title="linux目录"></a>linux目录</h3><ul>
+<li>/bin 二进制可执行命令</li>
+<li>/etc 系统管理和配置文件</li>
+<li>/etc/rc.d 启动的配置文件和脚本</li>
+<li>/home 用户主目录的基点/lib 标准程序设计库，又叫动态链接共享库</li>
+<li>/sbin 超级管理命令，这里存放的是系统管理员使用的管理程序</li>
+<li>/tmp 公共的临时文件存储点</li>
+<li>/root 系统管理员的主目录</li>
+<li>/mnt 系统提供这个目录是让用户临时挂载其他的文件系统</li>
+<li>/lost+found这个目录平时是空的，系统非正常关机而留下“无家可归”的文件就在这里</li>
+<li>/proc 虚拟的目录，是系统内存的映射。可直接访问这个目录来获取系统信息。</li>
+<li>/var 某些大文件的溢出区，比方说各种服务的日志文件</li>
+<li>/usr 最庞大的目录，要用到的应用程序和文件几乎都在这个目录</li>
+<li>/usr/bin 众多的应用程序/usr/sbin 超级用户的一些管理程序</li>
+</ul>
+<h3 id="网络基础"><a href="#网络基础" class="headerlink" title="网络基础"></a>网络基础</h3><ul>
+<li><p>url</p>
+<p>协议://域名:端口/虚拟目录/文件名?参数#锚点</p>
+</li>
+<li><p>http协议</p>
+<p>HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。</p>
+</li>
+<li><p>http协议请求方法</p>
+<p>GET：向指定资源发出显示请求</p>
+<p>HEAD：和GET一样，但是不传回所有资源内容</p>
+<p>POST：向指定资源提交数据，数据被包含在请求中</p>
+<p>PUT：向指定位置上传</p>
+<p>DELETE：删除所标识的资源</p>
+<p>OPTIONS：这个方法可使服务器传回该资源所支持的所有</p>
+<p>HTTP请求方法。用’*’来代替资源名称，向Web服务器发送OPTIONS请求，可以测试服务器功能是否正常运作</p>
+</li>
+<li><p>请求信息</p>
+<p>请求信息发出的请求信息（message request）包括</p>
+<p>请求行（例如GET /images/logo.gif HTTP/1.1，表示从/images目录下请求logo.gif这个文件）</p>
+<p>请求头（例如Accept-Language: en）</p>
+<p>空行</p>
+<p>其他消息体</p>
+</li>
+<li><p>合同谈判协议状态码</p>
+<p>1xx：指示信息–表示请求已接收，继续处理</p>
+<p>2xx：成功–表示请求已被成功接收、理解、接受</p>
+<p>3xx：重定向–要完成请求必须进行更进一步的操作</p>
+<p>4xx：客户端错误–请求有语法错误或请求无法实现</p>
+<p>5xx：服务器端错误–服务器未能实现合法的请求</p>
+<p>200 OK //客户端请求成功</p>
+<p>400 Bad Request //客户端请求有语法错误，不能被服务器所理解 </p>
+<p>401 Unauthorized //请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用 </p>
+<p>403 Forbidden //服务器收到请求，但是拒绝提供服务</p>
+<p> 404 Not Found //请求资源不存在，eg：输入了错误的URL </p>
+<p>500 Internal Server Error //服务器发生不可预期的错误</p>
+<p>503 Server Unavailable //服务器当前不能处理客户端的请求，一段时间后可能恢复正常</p>
+</li>
+</ul>
+<h2 id="渗透测试流程"><a href="#渗透测试流程" class="headerlink" title="渗透测试流程"></a>渗透测试流程</h2><h4 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h4><ol>
+<li>域名信息whois（社工，弱口令）</li>
+<li>ip，端口（nmap，msf）</li>
+<li>找后台（弱口令）</li>
+<li>子域名（旁站）</li>
+<li>web服务器指纹（寻找相应漏洞）</li>
+<li>信息泄露（phpinfo，物理路径 ）</li>
+</ol>
+<h4 id="漏洞挖掘"><a href="#漏洞挖掘" class="headerlink" title="漏洞挖掘"></a>漏洞挖掘</h4><p>Web应用层面</p>
+<ul>
+<li>文件包含</li>
+<li>文件上传</li>
+<li>文件下载</li>
+<li>sql下载</li>
+<li>xss</li>
+<li>csrf</li>
+<li>越权</li>
+<li>弱口令</li>
+<li>逻辑漏洞</li>
+</ul>
+<p>服务器</p>
+<ul>
+<li>弱口令</li>
+<li>shift后门</li>
+<li>msf </li>
+</ul>
+<h4 id="权限提升"><a href="#权限提升" class="headerlink" title="权限提升"></a>权限提升</h4><h4 id="权限维持"><a href="#权限维持" class="headerlink" title="权限维持"></a>权限维持</h4><ul>
+<li>隐蔽杀软，周期查看，免杀，多种留后门</li>
+</ul>
+<h4 id="日志清扫"><a href="#日志清扫" class="headerlink" title="日志清扫"></a>日志清扫</h4><ul>
+<li>严谨，伪装隐藏，避免机警</li>
+</ul>
+<h3 id="常见端口"><a href="#常见端口" class="headerlink" title="常见端口"></a>常见端口</h3><ul>
+<li>21 ftp</li>
+<li>23 telnet</li>
+<li>80 web</li>
+<li>445 SMB</li>
+<li>1433 MSSQL</li>
+<li>3306 MYSQL</li>
+<li>3389 远程桌面</li>
+<li>8080 tomcat</li>
+<li>8888 宝塔</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://bkystop.github.io">bkys</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://bkystop.github.io/2022/10/08/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">http://bkystop.github.io/2022/10/08/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://bkystop.github.io" target="_blank">bkysの客栈</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Windows/">Windows</a></div><div class="post_share"><div class="social-share" data-image="https://th.bing.com/th/id/OIP.gQnHgPzH31faBJK2y07JWQHaEo?w=302&amp;h=188&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/10/30/Kali%E5%9F%BA%E7%A1%80/" title="Kail基础"><img class="cover" src="https://th.bing.com/th/id/OIP.cIZX4Hgdd732brACavOibwHaD4?w=304&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Kail基础</div></div></a></div><div class="next-post pull-right"><a href="/2022/09/30/Centos-uwsgi%E9%83%A8%E7%BD%B2Django/" title="Centos+uwsgi部署Django"><img class="cover" src="https://th.bing.com/th/id/OIP.eU9l8EivPMv-Kqk4QrrUbgHaEo?w=311&amp;h=194&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Centos+uwsgi部署Django</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/03/14/WindowsDOS%E5%91%BD%E4%BB%A4/" title="WindowsDOS命令"><img class="cover" src="https://th.bing.com/th/id/OIP.PbCk0kEvyqm9eB3TXt78IgHaE8?w=259&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-14</div><div class="title">WindowsDOS命令</div></div></a></div><div><a href="/2022/11/07/Windows%E6%90%AD%E5%BB%BADVWA%E9%9D%B6%E5%9C%BA/" title="Windows搭建DVWA靶场"><img class="cover" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.qhftMzTkUUJQwfVoGep5NQHaEK?w=295&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-07</div><div class="title">Windows搭建DVWA靶场</div></div></a></div><div><a href="/2022/04/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="计算机操作系统"><img class="cover" src="https://th.bing.com/th/id/OIP.HRwcSPyXCUjBpWLyE879KgHaFj?w=228&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-05</div><div class="title">计算机操作系统</div></div></a></div><div><a href="/2022/04/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="计算机网络"><img class="cover" src="https://th.bing.com/th/id/OIP.s7FvLeRVCOwQhn--s2XlwQHaHa?w=185&h=185&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-05</div><div class="title">计算机网络</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://th.bing.com/th/id/OIP.GKw_Efoi-Jsf_OzGf3BSDwHaEd?w=269&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">bkys</div><div class="author-info__description">正时年少轻狂时，人不风流枉少年。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">本站仅做技术分享,如果有侵犯您权利的资源,请告知(QQ：1464637595),站长将尽快作出处理。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95"><span class="toc-number">1.</span> <span class="toc-text">渗透测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.</span> <span class="toc-text">基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A"><span class="toc-number">1.1.1.</span> <span class="toc-text">基础名词解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#windows%E5%B8%B8%E7%94%A8cmd%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.2.</span> <span class="toc-text">windows常用cmd命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linux%E7%9B%AE%E5%BD%95"><span class="toc-number">1.1.3.</span> <span class="toc-text">linux目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.4.</span> <span class="toc-text">网络基础</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">渗透测试流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">信息搜集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">漏洞挖掘</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">权限提升</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81"><span class="toc-number">1.2.0.4.</span> <span class="toc-text">权限维持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E6%B8%85%E6%89%AB"><span class="toc-number">1.2.0.5.</span> <span class="toc-text">日志清扫</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%AB%AF%E5%8F%A3"><span class="toc-number">1.2.1.</span> <span class="toc-text">常见端口</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/04/09/Python%E7%88%AC%E5%8F%96%E6%96%97%E5%9B%BE%E7%BD%91/" title="Python爬取斗图网"><img src="https://img.pkdoutu.com/production/uploads/image/2022/01/02/20220102105000_CLgSsy.gif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python爬取斗图网"/></a><div class="content"><a class="title" href="/2023/04/09/Python%E7%88%AC%E5%8F%96%E6%96%97%E5%9B%BE%E7%BD%91/" title="Python爬取斗图网">Python爬取斗图网</a><time datetime="2023-04-09T09:14:16.000Z" title="发表于 2023-04-09 17:14:16">2023-04-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/28/Ubuntu-Gunicorn%E9%83%A8%E7%BD%B2Django/" title="Ubuntu+Gunicorn部署Django"><img src="https://th.bing.com/th/id/OIP.zuaJqiH4N0ojJF_B6KRpdwHaDt?w=299&amp;h=175&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Ubuntu+Gunicorn部署Django"/></a><div class="content"><a class="title" href="/2023/03/28/Ubuntu-Gunicorn%E9%83%A8%E7%BD%B2Django/" title="Ubuntu+Gunicorn部署Django">Ubuntu+Gunicorn部署Django</a><time datetime="2023-03-28T09:55:52.000Z" title="发表于 2023-03-28 17:55:52">2023-03-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/22/%E5%B9%B6%E5%8F%91%E7%88%AC%E8%99%AB/" title="并发爬虫"><img src="https://th.bing.com/th/id/OIP.mZKd3EMSqRKvhInKb8hl-wHaEK?w=333&amp;h=187&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="并发爬虫"/></a><div class="content"><a class="title" href="/2023/03/22/%E5%B9%B6%E5%8F%91%E7%88%AC%E8%99%AB/" title="并发爬虫">并发爬虫</a><time datetime="2023-03-22T07:48:04.000Z" title="发表于 2023-03-22 15:48:04">2023-03-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/17/MySQL%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" title="MySQL常用指令"><img src="https://tse4-mm.cn.bing.net/th/id/OIP-C.PreZo9daH5jaXIqu4iPxSgHaC9?w=317&amp;h=140&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL常用指令"/></a><div class="content"><a class="title" href="/2023/02/17/MySQL%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" title="MySQL常用指令">MySQL常用指令</a><time datetime="2023-02-17T11:57:39.000Z" title="发表于 2023-02-17 19:57:39">2023-02-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/06/Python%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" title="Python爬虫基础"><img src="https://th.bing.com/th/id/OIP.zyNsZRAsDyvjlDQ4-I9tPQHaDt?w=311&amp;h=175&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python爬虫基础"/></a><div class="content"><a class="title" href="/2023/02/06/Python%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" title="Python爬虫基础">Python爬虫基础</a><time datetime="2023-02-06T06:23:42.000Z" title="发表于 2023-02-06 14:23:42">2023-02-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By bkys</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

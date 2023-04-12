@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>vim的基础配置及优化指南 | bkysの客栈</title><meta name="author" content="bkys"><meta name="copyright" content="bkys"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="vim为什么要使用vim什么是vimvi编辑器是Linux系统下的标准（文本）编辑器（windows中的notepad），vim可以看作是vi的升级版。vi用于文本编辑，vim更适用于coding vim的优点 vim的优点在于它可以在不用鼠标的情况下进行高效的文本编辑，这需要在一定数量的练习后形成肌肉记忆。 在vim的插件下，可以支持多种语言环境。 vim不挑食，它可以适应恶略的硬件环境，也可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim的基础配置及优化指南">
+<meta property="og:url" content="http://bkystop.github.io/2022/03/16/vim%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="bkysの客栈">
+<meta property="og:description" content="vim为什么要使用vim什么是vimvi编辑器是Linux系统下的标准（文本）编辑器（windows中的notepad），vim可以看作是vi的升级版。vi用于文本编辑，vim更适用于coding vim的优点 vim的优点在于它可以在不用鼠标的情况下进行高效的文本编辑，这需要在一定数量的练习后形成肌肉记忆。 在vim的插件下，可以支持多种语言环境。 vim不挑食，它可以适应恶略的硬件环境，也可以">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://th.bing.com/th?id=OIP.79Ri31EyF9wcP0tPShtDWQHaE2&w=308&h=202&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2">
+<meta property="article:published_time" content="2022-03-16T06:08:23.000Z">
+<meta property="article:modified_time" content="2023-04-09T09:10:53.604Z">
+<meta property="article:author" content="bkys">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="vim">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://th.bing.com/th?id=OIP.79Ri31EyF9wcP0tPShtDWQHaE2&w=308&h=202&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"><link rel="shortcut icon" href="https://th.bing.com/th/id/OIP.GKw_Efoi-Jsf_OzGf3BSDwHaEd?w=269&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"><link rel="canonical" href="http://bkystop.github.io/2022/03/16/vim%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'vim的基础配置及优化指南',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-09 17:10:53'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="bkysの客栈" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://th.bing.com/th/id/OIP.GKw_Efoi-Jsf_OzGf3BSDwHaEd?w=269&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时光机</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://th.bing.com/th?id=OIP.79Ri31EyF9wcP0tPShtDWQHaE2&amp;w=308&amp;h=202&amp;c=8&amp;rs=1&amp;qlt=90&amp;o=6&amp;dpr=1.3&amp;pid=3.1&amp;rm=2')"><nav id="nav"><span id="blog-info"><a href="/" title="bkysの客栈"><span class="site-name">bkysの客栈</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时光机</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">vim的基础配置及优化指南</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-16T06:08:23.000Z" title="发表于 2022-03-16 14:08:23">2022-03-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-09T09:10:53.604Z" title="更新于 2023-04-09 17:10:53">2023-04-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux%E7%AF%87/">Linux篇</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="vim的基础配置及优化指南"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h1><h2 id="为什么要使用vim"><a href="#为什么要使用vim" class="headerlink" title="为什么要使用vim"></a>为什么要使用vim</h2><h3 id="什么是vim"><a href="#什么是vim" class="headerlink" title="什么是vim"></a>什么是vim</h3><p>vi编辑器是Linux系统下的标准（文本）编辑器（windows中的notepad），vim可以看作是vi的升级版。vi用于文本编辑，vim更适用于coding</p>
+<h3 id="vim的优点"><a href="#vim的优点" class="headerlink" title="vim的优点"></a>vim的优点</h3><ul>
+<li>vim的优点在于它可以在不用鼠标的情况下进行高效的文本编辑，这需要在一定数量的练习后形成肌肉记忆。</li>
+<li>在vim的插件下，可以支持多种语言环境。</li>
+<li>vim不挑食，它可以适应恶略的硬件环境，也可以定制自己专属的vim界面。</li>
+<li>vimscript文本语言的使用<h3 id="我对vim的看法"><a href="#我对vim的看法" class="headerlink" title="我对vim的看法"></a>我对vim的看法</h3>对于我来说，使用vim的初衷也许只是懒得使用鼠标，且vim的界面看起来更加极客吧，它可以使你看起来像一个hacker。现代的编辑器也都非常好，开箱既食，相反，vim最开始会将你折磨的很痛苦，但一旦驯服了vim，你就会享受到极致的自由，那种指尖飞舞的快乐，这适用于每一个热爱折腾，喜欢个性的人。<h2 id="vim的安装"><a href="#vim的安装" class="headerlink" title="vim的安装"></a>vim的安装</h2>对于vim的安装，这里不过多赘述，大家可以根据自己的系统参考官方文档，或者参考别人的博客。可以用以下命令进行查看是否安装了vim及版本号。这里一定使用8.0以上。以下插件使用方法仅适用于vim 8.0及其以上。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim --version</span><br></pre></td></tr></table></figure>
+<h2 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h2>以下几点，搭配vim可以更快脱离鼠标</li>
+<li>如果是windows电脑，推荐使用全新终端Windows Terminal，增加了很多新特性，包括窗口透明化、基于行的选择等。</li>
+</ul>
+<img src="/2022/03/16/vim%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/image-20230406140907239.png" class>
+
+<ul>
+<li>浏览器快捷键搭配（这里以微软自带的edge为例，大同小异不同浏览器可自行搜索，同时可将浏览器固定于任务栏，使用win+数字快捷打开软件）<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + T ：新建标签页</span><br><span class="line">Ctrl + W：关闭当前标签页</span><br><span class="line">Ctrl +1, 2, 3,…, 8：切换到指定序号的标签</span><br><span class="line">Ctrl + 9：切换到最后一个标签</span><br></pre></td></tr></table></figure></li>
+<li>小插件vimium<br>vimium 就是参考了 vim 按键操作方式和理念而来的浏览器插件，但使用及其简单。</li>
+</ul>
+<img src="/2022/03/16/vim%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/image-20230406140932000.png" class>
+
+<h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><ul>
+<li>在.vimrc文件中添加如下内容<br>一般linux的.vimrc文件在<code>~/.vimrc</code><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">touch ~/.vimrc # 如果没有则新建</span><br><span class="line">vim ~/.vimrc</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&quot;========== 基础 ========</span><br><span class="line">&quot; 设置行号</span><br><span class="line">set number</span><br><span class="line">&quot; 高亮设置</span><br><span class="line">set hlsearch</span><br><span class="line">&quot; 相对行号</span><br><span class="line">set relativenumber</span><br><span class="line">&quot; 设置折叠方式</span><br><span class="line">set foldmethod=indent</span><br><span class="line">&quot; F2进入粘贴模式（set paste）</span><br><span class="line">set pastetoggle=&lt;F2&gt;</span><br><span class="line">&quot; 使用TAB键向后四个字符</span><br><span class="line">set tabstop=4 </span><br><span class="line">&quot; 设置语法高亮</span><br><span class="line">syntax on</span><br><span class="line">&quot; 在底部显示出当前模式</span><br><span class="line">set showmode</span><br><span class="line">&quot; 命令模式下显示键入的指令</span><br><span class="line">set showcmd</span><br><span class="line">&quot; 支持使用鼠标</span><br><span class="line">set mouse=a</span><br><span class="line">&quot; 使用utf-8编码</span><br><span class="line">set encoding=utf-8</span><br><span class="line">&quot; 启用256色</span><br><span class="line">set t_Co=256</span><br><span class="line">&quot; 下一行的缩进与上一行保持一致</span><br><span class="line">set autoindent</span><br><span class="line">&quot; 光标当前行高亮</span><br><span class="line">set cursorline</span><br><span class="line">&quot; 遇到指定符号才拆行</span><br><span class="line">set linebreak</span><br><span class="line">&quot; 光标遇到括号时自动高亮对应的另一个 </span><br><span class="line">set showmatch</span><br><span class="line">&quot; 搜索时高亮显示匹配结果</span><br><span class="line">set hlsearch</span><br><span class="line">&quot; 进入搜索模式时，输入后自动跳转</span><br><span class="line">set incsearch</span><br><span class="line">&quot;设置vim可以使用back键&quot;</span><br><span class="line">set backspace=2</span><br><span class="line">&quot;使用系统剪切板</span><br><span class="line">set clipboard=unnamed</span><br></pre></td></tr></table></figure>
+<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_51670115/article/details/126495143">vim常用指令大全</a></li>
+</ul>
+<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><ul>
+<li>在Vim8及以上的版用户只需要将插件放在指定的目录（.vim/pack/vendor/start/）下，vim 启动时候就会自动加载这个插件。</li>
+</ul>
+<h3 id="vim-startify插件"><a href="#vim-startify插件" class="headerlink" title="vim-startify插件"></a>vim-startify插件</h3><p>插件说明： 给vim添加开始界面，并且记录历史打开的文件</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-startify.git">vim-startify 下载地址</a></p>
+<ul>
+<li>使用git下载 vim-startify 插件：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/.vim/pack/startify/start</span><br><span class="line">cd ~/.vim/pack/startify/start</span><br><span class="line">git clone https://github.com/mhinz/vim-startify.git</span><br></pre></td></tr></table></figure></li>
+<li>使用说明<br>直接输入vim可显示最近使用的文件</li>
+</ul>
+<img src="/2022/03/16/vim%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/image-20230406141013072.png" class>
+
+<h3 id="NERDTree插件"><a href="#NERDTree插件" class="headerlink" title="NERDTree插件"></a>NERDTree插件</h3><p>插件说明:给vim增加目录</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/preservim/nerdtree.git">NERDTree下载地址</a></p>
+<ul>
+<li><p>使用git下载NERDTree插件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/.vim/pack/NERDTree/start</span><br><span class="line">cd ~/.vim/pack/NERDTree/start</span><br><span class="line">git clone https://github.com/preservim/nerdtree.git </span><br></pre></td></tr></table></figure></li>
+<li><p>配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&quot;===== NERDTree =====</span><br><span class="line">&quot;显示隐藏文件</span><br><span class="line">let NERDTreeShowHidden=1</span><br><span class="line">&quot;打开NERDTree的快捷键设置 ctrl-n打开</span><br><span class="line">nnoremap &lt;C-n&gt; :NERDTree&lt;CR&gt;  </span><br><span class="line">&quot;关闭NERDTree</span><br><span class="line">nnoremap &lt;C-t&gt; :NERDTreeToggle&lt;CR&gt; </span><br><span class="line">&quot;&quot;打开NERDTree,在node中选中当前文件</span><br><span class="line">nnoremap &lt;C-f&gt; :NERDTreeFind&lt;CR&gt; </span><br><span class="line">&quot;vim打开时，自动打开NERDTree,并且将光标放在文件窗口</span><br><span class="line">autocmd VimEnter * NERDTree | wincmd p </span><br><span class="line">&quot;当NERDTree是唯一的窗口时退出vim</span><br><span class="line">autocmd BufEnter * if tabpagenr(&#x27;$&#x27;) == 1 &amp;&amp; winnr(&#x27;$&#x27;) == 1 &amp;&amp; exists(&#x27;b:NERDTree&#x27;) &amp;&amp; b:NERDTree.isTabTree() | quit | endif  </span><br><span class="line">&quot;设定 NERDTree 视窗大小</span><br><span class="line">let g:NERDTreeWinSize = 25 </span><br><span class="line">&quot; 隐藏指定文件夹</span><br><span class="line">let NERDTreeIgnore = [&#x27;\.pyc$&#x27;, &#x27;\.swp&#x27;, &#x27;\.swo&#x27;, &#x27;\.vscode&#x27;, &#x27;__pycache__&#x27;] </span><br></pre></td></tr></table></figure></li>
+<li><p>使用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">移动到文件窗口</span></span><br><span class="line">ctrl + w + h    光标 focus 左侧树形目录</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">打开文件。有加g和没加g的区别是：加g，光标还在文件目录上；没加g，光标会跳到新窗口或者标签</span></span><br><span class="line">o       在已有窗口中打开文件、目录或书签，并跳到该窗口</span><br><span class="line">go      在已有窗口 中打开文件、目录或书签，但不跳到该窗口</span><br><span class="line">i       split 一个新窗口打开选中文件，并跳到该窗口</span><br><span class="line">gi      split 一个新窗口打开选中文件，但不跳到该窗口</span><br><span class="line">s       vsplit 一个新窗口打开选中文件，并跳到该窗口</span><br><span class="line">gs      vsplit 一个新 窗口打开选中文件，但不跳到该窗口</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在文件目录间移动</span></span><br><span class="line">P       跳到根结点</span><br><span class="line">p       跳到父结点</span><br><span class="line">K       跳到当前目录下同级的第一个结点</span><br><span class="line">J       跳到当前目录下同级的最后一个结点</span><br><span class="line">k       跳到当前目录下同级的前一个结点</span><br><span class="line">j       跳到当前目录下同级的后一个结点</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">切换根目录，即显示文件目录</span></span><br><span class="line">C       将选中目录或选中文件的父目录设为根结点</span><br><span class="line">u       将当前根结点的父目录设为根目录，并变成合拢原根结点</span><br><span class="line">U       将当前根结点的父目录设为根目录，但保持展开原根结点</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">退出</span></span><br><span class="line">q       关闭 NerdTree 窗口</span><br></pre></td></tr></table></figure></li>
+</ul>
+<img src="/2022/03/16/vim%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/image-20230406141050599.png" class title="image-20230406141050599">
+
+<h2 id="gruvbox插件"><a href="#gruvbox插件" class="headerlink" title="gruvbox插件"></a>gruvbox插件</h2><p>插件说明：主题插件，改变代码颜色和背景</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/morhetz/gruvbox.git">gruvbox 下载地址</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/.vim/pack/gruvbox/start</span><br><span class="line">cd ~/.vim/pack/gruvbox/start</span><br><span class="line">git clone https://github.com/morhetz/gruvbox.git</span><br></pre></td></tr></table></figure>
+<ul>
+<li>以上图即为配色方案</li>
+<li>配置<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;设置暗色背景&quot;</span><br><span class="line">set background=dark</span><br><span class="line">&quot;配色方案选用gruvbox&quot;</span><br><span class="line">colorscheme gruvbox</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="airline插件"><a href="#airline插件" class="headerlink" title="airline插件"></a>airline插件</h2><p>插件说明：给vim增加状态栏</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/vim-airline/vim-airline">airline下载地址</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/.vim/pack/gruvbox/start</span><br><span class="line">cd ~/.vim/pack/gruvbox/start</span><br><span class="line">git clone https://github.com/vim-airline/vim-airline.git</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="更多插件"><a href="#更多插件" class="headerlink" title="更多插件"></a>更多插件</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/tpope/vim-commentary">comentary</a>插件：批量注释<br>注释操作符命令为 gc，在选中模式下批量注释</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/kien/ctrlp.vim">ctrlp</a>：模糊搜索<br>按下ctrl+p即可进行模糊搜索<br>indentline：显示缩进<br>rainbow：彩虹括号<br>surround：自动匹配括号</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/davidhalter/jedi-vim">jedi-vim</a>:自动补全插件<br>编辑模式下按下ctrl+space即可出现补全列表 </li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tell-k/vim-autopep8">autopep8</a>：根据规范自动规范代码<br>在普通模式下按下F8即可以自动修正<br>autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR><br>#去除窗口的对比<br>let g:autopep8_disable_show_diff=1</CR></F8></buffer></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jiangmiao/auto-pairs">auto-pairs</a>(自动补全括号)</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://bkystop.github.io">bkys</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://bkystop.github.io/2022/03/16/vim%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/">http://bkystop.github.io/2022/03/16/vim%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://bkystop.github.io" target="_blank">bkysの客栈</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a><a class="post-meta__tags" href="/tags/vim/">vim</a></div><div class="post_share"><div class="social-share" data-image="https://th.bing.com/th?id=OIP.79Ri31EyF9wcP0tPShtDWQHaE2&amp;w=308&amp;h=202&amp;c=8&amp;rs=1&amp;qlt=90&amp;o=6&amp;dpr=1.3&amp;pid=3.1&amp;rm=2" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/04/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="计算机操作系统"><img class="cover" src="https://th.bing.com/th/id/OIP.HRwcSPyXCUjBpWLyE879KgHaFj?w=228&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">计算机操作系统</div></div></a></div><div class="next-post pull-right"><a href="/2022/03/15/vim%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/" title="vim指令详解"><img class="cover" src="https://th.bing.com/th/id/OIP.NSo9kAyFIGRbqWqnOI7GCAHaGI?w=217&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">vim指令详解</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/03/15/vim%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/" title="vim指令详解"><img class="cover" src="https://th.bing.com/th/id/OIP.NSo9kAyFIGRbqWqnOI7GCAHaGI?w=217&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-15</div><div class="title">vim指令详解</div></div></a></div><div><a href="/2022/09/30/Centos-uwsgi%E9%83%A8%E7%BD%B2Django/" title="Centos+uwsgi部署Django"><img class="cover" src="https://th.bing.com/th/id/OIP.eU9l8EivPMv-Kqk4QrrUbgHaEo?w=311&h=194&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-30</div><div class="title">Centos+uwsgi部署Django</div></div></a></div><div><a href="/2022/11/02/Kali%E6%90%AD%E5%BB%BAvulhub%E9%9D%B6%E5%9C%BA/" title="Kail搭建vulhub靶场"><img class="cover" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.cfKoysdMdX_NB3fz1Wz2SgHaDN?w=313&h=151&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-02</div><div class="title">Kail搭建vulhub靶场</div></div></a></div><div><a href="/2022/10/30/Kali%E5%9F%BA%E7%A1%80/" title="Kail基础"><img class="cover" src="https://th.bing.com/th/id/OIP.cIZX4Hgdd732brACavOibwHaD4?w=304&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-30</div><div class="title">Kail基础</div></div></a></div><div><a href="/2023/03/28/Ubuntu-Gunicorn%E9%83%A8%E7%BD%B2Django/" title="Ubuntu+Gunicorn部署Django"><img class="cover" src="https://th.bing.com/th/id/OIP.zuaJqiH4N0ojJF_B6KRpdwHaDt?w=299&h=175&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-28</div><div class="title">Ubuntu+Gunicorn部署Django</div></div></a></div><div><a href="/2022/04/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="计算机操作系统"><img class="cover" src="https://th.bing.com/th/id/OIP.HRwcSPyXCUjBpWLyE879KgHaFj?w=228&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-05</div><div class="title">计算机操作系统</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://th.bing.com/th/id/OIP.GKw_Efoi-Jsf_OzGf3BSDwHaEd?w=269&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">bkys</div><div class="author-info__description">正时年少轻狂时，人不风流枉少年。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">本站仅做技术分享,如果有侵犯您权利的资源,请告知(QQ：1464637595),站长将尽快作出处理。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vim"><span class="toc-number">1.</span> <span class="toc-text">vim</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8vim"><span class="toc-number">1.1.</span> <span class="toc-text">为什么要使用vim</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFvim"><span class="toc-number">1.1.1.</span> <span class="toc-text">什么是vim</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vim%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-number">1.1.2.</span> <span class="toc-text">vim的优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E5%AF%B9vim%E7%9A%84%E7%9C%8B%E6%B3%95"><span class="toc-number">1.1.3.</span> <span class="toc-text">我对vim的看法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vim%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.</span> <span class="toc-text">vim的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="toc-number">1.3.</span> <span class="toc-text">小技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="toc-number">1.4.</span> <span class="toc-text">基础配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-number">1.5.</span> <span class="toc-text">安装插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vim-startify%E6%8F%92%E4%BB%B6"><span class="toc-number">1.5.1.</span> <span class="toc-text">vim-startify插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NERDTree%E6%8F%92%E4%BB%B6"><span class="toc-number">1.5.2.</span> <span class="toc-text">NERDTree插件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gruvbox%E6%8F%92%E4%BB%B6"><span class="toc-number">1.6.</span> <span class="toc-text">gruvbox插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#airline%E6%8F%92%E4%BB%B6"><span class="toc-number">1.7.</span> <span class="toc-text">airline插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A%E6%8F%92%E4%BB%B6"><span class="toc-number">1.8.</span> <span class="toc-text">更多插件</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/04/09/Python%E7%88%AC%E5%8F%96%E6%96%97%E5%9B%BE%E7%BD%91/" title="Python爬取斗图网"><img src="https://img.pkdoutu.com/production/uploads/image/2022/01/02/20220102105000_CLgSsy.gif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python爬取斗图网"/></a><div class="content"><a class="title" href="/2023/04/09/Python%E7%88%AC%E5%8F%96%E6%96%97%E5%9B%BE%E7%BD%91/" title="Python爬取斗图网">Python爬取斗图网</a><time datetime="2023-04-09T09:14:16.000Z" title="发表于 2023-04-09 17:14:16">2023-04-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/28/Ubuntu-Gunicorn%E9%83%A8%E7%BD%B2Django/" title="Ubuntu+Gunicorn部署Django"><img src="https://th.bing.com/th/id/OIP.zuaJqiH4N0ojJF_B6KRpdwHaDt?w=299&amp;h=175&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Ubuntu+Gunicorn部署Django"/></a><div class="content"><a class="title" href="/2023/03/28/Ubuntu-Gunicorn%E9%83%A8%E7%BD%B2Django/" title="Ubuntu+Gunicorn部署Django">Ubuntu+Gunicorn部署Django</a><time datetime="2023-03-28T09:55:52.000Z" title="发表于 2023-03-28 17:55:52">2023-03-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/22/%E5%B9%B6%E5%8F%91%E7%88%AC%E8%99%AB/" title="并发爬虫"><img src="https://th.bing.com/th/id/OIP.mZKd3EMSqRKvhInKb8hl-wHaEK?w=333&amp;h=187&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="并发爬虫"/></a><div class="content"><a class="title" href="/2023/03/22/%E5%B9%B6%E5%8F%91%E7%88%AC%E8%99%AB/" title="并发爬虫">并发爬虫</a><time datetime="2023-03-22T07:48:04.000Z" title="发表于 2023-03-22 15:48:04">2023-03-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/17/MySQL%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" title="MySQL常用指令"><img src="https://tse4-mm.cn.bing.net/th/id/OIP-C.PreZo9daH5jaXIqu4iPxSgHaC9?w=317&amp;h=140&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL常用指令"/></a><div class="content"><a class="title" href="/2023/02/17/MySQL%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" title="MySQL常用指令">MySQL常用指令</a><time datetime="2023-02-17T11:57:39.000Z" title="发表于 2023-02-17 19:57:39">2023-02-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/06/Python%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" title="Python爬虫基础"><img src="https://th.bing.com/th/id/OIP.zyNsZRAsDyvjlDQ4-I9tPQHaDt?w=311&amp;h=175&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python爬虫基础"/></a><div class="content"><a class="title" href="/2023/02/06/Python%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" title="Python爬虫基础">Python爬虫基础</a><time datetime="2023-02-06T06:23:42.000Z" title="发表于 2023-02-06 14:23:42">2023-02-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By bkys</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

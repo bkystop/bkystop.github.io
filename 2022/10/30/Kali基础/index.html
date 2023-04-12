@@ -1,0 +1,514 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Kail基础 | bkysの客栈</title><meta name="author" content="bkys"><meta name="copyright" content="bkys"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="kali的安装与介绍简介 VMware是运行虚拟机（虚拟机是指通过 软件 模拟的具有完整硬件系统功能的、运行在一个完全隔离环境中的完整计算机系统 ）的软件，通过VMware创建虚拟机，让我们在系统中安装系统。 bridged（桥接模式）：同一网络环境下的两台电脑。 NAT（网络地址转换模式）：虚拟机通过主机进行联网。 Host-Only（主机）:主机将虚拟机与外网隔开，只能让虚拟机和虚拟机之间联网">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kail基础">
+<meta property="og:url" content="http://bkystop.github.io/2022/10/30/Kali%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="bkysの客栈">
+<meta property="og:description" content="kali的安装与介绍简介 VMware是运行虚拟机（虚拟机是指通过 软件 模拟的具有完整硬件系统功能的、运行在一个完全隔离环境中的完整计算机系统 ）的软件，通过VMware创建虚拟机，让我们在系统中安装系统。 bridged（桥接模式）：同一网络环境下的两台电脑。 NAT（网络地址转换模式）：虚拟机通过主机进行联网。 Host-Only（主机）:主机将虚拟机与外网隔开，只能让虚拟机和虚拟机之间联网">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://th.bing.com/th/id/OIP.cIZX4Hgdd732brACavOibwHaD4?w=304&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+<meta property="article:published_time" content="2022-10-30T14:28:10.000Z">
+<meta property="article:modified_time" content="2023-04-09T09:09:17.735Z">
+<meta property="article:author" content="bkys">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="kali">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://th.bing.com/th/id/OIP.cIZX4Hgdd732brACavOibwHaD4?w=304&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"><link rel="shortcut icon" href="https://th.bing.com/th/id/OIP.GKw_Efoi-Jsf_OzGf3BSDwHaEd?w=269&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"><link rel="canonical" href="http://bkystop.github.io/2022/10/30/Kali%E5%9F%BA%E7%A1%80/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Kail基础',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-09 17:09:17'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="bkysの客栈" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://th.bing.com/th/id/OIP.GKw_Efoi-Jsf_OzGf3BSDwHaEd?w=269&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时光机</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://th.bing.com/th/id/OIP.cIZX4Hgdd732brACavOibwHaD4?w=304&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7')"><nav id="nav"><span id="blog-info"><a href="/" title="bkysの客栈"><span class="site-name">bkysの客栈</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时光机</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Kail基础</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-10-30T14:28:10.000Z" title="发表于 2022-10-30 22:28:10">2022-10-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-09T09:09:17.735Z" title="更新于 2023-04-09 17:09:17">2023-04-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AE%89%E5%85%A8%E7%AF%87/">安全篇</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>15分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Kail基础"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="kali的安装与介绍"><a href="#kali的安装与介绍" class="headerlink" title="kali的安装与介绍"></a>kali的安装与介绍</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li>VMware是运行虚拟机（虚拟机是指通过 软件 模拟的具有完整硬件系统功能的、运行在一个完全隔离环境中的完整计算机系统 ）的软件，通过VMware创建虚拟机，让我们在系统中安装系统。<ul>
+<li>bridged（桥接模式）：同一网络环境下的两台电脑。</li>
+<li>NAT（网络地址转换模式）：虚拟机通过主机进行联网。</li>
+<li>Host-Only（主机）:主机将虚拟机与外网隔开，只能让虚拟机和虚拟机之间联网。</li>
+</ul>
+</li>
+<li>系统镜像：文件版的光盘</li>
+<li>kali：Kali Linux是专业的渗透测试系统，安装预装了许多渗透测试软件。</li>
+<li>数据包：包(Packet)是TCP/IP协议通信传输中的数据单位，一般也称“数据包”。</li>
+<li>端口：端口可分为虚拟端口和物理端口，其中虚拟端口指计算机内部或交换机路由器内的端口，不可见</li>
+<li>抓包：抓取数据包</li>
+<li>kali的源：源配置(软件源)概念：源就是来，。可以把他称为软件仓库。安装软件时，就是从仓库里面调取数据放在你的机器上。</li>
+<li>更新源：相当于windows打补丁，软件更新。</li>
+<li>Linux下载软件方式<ul>
+<li>从源配置（软件源）所在服务器上通过特定命令获取JDK,Tomcat之类的软件包. </li>
+<li>从源配置（软件源）所在服务器上通过特定命令获取JDK,Tomcat之类的软件包. </li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg --get-selections | more</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看当前系统中所有软件包的状态</span></span><br><span class="line">sudo apt-mark hold metasploit-framework </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">metasploit-framework锁定当前版本不更新</span></span><br><span class="line">sudo dpkg --get-selections | grep hold</span><br><span class="line">查看当前已锁定的软件包</span><br><span class="line">sudo apt-mark unhold metasploit-framework </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">取消当前已锁定软件</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>kali更新后出现问题</p>
+<ul>
+<li>进入/usr/share/metasploit-framework目录下</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gem install bundler </span><br><span class="line">gem update --system </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="配置kali系统源"><a href="#配置kali系统源" class="headerlink" title="配置kali系统源"></a>配置kali系统源</h3><ol>
+<li><p>使用bianjiqi打开系统源文本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure></li>
+<li><p>填写成阿里源</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">阿里云<span class="comment">#</span></span></span><br><span class="line">deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</span></span><br></pre></td></tr></table></figure></li>
+<li><p>更新</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">软件版本更新 &amp;&amp; 进行一次升级 &amp;&amp; 软件源清单更新</span><br><span class="line">apt-get update &amp;&amp; apt-get upgrade -y &amp;&amp; apt-get dist-upgrade -y</span><br><span class="line">apt-get clean # 删除已经下载的安装包</span><br><span class="line">reboot  #重启</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="ssh服务"><a href="#ssh服务" class="headerlink" title="ssh服务"></a>ssh服务</h3><ul>
+<li><p>使用编辑器打开ssh配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">PasswordAuthentication <span class="built_in">yes</span> (去掉注释)</span></span><br><span class="line"><span class="meta prompt_"> #</span><span class="language-bash">PermitRootLogin prohibit-password (去掉注释后面的并删除改为<span class="built_in">yes</span>)</span> </span><br></pre></td></tr></table></figure></li>
+<li><p>开启ssh服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service ssh start </span><br></pre></td></tr></table></figure></li>
+<li><p>kali下查看服务开启状态</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service ssh status </span><br></pre></td></tr></table></figure></li>
+<li><p>使用putty/xshell进行连接</p>
+</li>
+</ul>
+<h3 id="用户组"><a href="#用户组" class="headerlink" title="用户组"></a>用户组</h3><ul>
+<li>linux中，每个文件都是属于一个用户组。</li>
+<li>在linux中，可以同时拥有N个用户，和用户组</li>
+</ul>
+<h4 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h4><ul>
+<li><p>查看用户信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">用户名：密码（x）:UID:GID:用户名全称：用户的家目录所在的位置：用户所用的SHELL的类型</span></span><br><span class="line">useradd -m key # 自动在home文件下创建key目录</span><br><span class="line">useradd -g 组名 用户名  # 指定添加到某个组织里面</span><br><span class="line">passwd 用户名 # 修改key的新密码</span><br><span class="line">userdel -r 用户名 # 删除目录及用户名</span><br></pre></td></tr></table></figure></li>
+<li><p>用户划分</p>
+<ul>
+<li>系统用户：root</li>
+<li>普通用户：用户所创建的用户</li>
+<li>虚拟用户：指软件所创建的虚拟用户</li>
+</ul>
+</li>
+</ul>
+<h4 id="用户组信息"><a href="#用户组信息" class="headerlink" title="用户组信息"></a>用户组信息</h4><ul>
+<li><p>查看用户组信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/group # 查看用户组信息</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">组名：密码：UID：组成员，key（第二个组成员）</span></span><br><span class="line">id key # 查看组信息</span><br><span class="line">groups 用户名 # 查看用户组归属</span><br><span class="line">usermod -G 组名 用户名 # 直接添加组用户从原来组删除</span><br><span class="line">usermod -a -G 组名 用户名 # 追加到新的组</span><br><span class="line">groupdel 组名 # 删除组</span><br></pre></td></tr></table></figure></li>
+<li><p>用户组划分</p>
+<ul>
+<li>文件所拥有者：文件创建者</li>
+<li>用户所在组：当linux当前用户创建了一个文件后，这个文件所属于的的组</li>
+<li>其他组：除了文件所有者以及所在组的用户外</li>
+</ul>
+</li>
+</ul>
+<h3 id="权限管理"><a href="#权限管理" class="headerlink" title="权限管理"></a>权限管理</h3><ul>
+<li>权限划分<ul>
+<li>r可读：4</li>
+<li>w可写：2</li>
+<li>x可执行：1</li>
+</ul>
+</li>
+<li>当前目录下ls</li>
+</ul>
+<img src="/2022/10/30/Kali%E5%9F%BA%E7%A1%80/image-20230405222850722.png" class title="image-20230405222850722">
+
+
+
+<ul>
+<li>设置权限</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 文件名 # 给当前文件设置777权限</span><br><span class="line">chmod -R 777 目录名 # 给当前目录递归设置777权限 </span><br></pre></td></tr></table></figure>
+
+<h3 id="软件安装管理"><a href="#软件安装管理" class="headerlink" title="软件安装管理"></a>软件安装管理</h3><ul>
+<li>dbkg是一个debian的命令行工具，可以用来安装，删除，构建和管理debian的软件包</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i xxx.deb #   安装软件</span><br><span class="line">dpkg -r xxx。deb # 删除软件包</span><br><span class="line">dpkg -r -purge xxx.deb # 连同配置文件一起删除</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>gdebi是一个轻量级的deb暗转工具，他替代吊臃肿的ubuntu软件中心安装deb</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get install gdebi # 安装gdebi</span><br><span class="line">sudo gdebi sougoupinyin.deb</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>linux下常用压缩文件格式</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.zip</span><br><span class="line">.gz</span><br><span class="line">.bz2</span><br><span class="line">.tar.gz</span><br><span class="line">.tar.bz2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>tar命令</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -cvfz 打包后的文件名 源文件名 # 打包文件</span><br><span class="line">tar -xzfv # 解包命令</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>打包选项<ul>
+<li>-c 打包</li>
+<li>-v 打包时显示出详细信息</li>
+<li>-f 指定文件名</li>
+<li>-z 打包时同时进行压缩</li>
+</ul>
+</li>
+<li>解包选项<ul>
+<li>-x 解包</li>
+<li>-v 解包时显示出详细信息</li>
+<li>-f 指定文件名</li>
+<li>-z 解包时同时进行解压</li>
+</ul>
+</li>
+</ul>
+<h3 id="查找命令"><a href="#查找命令" class="headerlink" title="查找命令"></a>查找命令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find ./kali/ -print # 指定目录查找并输出</span><br><span class="line">find ./kali/ -etc ls &#123;&#125; \: #  etc 指定目录以shell脚本运行并输出</span><br></pre></td></tr></table></figure>
+
+<h2 id="kali的常用命令"><a href="#kali的常用命令" class="headerlink" title="kali的常用命令"></a>kali的常用命令</h2><h3 id="1-常用命令"><a href="#1-常用命令" class="headerlink" title="1.常用命令"></a>1.常用命令</h3><blockquote>
+<p>passwd 修改密码</p>
+<p>passwd root 修改root用户密码</p>
+<p>date 显示系统日期</p>
+<p>sudo 后面加命令 就可以调用管理权限</p>
+<p>apt-get update 更新软件列表</p>
+<p>这个命令，会访问源列表里的每个网址，并读取软件列表，然后保存在本地电脑。我们在新立得软件包管理器里看到的软件列表，都是通过update命令更新的。</p>
+<p>apt-get upgrade 更新软件</p>
+<p>这个命令，会把本地已安装的软件，与刚下载的软件列表里对应软件进行对比，如果发现已安装的软件版本太低，就会提示你更新。如果你的软件都是最新版本，会提示： 升级了 0 个软件包，新安装了 0 个软件包，要卸载 0 个软件包，有 0 个软件包未被升级。</p>
+<p>apt-get dist-upgrade 更新软件  </p>
+<p>apt-get upgrade 与 apt-get dist-upgrade 的区别</p>
+<p>upgrade:系统将现有的Package升级,如果有相依性的问题,而此相依性需要安装其它新的Package或影响到其它Package的相依性时,此Package就不会被升级,会保留下来.</p>
+<p>dist-upgrade:可以聪明的解决相依性的问题,如果有相依性问题,需要安装/移除新的Package,就会试着去安装/移除它.<br>(所以通常这个会被认为是有点风险的升级)</p>
+<p>apt-get upgrade 和 apt-get dist-upgrade 本质上是没有什么不同的。</p>
+<p>只不过，dist-upgrade<br>会识别出当依赖关系改变的情形并作出处理，而upgrade对此情形不处理。</p>
+<p>例如软件包 a 原先依赖 b c d，但是在源里面可能已经升级了，现在是 a 依赖 b c e。这种情况下，dist-upgrade 会删除 d 安装 e，并把 a 软件包升级，而 upgrade 会认为依赖关系改变而拒绝升级 a<br>软件包。</p>
+<p>clear 清屏</p>
+<p>sudo gpedit 特权调用gpedit编辑器</p>
+<p>reboot 重启</p>
+<p>apt-get install XXXXX 安装缺少的依赖包，（XXX）里面输入缺少依赖包的名字</p>
+<p>apt-get autoremove –purge 软件名 删除包及其依赖的软件包+配置文件等</p>
+<p>apt-get install +模块名 这种方法也可以安装模块,或者apt-get install python-模块名</p>
+<p>firefox 浏览器打开</p>
+<p>shutdown -h now 关闭系统(1)</p>
+<p>init 0 关闭系统(2)</p>
+<p>telinit 0 关闭系统(3)</p>
+<p>shutdown -h hours:minutes &amp; 按预定时间关闭系统</p>
+<p>shutdown -c 取消按预定时间关闭系统</p>
+<p>shutdown -r now 重启(1)</p>
+<p>reboot 重启(2)</p>
+<p>su -l 切换登陆用户</p>
+<p>logout 注销用户登陆</p>
+<p>pwd 当前路径</p>
+</blockquote>
+<h3 id="2-文件夹或文本操作"><a href="#2-文件夹或文本操作" class="headerlink" title="2.文件夹或文本操作"></a>2.文件夹或文本操作</h3><blockquote>
+<p>cd .. 返回上一级目录</p>
+<p>cd ../.. 返回上级两级目录</p>
+<p>cd - 返回上次所在的目录</p>
+<p>cd 文件夹名  进去文件夹</p>
+<p>cd ~ 进去当前用户主目录</p>
+<p>pwd 显示当前工作路径</p>
+<p>touch 文件名  常见文件</p>
+<p>cat 文件名 读取文档内容</p>
+<p>mkdir 文件名 创建文件夹</p>
+<p>mkdir -p 文件夹 递归创建文件夹</p>
+<p>cp 复制命令</p>
+<p>cp -r moon moons 复制moon 文件夹到当前 moons 如果有里面有文件 使用-r </p>
+<p>mv 移动命令</p>
+<p>mv moon moon 也可以说是改名</p>
+<p>mkdir 文件名 文件名 创建多个文件夹</p>
+<p>ls 显示文件和文件夹名</p>
+<p>ls -a 显示所有的文件和文件夹 包含隐藏文件</p>
+<p>ls -l 显示文件和目录的详细资料</p>
+<p>删除</p>
+<p>rm -f 文件  删除文件</p>
+<p>rm 文件夹名 删除文件夹</p>
+<p>rm -rf  文件/文件夹  删除文件夹 及其目录下的文件</p>
+<p>压缩和解压<br>bzip2 file1 压缩一个叫做 ‘file1’ 的文件</p>
+<p>gunzip file1.gz 解压一个叫做 ‘file1.gz’的文件</p>
+<p>gzip file1 压缩一个叫做 ‘file1’的文件</p>
+<p>gzip -9 file1 最大程度压缩</p>
+<p>rar a file1.rar test_file 创建一个叫做 ‘file1.rar’ 的包</p>
+<p>rar x file1.rar 解压rar包</p>
+<p>unrar x file1.rar 解压rar包</p>
+<p>DEB 包 (Debian, Ubuntu 以及类似系统)<br>dpkg -i package.deb 安装/更新一个 deb 包</p>
+<p>dpkg -r package_name 从系统删除一个 deb 包</p>
+<p>dpkg -l 显示系统中所有已经安装的 deb 包</p>
+<p>dpkg -l | grep httpd 显示所有名称中包含 “httpd” 字样的deb包</p>
+<p>dpkg -s package_name 获得已经安装在系统中一个特殊包的信息</p>
+<p>dpkg -L package_name 显示系统中已经安装的一个deb包所提供的文件列表</p>
+<p>dpkg –contents package.deb 显示尚未安装的一个包所提供的文件列表</p>
+<p>tar zcvf +压缩文件名 压缩文件</p>
+<p>tar zxvf +解压包名 解压文件</p>
+<p>tar -jcvf renwolesshel.tar.bz2 打包</p>
+<p>tar jxvf renwolesshel.tar.bz2 解压</p>
+<p>压缩成zip格式</p>
+<p>zip -q -r renwolesshel.zip renwolesshel/<br>解压zip格式的压缩包</p>
+<p>unzip renwolesshel.zip</p>
+<p>which 加软件名 可以查出软件目录在哪</p>
+<p>./+文件名或者apt-get +文件名 安装文件</p>
+</blockquote>
+<h3 id="3-系统信息"><a href="#3-系统信息" class="headerlink" title="3.系统信息"></a>3.系统信息</h3><blockquote>
+<p>arch 显示机器的处理器架构(1)</p>
+<p>uname -m 显示机器的处理器架构(2)</p>
+<p>uname -r 显示正在使用的内核版本</p>
+<p>cat /proc/version 显示内核的版本</p>
+<p>cat /proc/net/dev 显示网络适配器及统计</p>
+<p>cat /proc/cpuinfo 显示CPU info的信息</p>
+<p>cat /proc/mounts 显示已加载的文件系统</p>
+</blockquote>
+<h3 id="4-文件搜索"><a href="#4-文件搜索" class="headerlink" title="4.文件搜索"></a>4.文件搜索</h3><blockquote>
+<p>find / -name file1 从 ‘/’ 开始进入根文件系统搜索文件和目录</p>
+<p>find / -user user1 搜索属于用户 ‘user1’ 的文件和目录<br>find /home/user1 -name *.bin 在目录 ‘/ home/user1’ 中搜索带有’.bin’ 结尾的文件<br>find /usr/bin -type f -atime +100 搜索在过去100天内未被使用过的执行文件<br>find /usr/bin -type f -mtime -10 搜索在10天内被创建或者修改过的文件</p>
+<p>find . -name ‘<em>.php’ -mmin -30  查找最近30分钟修改的当前目录下的.php文件<br>find . -name ‘</em>.php’ -mtime 0<br>查找最近24小时修改的当前目录下的.php文件</p>
+<p>find . -name ‘*.inc’ -mtime 0 -ls<br>查找最近24小时修改的当前目录下的.php文件，并列出详细信息</p>
+<p>find . -type f -mtime 1</p>
+<p>查找当前目录下，最近24-48小时修改过的常规文件。<br>find . -type f -mtime +1<br>查找当前目录下，最近1天前修改过的常规文件。</p>
+<p>-atime 文件访问时间</p>
+<p>-ctime 文件常见时间</p>
+<p>-mtime文件修改时间</p>
+<p>-mtime n : n为数字，意思为在n天之前的“一天之内”被更改过内容的文件<br>-mtime +n : 列出在n天之前（不含n天本身）被更改过内容的文件名<br>-mtime -n : 列出在n天之内（含n天本身）被更改过内容的文件名</p>
+<p>-type f 代表一个普通格式的文件 二进制文件</p>
+<p>-type d 代表文件夹</p>
+<p>find / -name *.rpm -exec chmod 755 ‘{}’ ; 搜索以 ‘.rpm’ 结尾的文件并定义其权限<br>find / -xdev -name *.rpm 搜索以 ‘.rpm’ 结尾的文件，忽略光驱、捷盘等可移动设备<br>locate *.ps 寻找以 ‘.ps’ 结尾的文件 - 先运行 ‘updatedb’ 命令<br>whereis halt 显示一个二进制文件、源码或man的位置<br>which halt 显示一个二进制文件或可执行文件的完整路径</p>
+<p>grep kali /etc/passwd grep关键词搜索</p>
+<p>find / -name moonsec 2&gt;/dev/null   搜索某个文件/文件夹 屏蔽出错信息</p>
+</blockquote>
+<h3 id="6-用户和群组"><a href="#6-用户和群组" class="headerlink" title="6.用户和群组"></a>6.用户和群组</h3><blockquote>
+<p>groupadd group_name 创建一个新用户组<br>groupdel group_name 删除一个用户组</p>
+<p>cat /etc/group | grep group_name </p>
+<p>usermod -a -G moontea k1把用户k1附加其他用户组</p>
+</blockquote>
+<ul>
+<li>创建目录</li>
+</ul>
+<blockquote>
+<p>useradd 目录</p>
+<p>passwd 目录</p>
+</blockquote>
+<ul>
+<li>创建用户以及分配目录</li>
+</ul>
+<blockquote>
+<p> useradd -r -m -s /bin/bash moonsec</p>
+</blockquote>
+<p>参数的意思：<br>-r 建立系统账号<br>-m 自动建立用户的登入目录<br>-s /bin/bash 指定用户登入后所使用的shell</p>
+<ul>
+<li>切换用户</li>
+</ul>
+<blockquote>
+<p>su - root 切换到root用户</p>
+<p>su 用户名 切换到普通用户</p>
+</blockquote>
+<h3 id="7-系统管理top-查看正在指向的程序信息"><a href="#7-系统管理top-查看正在指向的程序信息" class="headerlink" title="7.系统管理top # 查看正在指向的程序信息"></a>7.系统管理top # 查看正在指向的程序信息</h3><blockquote>
+<p>top # 查看正在指向的程序信息</p>
+<p>ps -ef 查看所有进程信息</p>
+<p>ps -ef | grep tomcat 查找指定进程</p>
+<p>kill -9 id 强制杀死进程</p>
+<p>env 当前的变量</p>
+<p>查看系统变量</p>
+<p>echo $PATH</p>
+<p>hostname 查看主机名</p>
+<p>history 查看历史命令</p>
+</blockquote>
+<h3 id="8-查看磁盘信息"><a href="#8-查看磁盘信息" class="headerlink" title="8.查看磁盘信息"></a>8.查看磁盘信息</h3><blockquote>
+<p>df   默认不带单位，挂载点、总容量、已用、可用</p>
+<p>df  -h   友好显示（带单位），很多命令的友好显示都是-h</p>
+</blockquote>
+<h3 id="9-查看内存信息"><a href="#9-查看内存信息" class="headerlink" title="9.查看内存信息"></a>9.查看内存信息</h3><blockquote>
+<p>free   默认以KB为单位，总容量、已用、可用、缓存大小</p>
+<p>free  -m   默认以MB为单位</p>
+<p>free  -h   上面2种都不带单位、只显示数值，这种是友好显示的，会带单位G、M等</p>
+</blockquote>
+<h3 id="10-查看环境变量"><a href="#10-查看环境变量" class="headerlink" title="10.查看环境变量"></a>10.查看环境变量</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo  $JAVA_HOME</span><br><span class="line">echo $PATH | grep jdk</span><br></pre></td></tr></table></figure>
+
+<h3 id="11-linux常用网络命令"><a href="#11-linux常用网络命令" class="headerlink" title="11.linux常用网络命令"></a><strong>11.linux常用网络命令</strong></h3><p>网络和监控命令类似于这些： hostname, ping, ifconfig, iwconfig, netstat, nslookup, traceroute, finger, telnet, ethtool 用于查看 linux 服务器 ip 地址，管理服务器网络配置，通过 telnet 和 ethernet 建立与 linux 之间的网络链接，查看 linux 的服务器信息等。下面让我们看看在 Linux 下的网络和监控命令的使用。</p>
+<blockquote>
+<p>hostname 查看本机名</p>
+<p>ping  一般用于测试网络是否通 内网icmp</p>
+<p>ping <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> -c 3 执行3次</p>
+<p>ifconfig 网卡信息</p>
+<p>iwconfig 用于配置或获取无线网络设备信息</p>
+</blockquote>
+<ul>
+<li>netstat </li>
+</ul>
+<blockquote>
+<p>-a (all)显示所有选项，默认不显示LISTEN相关<br>-t (tcp)仅显示tcp相关选项<br>-u (udp)仅显示udp相关选项<br>-n 拒绝显示别名，能显示数字的全部转化成数字。<br>-l 仅列出有在 Listen (监听) 的服務状态</p>
+<p>-p 显示建立相关链接的程序名<br>-r 显示路由信息，路由表<br>-e 显示扩展信息，例如uid等<br>-s 按各个协议进行统计<br>-c 每隔一个固定时间，执行该netstat命令。</p>
+</blockquote>
+<p>提示：LISTEN和LISTENING的状态只有用-a或者-l才能看到</p>
+<p>常用命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano</span><br><span class="line"></span><br><span class="line">-an 查看当前所有已连接端口</span><br><span class="line">-nlpt 查看当前所有tcp端口</span><br><span class="line">-nlpu 查看当前所有udp端口</span><br><span class="line">-nlpt | grep 80 查看所有80端口使用情况</span><br><span class="line"></span><br><span class="line">netstat -lntup 查看所有的tcp和upd端口</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>nslookup 查询其他记录</li>
+</ul>
+<blockquote>
+<p>直接查询返回的是A记录，我们可以指定参数，查询其他记录，比如AAAA、MX等。</p>
+<p>nslookup -qt=type domain [dns-server]其中，type可以是以下这些类型：</p>
+</blockquote>
+<p>A 地址记录<br>AAAA 地址记录<br>AFSDB Andrew文件系统数据库服务器记录<br>ATMA ATM地址记录<br>CNAME 别名记录<br>HINFO 硬件配置记录，包括CPU、操作系统信息<br>ISDN 域名对应的ISDN号码<br>MB 存放指定邮箱的服务器<br>MG 邮件组记录<br>MINFO 邮件组和邮箱的信息记录<br>MR 改名的邮箱记录<br>MX 邮件服务器记录<br>NS 名字服务器记录<br>PTR 反向记录<br>RP 负责人记录<br>RT 路由穿透记录<br>SRV TCP服务器信息记录<br>TXT 域名对应的文本信息<br>X25 域名对应的X.25地址记录</p>
+<ul>
+<li><p>http协议</p>
+</li>
+<li><p>curl</p>
+</li>
+<li><p>wget</p>
+</li>
+<li><p>traceroute</p>
+</li>
+</ul>
+<p>traceroute是用来检测发出数据包的主机到目标主机之间所经过的网关数量的工具。traceroute的原理是试图以最小的TTL（存活时间）发出探测包来跟踪数据包到达目标主机所经过的网关，然后监听一个来自网关ICMP的应答。发送数据包的大小默认为38个字节。</p>
+<blockquote>
+<p>-d 使用Socket层级的排错功能。<br>-f 设置第一个检测数据包的存活数值TTL的大小。<br>-F 设置勿离断位。<br>-g 设置来源路由网关，最多可设置8个。<br>-i 使用指定的网络界面送出数据包。<br>-I 使用ICMP回应取代UDP资料信息。<br>-m 设置检测数据包的最大存活数值TTL的大小。<br>-n 直接使用IP地址而非主机名称。<br>-p 设置UDP传输协议的通信端口。<br>-r 忽略普通的Routing Table，直接将数据包送到远端主机上。<br>-s 设置本地主机送出数据包的IP地址。<br>-t 设置检测数据包的TOS数值。<br>-v 详细显示指令的执行过程。<br>-w 设置等待远端主机回报的时间。</p>
+<p>-x 开启或关闭数据包的正确性检验。</p>
+</blockquote>
+<ul>
+<li>telnet</li>
+</ul>
+<p>Linux telnet命令用于远端登入。</p>
+<p>执行telnet指令开启终端机阶段作业，并登入远端主机。</p>
+<p>现在多数用于检测某个端口是否开放</p>
+<h3 id="12-防火墙iptables"><a href="#12-防火墙iptables" class="headerlink" title="12.防火墙iptables"></a>12.防火墙iptables</h3><p>查看防火墙规则</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptalbes -L</span><br></pre></td></tr></table></figure>
+
+<p>清除规则</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -F</span><br></pre></td></tr></table></figure>
+
+<p>关闭防火墙 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/iptables stop</span><br><span class="line"></span><br><span class="line">service iptables stop</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>安装：apt-get install ufw</p>
+<p>关闭：ufw disable # To disable the firewall</p>
+<p>开启：ufw enable # To enable the firewall</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://bkystop.github.io">bkys</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://bkystop.github.io/2022/10/30/Kali%E5%9F%BA%E7%A1%80/">http://bkystop.github.io/2022/10/30/Kali%E5%9F%BA%E7%A1%80/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://bkystop.github.io" target="_blank">bkysの客栈</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a><a class="post-meta__tags" href="/tags/kali/">kali</a></div><div class="post_share"><div class="social-share" data-image="https://th.bing.com/th/id/OIP.cIZX4Hgdd732brACavOibwHaD4?w=304&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/11/02/Kali%E6%90%AD%E5%BB%BAvulhub%E9%9D%B6%E5%9C%BA/" title="Kail搭建vulhub靶场"><img class="cover" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.cfKoysdMdX_NB3fz1Wz2SgHaDN?w=313&amp;h=151&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Kail搭建vulhub靶场</div></div></a></div><div class="next-post pull-right"><a href="/2022/10/08/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="渗透测试基础知识"><img class="cover" src="https://th.bing.com/th/id/OIP.gQnHgPzH31faBJK2y07JWQHaEo?w=302&amp;h=188&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">渗透测试基础知识</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/11/02/Kali%E6%90%AD%E5%BB%BAvulhub%E9%9D%B6%E5%9C%BA/" title="Kail搭建vulhub靶场"><img class="cover" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.cfKoysdMdX_NB3fz1Wz2SgHaDN?w=313&h=151&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-02</div><div class="title">Kail搭建vulhub靶场</div></div></a></div><div><a href="/2022/09/30/Centos-uwsgi%E9%83%A8%E7%BD%B2Django/" title="Centos+uwsgi部署Django"><img class="cover" src="https://th.bing.com/th/id/OIP.eU9l8EivPMv-Kqk4QrrUbgHaEo?w=311&h=194&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-30</div><div class="title">Centos+uwsgi部署Django</div></div></a></div><div><a href="/2023/03/28/Ubuntu-Gunicorn%E9%83%A8%E7%BD%B2Django/" title="Ubuntu+Gunicorn部署Django"><img class="cover" src="https://th.bing.com/th/id/OIP.zuaJqiH4N0ojJF_B6KRpdwHaDt?w=299&h=175&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-28</div><div class="title">Ubuntu+Gunicorn部署Django</div></div></a></div><div><a href="/2022/03/15/vim%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/" title="vim指令详解"><img class="cover" src="https://th.bing.com/th/id/OIP.NSo9kAyFIGRbqWqnOI7GCAHaGI?w=217&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-15</div><div class="title">vim指令详解</div></div></a></div><div><a href="/2022/03/16/vim%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/" title="vim的基础配置及优化指南"><img class="cover" src="https://th.bing.com/th?id=OIP.79Ri31EyF9wcP0tPShtDWQHaE2&w=308&h=202&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-16</div><div class="title">vim的基础配置及优化指南</div></div></a></div><div><a href="/2022/04/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="计算机操作系统"><img class="cover" src="https://th.bing.com/th/id/OIP.HRwcSPyXCUjBpWLyE879KgHaFj?w=228&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-05</div><div class="title">计算机操作系统</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://th.bing.com/th/id/OIP.GKw_Efoi-Jsf_OzGf3BSDwHaEd?w=269&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">bkys</div><div class="author-info__description">正时年少轻狂时，人不风流枉少年。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">本站仅做技术分享,如果有侵犯您权利的资源,请告知(QQ：1464637595),站长将尽快作出处理。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#kali%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">kali的安装与介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEkali%E7%B3%BB%E7%BB%9F%E6%BA%90"><span class="toc-number">1.2.</span> <span class="toc-text">配置kali系统源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.3.</span> <span class="toc-text">ssh服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%BB%84"><span class="toc-number">1.4.</span> <span class="toc-text">用户组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="toc-number">1.4.1.</span> <span class="toc-text">用户信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%BB%84%E4%BF%A1%E6%81%AF"><span class="toc-number">1.4.2.</span> <span class="toc-text">用户组信息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86"><span class="toc-number">1.5.</span> <span class="toc-text">权限管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86"><span class="toc-number">1.6.</span> <span class="toc-text">软件安装管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E5%91%BD%E4%BB%A4"><span class="toc-number">1.7.</span> <span class="toc-text">查找命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kali%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">kali的常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">2.1.</span> <span class="toc-text">1.常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%96%87%E4%BB%B6%E5%A4%B9%E6%88%96%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">2.2.</span> <span class="toc-text">2.文件夹或文本操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF"><span class="toc-number">2.3.</span> <span class="toc-text">3.系统信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2"><span class="toc-number">2.4.</span> <span class="toc-text">4.文件搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E7%94%A8%E6%88%B7%E5%92%8C%E7%BE%A4%E7%BB%84"><span class="toc-number">2.5.</span> <span class="toc-text">6.用户和群组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86top-%E6%9F%A5%E7%9C%8B%E6%AD%A3%E5%9C%A8%E6%8C%87%E5%90%91%E7%9A%84%E7%A8%8B%E5%BA%8F%E4%BF%A1%E6%81%AF"><span class="toc-number">2.6.</span> <span class="toc-text">7.系统管理top # 查看正在指向的程序信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E4%BF%A1%E6%81%AF"><span class="toc-number">2.7.</span> <span class="toc-text">8.查看磁盘信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E6%9F%A5%E7%9C%8B%E5%86%85%E5%AD%98%E4%BF%A1%E6%81%AF"><span class="toc-number">2.8.</span> <span class="toc-text">9.查看内存信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-%E6%9F%A5%E7%9C%8B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.9.</span> <span class="toc-text">10.查看环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-linux%E5%B8%B8%E7%94%A8%E7%BD%91%E7%BB%9C%E5%91%BD%E4%BB%A4"><span class="toc-number">2.10.</span> <span class="toc-text">11.linux常用网络命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-%E9%98%B2%E7%81%AB%E5%A2%99iptables"><span class="toc-number">2.11.</span> <span class="toc-text">12.防火墙iptables</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/04/09/Python%E7%88%AC%E5%8F%96%E6%96%97%E5%9B%BE%E7%BD%91/" title="Python爬取斗图网"><img src="https://img.pkdoutu.com/production/uploads/image/2022/01/02/20220102105000_CLgSsy.gif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python爬取斗图网"/></a><div class="content"><a class="title" href="/2023/04/09/Python%E7%88%AC%E5%8F%96%E6%96%97%E5%9B%BE%E7%BD%91/" title="Python爬取斗图网">Python爬取斗图网</a><time datetime="2023-04-09T09:14:16.000Z" title="发表于 2023-04-09 17:14:16">2023-04-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/28/Ubuntu-Gunicorn%E9%83%A8%E7%BD%B2Django/" title="Ubuntu+Gunicorn部署Django"><img src="https://th.bing.com/th/id/OIP.zuaJqiH4N0ojJF_B6KRpdwHaDt?w=299&amp;h=175&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Ubuntu+Gunicorn部署Django"/></a><div class="content"><a class="title" href="/2023/03/28/Ubuntu-Gunicorn%E9%83%A8%E7%BD%B2Django/" title="Ubuntu+Gunicorn部署Django">Ubuntu+Gunicorn部署Django</a><time datetime="2023-03-28T09:55:52.000Z" title="发表于 2023-03-28 17:55:52">2023-03-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/22/%E5%B9%B6%E5%8F%91%E7%88%AC%E8%99%AB/" title="并发爬虫"><img src="https://th.bing.com/th/id/OIP.mZKd3EMSqRKvhInKb8hl-wHaEK?w=333&amp;h=187&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="并发爬虫"/></a><div class="content"><a class="title" href="/2023/03/22/%E5%B9%B6%E5%8F%91%E7%88%AC%E8%99%AB/" title="并发爬虫">并发爬虫</a><time datetime="2023-03-22T07:48:04.000Z" title="发表于 2023-03-22 15:48:04">2023-03-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/17/MySQL%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" title="MySQL常用指令"><img src="https://tse4-mm.cn.bing.net/th/id/OIP-C.PreZo9daH5jaXIqu4iPxSgHaC9?w=317&amp;h=140&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL常用指令"/></a><div class="content"><a class="title" href="/2023/02/17/MySQL%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" title="MySQL常用指令">MySQL常用指令</a><time datetime="2023-02-17T11:57:39.000Z" title="发表于 2023-02-17 19:57:39">2023-02-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/06/Python%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" title="Python爬虫基础"><img src="https://th.bing.com/th/id/OIP.zyNsZRAsDyvjlDQ4-I9tPQHaDt?w=311&amp;h=175&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python爬虫基础"/></a><div class="content"><a class="title" href="/2023/02/06/Python%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" title="Python爬虫基础">Python爬虫基础</a><time datetime="2023-02-06T06:23:42.000Z" title="发表于 2023-02-06 14:23:42">2023-02-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By bkys</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
